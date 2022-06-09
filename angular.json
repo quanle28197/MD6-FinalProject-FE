@@ -24,9 +24,31 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/meanmenu.css",
+              "src/assets/css/boxicons.min.css",
+              "src/assets/css/flaticon.css",
+              "src/assets/css/magnific-popup.css",
+              "src/assets/css/animate.min.css",
+              "src/assets/css/owl.carousel.min.css",
+              "src/assets/css/style.css",
+              "src/assets/css/responsive.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery-3.5.0.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/jquery.meanmenu.js",
+              "src/assets/js/jquery.magnific-popup.min.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/boxicons.js",
+              "src/assets/js/wow.min.js",
+              "src/assets/js/isotope.pkgd.min.js",
+              "src/assets/js/jquery.ajaxchimp.min.js",
+              "src/assets/js/form-validator.min.js",
+              "src/assets/js/contact-form-script.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -120,6 +142,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "findJob"
 }
