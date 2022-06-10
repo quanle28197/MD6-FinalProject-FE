@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
 import en from '@angular/common/locales/en';
+
 registerLocaleData(en);
 import {Routes, RouterModule} from '@angular/router';
 
@@ -30,14 +31,8 @@ import {httpInterceptorProvider} from './security/auth.interceptor';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {LoginComponent} from './login/login.component';
-import {
-  ListRecruitmentnewCompanyComponent
-} ;
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {
-  UpdateRecruitmentnewCompanyComponent
-};
 import {MatNativeDateModule} from '@angular/material/core';
 import {RegisterUserComponent} from './user/register-user/register-user.component';
 import {MatBadgeModule} from '@angular/material/badge';
@@ -49,13 +44,9 @@ import {registerLocaleData} from '@angular/common';
 export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'list-recruitmentnew-company', component: ListRecruitmentnewCompanyComponent},
-  {path: 'update-recruitmentnew/:id', component: UpdateRecruitmentnewCompanyComponent},
   {path: 'register-user', component: RegisterUserComponent},
   {path: 'home', component: HomepageComponent},
-
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-
 ];
 
 @NgModule({
@@ -64,8 +55,6 @@ export const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    ListRecruitmentnewCompanyComponent,
-    UpdateRecruitmentnewCompanyComponent,
     RegisterUserComponent,
     HomepageComponent,
   ],
@@ -88,9 +77,13 @@ export const appRoutes: Routes = [
     NgxAudioPlayerModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule, MatSliderModule
+    RouterModule.forRoot(appRoutes, {useHash: false}),
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule, MatSliderModule
   ],
-  providers: [httpInterceptorProvider,{provide: LOCALE_ID, useValue: "en-US"}],
+  providers: [httpInterceptorProvider, {provide: LOCALE_ID, useValue: 'en-US'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

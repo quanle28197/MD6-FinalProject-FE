@@ -33,8 +33,8 @@ export class HomepageComponent implements OnInit {
   checkUserCurrent() {
     if (this.tokenService.getTokenKey()) {
       this.idGuest = this.tokenService.getIdGuest();
-      for (let i = 0; i < this.tokenService.getRoleKey().length; i++) {
-        if (this.tokenService.getRoleKey()[i] == 'USER') {
+      for (let i = 0; i < this.tokenService.getRoles().length; i++) {
+        if (this.tokenService.getRoles()[i] == 'USER') {
           this.userService.getUserById(this.idGuest).subscribe(data => {
             if (data) {
               this.checkUser = true;
