@@ -1,69 +1,55 @@
-import { Injectable } from '@angular/core';
-const ID_ACCOUNT = 'Id_Account';
-const ID_GUEST = 'Id_Guest';
-const USERNAME_KEY = 'Username_Key';
-const TOKEN_KEY = 'Token_Key';
-const ROLE_KEY = 'Role_Key';
+import {Injectable} from '@angular/core';
+import {JwtResponse} from './JwtResponses';
+
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
 
-  constructor() { }
-
-  public setIdAccount(id: number){
-    // @ts-ignore
-    window.sessionStorage.removeItem(id);
-    // @ts-ignore
-    window.sessionStorage.setItem(ID_ACCOUNT, id);
-  }
-  public getIdAccount(): number {
-    // @ts-ignore
-    return window.sessionStorage.getItem(ID_ACCOUNT);
+  constructor() {
   }
 
-  public setIdGuest(id: number){
-    // @ts-ignore
-    window.sessionStorage.removeItem(id);
-    // @ts-ignore
-    window.sessionStorage.setItem(ID_GUEST, id);
+  public setToken(token: JwtResponse) {
+    sessionStorage.setItem('jobToken', JSON.stringify(token));
   }
+
+  public getToken(): JwtResponse {
+    try {
+      return JSON.parse(sessionStorage.getItem('jobToken'));
+    } catch (e) {
+      console.log(e);
+    }
+    return null;
+  }
+
+  public getAccountId(): number {
+    const token = this.getToken();
+    return token ? token.idAccount : 0;
+  }
+
   public getIdGuest(): number {
-    // @ts-ignore
-    return window.sessionStorage.getItem(ID_GUEST);
+    const token = this.getToken();
+    return token ? token.idGuest : 0;
   }
 
-  public setNameKey(name: string){
-    window.sessionStorage.removeItem(USERNAME_KEY);
-    window.sessionStorage.setItem(USERNAME_KEY, name);
-  }
-  public getNameKey(): string {
-    // @ts-ignore
-    return window.sessionStorage.getItem(USERNAME_KEY);
-  }
-  public setTokenKey(token: string){
-    window.sessionStorage.removeItem(TOKEN_KEY);
-    window.sessionStorage.setItem(TOKEN_KEY, token);
+  public getUsername(): string {
+    const token = this.getToken();
+    return token ? token.username : '';
   }
 
   public getTokenKey(): string {
-    // @ts-ignore
-    return window.sessionStorage.getItem(TOKEN_KEY);
+    const token = this.getToken();
+    return token ? token.token : '';
   }
-  public setRoleKey(roles: string[]){
-    window.sessionStorage.removeItem(ROLE_KEY);
-    window.sessionStorage.setItem(ROLE_KEY, JSON.stringify(roles));
-  }
-  public getRoleKey(): string[]{
-    // @ts-ignore
+
+  public getRoles(): string[] {
     const roles = [];
-    if(sessionStorage.getItem(TOKEN_KEY)){
-      // @ts-ignore
-      JSON.parse(sessionStorage.getItem(ROLE_KEY)).forEach(role =>{
+    const token = this.getToken();
+    if (token) {
+      token.roles.forEach(role => {
         roles.push(role.authority);
-      })
+      });
     }
-    // @ts-ignore
     return roles;
   }
 }

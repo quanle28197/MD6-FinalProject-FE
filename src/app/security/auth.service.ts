@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {SignInForm} from './SignInForm';
 import {JwtResponse} from './JwtResponses';
 import {Observable} from 'rxjs';
+import {ResponseBody} from "../model/response-body";
 
 @Injectable({
     providedIn: 'root'
@@ -15,8 +16,8 @@ export class AuthService {
     constructor(private http: HttpClient) {
     }
 
-    signIn(signInForm: SignInForm): Observable<JwtResponse> {
-        return this.http.post<JwtResponse>(`${this.apiServerUrl}/signin`, signInForm);
+    signIn(signInForm: SignInForm): Observable<ResponseBody> {
+        return this.http.post<ResponseBody>(`${this.apiServerUrl}/signin`, signInForm);
     }
 
     signUp(signInForm: SignInForm): Observable<any> {

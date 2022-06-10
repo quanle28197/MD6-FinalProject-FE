@@ -1,6 +1,9 @@
+// @ts-ignore
+
 import {BrowserModule} from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
 import en from '@angular/common/locales/en';
+
 registerLocaleData(en);
 import {Routes, RouterModule} from '@angular/router';
 
@@ -45,9 +48,7 @@ export const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register-user', component: RegisterUserComponent},
   {path: 'home', component: HomepageComponent},
-
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-
 ];
 
 @NgModule({

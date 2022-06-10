@@ -1,5 +1,5 @@
 export class Account{
-  id?: number
+  id?: number;
   username: string;
   password: string;
   roles: string[];

@@ -3,6 +3,8 @@ import {TokenService} from '../security/token.service';
 import {Router} from '@angular/router';
 import {User} from '../model/user';
 import {UserService} from '../user/service/user.service';
+import {Company} from '../model/company';
+import {CompanyService} from '../service/company.service';
 
 @Component({
   selector: 'app-header',
@@ -20,14 +22,15 @@ export class HeaderComponent implements OnInit {
   // @ts-ignore
   idGuest: number;
 
-  // @ts-ignore
+
   company: Company;
 
   user: User;
 
   constructor(private tokenService: TokenService,
               private userService: UserService,
-              private router: Router) {
+              private router: Router,
+              private companyService: CompanyService) {
   }
 
   ngOnInit(): void {
@@ -36,19 +39,19 @@ export class HeaderComponent implements OnInit {
       this.idGuest = this.tokenService.getIdGuest();
       if (this.idGuest == -10) {
         this.checkRole = 'ADMIN';
-        this.name = "ADMIN"
+        this.name = "ADMIN";
       }
       else {
-        for (let i = 0; i < this.tokenService.getRoleKey().length; i++) {
-          if (this.tokenService.getRoleKey()[i] == 'COMPANY') {
-            this.companyService.getCompanyNameById(this.idGuest).subscribe(data => {
-              console.log(data);
-              this.company = data;
-              this.checkRole = 'COMPANY';
-              this.name = this.company.name;
-            });
-          }
-          if (this.tokenService.getRoleKey()[i] == 'USER') {
+          for (let i = 0; i < this.tokenService.getRoles().length; i++) {
+            if (this.tokenService.getRoles()[i] == 'COMPANY') {
+              this.companyService.getCompanyNameById(this.idGuest).subscribe(data => {
+                console.log(data);
+                this.company = data;
+                this.checkRole = 'COMPANY';
+                this.name = this.company.name;
+              });
+            }
+          if (this.tokenService.getRoles()[i] == 'USER') {
             this.userService.getUserById(this.idGuest).subscribe(data => {
               console.log(data);
               this.user = data;

@@ -1,14 +1,13 @@
-export class JwtResponse {
-  // @ts-ignore
-  idAccount: number;
-  // @ts-ignore
-  idGuest: number
-  token: string;
-  // @ts-ignore
-  username: string;
-  roles: string[];
+import {Role} from '../model/role';
 
-  constructor(idAccount: number, idGuest: number, token: string, username: string, roles: string[]) {
+export class JwtResponse {
+  idAccount: number;
+  idGuest: number;
+  token: string;
+  username: string;
+  roles: Role[];
+
+  constructor(idAccount: number, idGuest: number, token: string, username: string, roles: Role[]) {
     this.idAccount = idAccount;
     this.idGuest = idGuest;
     this.token = token;
