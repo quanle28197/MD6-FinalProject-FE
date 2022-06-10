@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {TokenService} from '../security/token.service';
-import {CompanyService} from '../service/company/company.service';
-import {Company} from '../model/company';
 import {Router} from '@angular/router';
 import {User} from '../model/user';
 import {UserService} from '../user/service/user.service';
@@ -28,7 +26,6 @@ export class HeaderComponent implements OnInit {
   user: User;
 
   constructor(private tokenService: TokenService,
-              private companyService: CompanyService,
               private userService: UserService,
               private router: Router) {
   }

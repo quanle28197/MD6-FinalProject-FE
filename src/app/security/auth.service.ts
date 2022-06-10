@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {ChangePassword} from '../service/account/changePassword';
 import {User} from '../model/user';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
