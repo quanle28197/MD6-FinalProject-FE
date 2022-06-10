@@ -1,13 +1,11 @@
 import {Injectable} from '@angular/core';
-import {environment} from "../../environments/environment";
-import {HttpClient} from "@angular/common/http";
-import {SignInForm} from "./SignInForm";
-import {Observable} from "rxjs";
-import {JwtResponse} from "./JwtResponses";
-import {Company} from "../model/company";
 import {ChangePassword} from '../service/account/changePassword';
-import {RecruitmentNew} from '../model/recruitmentNew';
 import {User} from '../model/user';
+import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {SignInForm} from './SignInForm';
+import {JwtResponse} from './JwtResponses';
+import {Observable} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -26,12 +24,6 @@ export class AuthService {
         return this.http.post<any>(`${this.apiServerUrl}/signup`, signInForm);
     }
 
-    registerCompany(company: Company): Observable<any> {
-        return this.http.post<any>(`${this.apiServerUrl}/company`, company)
-    }
-    changePassword(changePassword: ChangePassword): Observable<any>{
-        return this.http.put(`${this.apiServerUrl}/change-password`,changePassword)
-    }
     registerUser(user: User): Observable<any>{
         return this.http.post<any>(`${this.apiServerUrl}/user`,user)
     }
@@ -43,5 +35,5 @@ export class AuthService {
     }
 
 
-    
+
 }

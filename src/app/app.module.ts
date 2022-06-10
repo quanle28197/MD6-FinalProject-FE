@@ -33,7 +33,6 @@ import {LoginComponent} from './login/login.component';
 import {
   ListRecruitmentnewCompanyComponent
 } ;
-import {ChangePasswordComponent} from './account/change-password/change-password.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {
@@ -51,8 +50,6 @@ export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
   {path: 'login', component: LoginComponent},
   {path: 'list-recruitmentnew-company', component: ListRecruitmentnewCompanyComponent},
-
-  {path: 'change-password', component: ChangePasswordComponent},
   {path: 'update-recruitmentnew/:id', component: UpdateRecruitmentnewCompanyComponent},
   {path: 'register-user', component: RegisterUserComponent},
   {path: 'home', component: HomepageComponent},
@@ -69,7 +66,6 @@ export const appRoutes: Routes = [
     LoginComponent,
     ListRecruitmentnewCompanyComponent,
     UpdateRecruitmentnewCompanyComponent,
-    ChangePasswordComponent,
     RegisterUserComponent,
     HomepageComponent,
   ],
