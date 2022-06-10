@@ -41,6 +41,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {HomepageComponent} from './homepage/homepage.component';
 import {MatSliderModule} from '@angular/material/slider';
 import {registerLocaleData} from '@angular/common';
+import { RegisterCompanyComponent } from './company/register-company/register-company.component';
+import { WebCompanyComponent } from './company/web-company/web-company.component';
 
 
 export const appRoutes: Routes = [
@@ -59,6 +61,8 @@ export const appRoutes: Routes = [
     LoginComponent,
     RegisterUserComponent,
     HomepageComponent,
+    RegisterCompanyComponent,
+    WebCompanyComponent,
   ],
   imports: [
     ReactiveFormsModule,
