@@ -1,0 +1,85 @@
+<!-- SignUp -->
+<section class="signup-area ptb-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="signup-form">
+          <div class="section-tittle text-center">
+            <h2>Đăng nhập</h2>
+            <p>Với tài khoản mạng xã hội</p>
+          </div>
+          <form #f="ngForm" (ngSubmit)="f.form.valid && onLogin()">
+            <mat-error  style="text-align: center">{{status}}</mat-error>
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <div class="form-group">
+                  <mat-form-field style="width: 100%" appearance="outline">
+                    <mat-label>Email:</mat-label>
+                    <input matInput placeholder="Email ..." name="username" [(ngModel)]="form.username" [formControl]="emailFormControl" required>
+                    <mat-icon color="black" matSuffix>email</mat-icon>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">Bắt buộc phải nhập email!</mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('email')">Email không đúng định dạng!</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                  <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Nhập mật khẩu của bạn</mat-label>
+                      <input name="password" [(ngModel)]="form.password" #password="ngModel" matInput
+                             [type]="hide ? 'password' : 'text'" required>
+                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                              [attr.aria-pressed]="hide">
+                          <mat-icon color="black">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                      <mat-error *ngIf="password.hasError('required')">Bắt buộc phải nhập mật khẩu!</mat-error>
+                  </mat-form-field>
+              </div>
+              <div class="col-12 text-center">
+                <button class="box-btn signup-btn">
+                  Đăng nhập
+                </button>
+              </div>
+              <div class="col-12 text-center">
+                <p class="al-acc">
+                  Bạn chưa có tài khoản?
+                  <a type="button" style="color: #083bec; text-decoration: underline" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Đăng ký
+                  </a>
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End SignUp -->
+
+<!-- Start Go Top Area -->
+<div class="go-top">
+  <i class='bx bx-chevrons-up'></i>
+  <i class='bx bx-chevrons-up'></i>
+</div>
+<!-- End Go Top Area -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Bạn muốn đăng ký ... ?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="margin: 0 auto">
+        <a type="button" routerLink="/register-user" data-bs-dismiss="modal" mat-button>Đăng ký ứng viên</a>
+        <br>
+        <a type="button" routerLink="/register-company" data-bs-dismiss="modal" mat-button>Đăng ký công ty</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
