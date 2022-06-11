@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CvService} from '../../service/cv/cv.service';
 import {TokenService} from '../../security/token.service';
-import {FormBuilder} from '@angular/forms';
+import {FormArray, FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
 import {WorkExpService} from '../../service/workExp/work-exp.service';
 import {SkillService} from '../../service/skill/skill.service';
@@ -28,4 +28,70 @@ export class CreateCvComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  check = false;
+
+  cvForm = this.fb.group({
+    expYear: [],
+    salaryExpectation: [],
+    fileCV: [],
+    userId: this.token.getAccountId(),
+    skills: this.fb.array([]),
+    workExp: this.fb.array([])
+  });
+
+  get skills() {
+    return this.cvForm.get('skills') as FormArray;
+  }
+
+  get workExps() {
+    return this.cvForm.get("workExps") as FormArray;
+  }
+
+  onUploadAvatar(event: any) {
+    this.cvForm.value.fileCV = event;
+  }
+
+  ngSubmit() {
+    this.cvService.createCV(this.cvForm.value).subscribe(data => {
+      if (JSON.stringify(data) == JSON.stringify(this.error1)) {
+        const dialogRef = this.dialog.open(DialogNoCreateComponent);
+        dialogRef.afterClosed().subscribe(result => {
+          this.cvForm.reset();
+          this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
+        });
+      } else {
+        const dialogRef = this.dialog.open(DialogCreateCvComponent);
+        dialogRef.afterClosed().subscribe(result => {
+          this.cvForm.reset();
+          this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
+        });
+      }
+    })
+  }
+
+  addSkill() {
+    const skillForm = this.fb.group({
+      name: [''],
+      proficiency: ['50%']
+    })
+    this.skills.push(skillForm);
+  }
+
+  deleteSkill(index: number) {
+    this.skills.removeAt(index);
+  }
+
+  addWorkExp() {
+    const workExpForm = this.fb.group({
+      title: [''],
+      startDate: [''],
+      endDate: [''],
+      content: ['']
+    })
+    this.workExps.push(workExpForm);
+  }
+
+  deleteWorkExp(index: number) {
+    this.workExps.removeAt(index);
+  }
 }
