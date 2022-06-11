@@ -3,6 +3,7 @@ import {TokenService} from '../security/token.service';
 import {MatDialog} from '@angular/material/dialog';
 import {UserService} from '../user/service/user.service';
 import {Router} from '@angular/router';
+import {CompanyService} from '../service/company/company.service';
 
 
 @Component({
@@ -18,23 +19,29 @@ export class HomepageComponent implements OnInit {
   idGuest: number;
   searchKey: string = '';
 
+
   rcmdate: any[] = [];
 
 
-  constructor(private tokenService: TokenService,
+  constructor(private companyService: CompanyService,
+              private tokenService: TokenService,
               public dialog: MatDialog,
               private userService: UserService,
               private router: Router,
   ) {
+    this.companyService.fidAllCompanyByStatus(4).subscribe(data => {
+
+      this.companyHot = data;
+
+    });
     this.checklogin();
   }
-
 
   checkUserCurrent() {
     if (this.tokenService.getTokenKey()) {
       this.idGuest = this.tokenService.getIdGuest();
-      for (let i = 0; i < this.tokenService.getRoles().length; i++) {
-        if (this.tokenService.getRoles()[i] == 'USER') {
+      for (let i = 0; i < this.tokenService.getTokenKey().length; i++) {
+        if (this.tokenService.getTokenKey()[i] == 'USER') {
           this.userService.getUserById(this.idGuest).subscribe(data => {
             if (data) {
               this.checkUser = true;
@@ -49,21 +56,9 @@ export class HomepageComponent implements OnInit {
     }
   }
 
-
   checklogin() {
     if (this.tokenService.getTokenKey()) {
       this.checkLogin = true;
-    }
-  }
-
-
-  ngSubmit(f: any) {
-    console.log(f.value);
-    this.searchKey = f.value.searchKey;
-    if (this.searchKey == '') {
-      this.router.navigate([`list-recruitmentnew-user/xxx`]);
-    } else {
-      this.router.navigate([`list-recruitmentnew-user/${this.searchKey}`]);
     }
   }
 

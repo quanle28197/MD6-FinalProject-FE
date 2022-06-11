@@ -3,7 +3,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
 import en from '@angular/common/locales/en';
-
 registerLocaleData(en);
 import {Routes, RouterModule} from '@angular/router';
 
@@ -33,23 +32,39 @@ import {httpInterceptorProvider} from './security/auth.interceptor';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {LoginComponent} from './login/login.component';
+import {RegisterCompanyComponent} from './company/register-company/register-company.component';
+import {UploadImageComponent} from './upload/upload-image/upload-image.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {DialogComponent} from './dialog/dialog.component';
 import {RegisterUserComponent} from './user/register-user/register-user.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import {CreateCvComponent} from './user/CV/create-cv/create-cv.component';
+import {DetailCvComponent} from './user/CV/detail-cv/detail-cv.component';
+import {EditCvComponent} from './user/CV/edit-cv/edit-cv.component';
 import {HomepageComponent} from './homepage/homepage.component';
+import {ActiveStatusComponent} from './user/active-status/active-status.component';
+import {WebCompanyComponent} from './company/web-company/web-company.component';
 import {MatSliderModule} from '@angular/material/slider';
+import {DialogCreateCvComponent} from './dialog/CV/dialog-create-cv/dialog-create-cv.component';
+import { DialogNoCreateComponent } from './dialog/CV/dialog-no-create/dialog-no-create.component';
 import {registerLocaleData} from '@angular/common';
-import { RegisterCompanyComponent } from './company/register-company/register-company.component';
-import { WebCompanyComponent } from './company/web-company/web-company.component';
+import {ListAccountComponent} from './list-account/list-account.component';
+import { DialogEditCvComponent } from './dialog/CV/dialog-edit-cv/dialog-edit-cv.component';
 
 
 export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
+  {path: 'register-company', component: RegisterCompanyComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'create-cv', component: CreateCvComponent},
+  {path: 'update-cv/:id', component: EditCvComponent},
+  {path: 'detail-cv/:id', component: DetailCvComponent},
   {path: 'register-user', component: RegisterUserComponent},
+  {path: 'active-status/:id', component: ActiveStatusComponent},
   {path: 'home', component: HomepageComponent},
+  {path: 'web-company/:id', component: WebCompanyComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];
 
@@ -59,10 +74,20 @@ export const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    RegisterUserComponent,
-    HomepageComponent,
     RegisterCompanyComponent,
+    DialogComponent,
+    RegisterUserComponent,
+    CreateCvComponent,
+    EditCvComponent,
+    DetailCvComponent,
+    HomepageComponent,
+    ActiveStatusComponent,
     WebCompanyComponent,
+    DialogCreateCvComponent,
+    DialogNoCreateComponent,
+    UploadImageComponent,
+    ListAccountComponent,
+    DialogEditCvComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -95,7 +120,8 @@ export const appRoutes: Routes = [
     MatBadgeModule,
     MatSliderModule
   ],
-  providers: [httpInterceptorProvider,{provide: LOCALE_ID, useValue: 'en-US'}],
+  providers: [httpInterceptorProvider,
+    {provide: LOCALE_ID, useValue: 'en-US'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

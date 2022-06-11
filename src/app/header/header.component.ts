@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 import {User} from '../model/user';
 import {UserService} from '../user/service/user.service';
 import {Company} from '../model/company';
-import {CompanyService} from '../service/company.service';
+import {CompanyService} from '../service/company/company.service';
 
 @Component({
   selector: 'app-header',
