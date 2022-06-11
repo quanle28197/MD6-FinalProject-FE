@@ -7,10 +7,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TopCompanyComponent } from './top-company/top-company.component';
 import { RecruitmentNewComponent } from './recruitment-new/recruitment-new.component';
 import { BannerAreaComponent } from './banner-area/banner-area.component';
+import { CompanyDetailComponent } from './company-detail/company-detail.component';
 
 
 @NgModule({
-  declarations: [HomepageComponent, TopCompanyComponent, RecruitmentNewComponent, BannerAreaComponent],
+  declarations: [HomepageComponent, TopCompanyComponent, RecruitmentNewComponent, BannerAreaComponent, CompanyDetailComponent],
   imports: [
     CommonModule,
     ContentRoutingModule,
