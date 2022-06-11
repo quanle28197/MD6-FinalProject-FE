@@ -1,4 +1,4 @@
-export class WorkExp {
+export class WorkExp{
   id?: number;
   content: string;
   endDate: string;
