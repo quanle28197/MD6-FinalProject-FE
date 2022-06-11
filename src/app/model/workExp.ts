@@ -4,7 +4,7 @@ export class WorkExp {
   endDate: string;
   startDate: string;
   title: string;
-  cv : any;
+  cv: any;
 
 
   constructor(content: string, endDate: string, startDate: string, title: string, cv: any) {

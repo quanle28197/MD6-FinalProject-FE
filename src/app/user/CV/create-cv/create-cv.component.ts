@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {CvService} from '../../service/cv/cv.service';
-import {TokenService} from '../../security/token.service';
+import {TokenService} from '../../../security/token.service';
 import {FormArray, FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
-import {WorkExpService} from '../../service/workExp/work-exp.service';
-import {SkillService} from '../../service/skill/skill.service';
+import {WorkExpService} from '../../../service/workExp/work-exp.service';
+import {SkillService} from '../../../service/skill/skill.service';
+import {DialogCreateCvComponent} from '../../../dialog/CV/dialog-create-cv/dialog-create-cv.component';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogNoCreateComponent} from '../../../dialog/CV/dialog-no-create/dialog-no-create.component';
+import {CVService} from '../../../service/cv/cv.service';
 
 @Component({
   selector: 'app-create-cv',
@@ -12,18 +15,19 @@ import {SkillService} from '../../service/skill/skill.service';
   styleUrls: ['./create-cv.component.scss']
 })
 export class CreateCvComponent implements OnInit {
-  status: string = 'Please add more information to complete your account!'
+  status: string = 'Please add more information to complete your account!';
   error1: any = {
     message: 'User is exist'
   };
 
-  constructor(private cvService: CvService,
+  constructor(private cvService: CVService,
               private workExpService: WorkExpService,
               private skillService: SkillService,
               private token: TokenService,
               private fb: FormBuilder,
               private router: Router,
-              private tokenService: TokenService) { }
+              private tokenService: TokenService,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -44,10 +48,10 @@ export class CreateCvComponent implements OnInit {
   }
 
   get workExps() {
-    return this.cvForm.get("workExps") as FormArray;
+    return this.cvForm.get('workExps') as FormArray;
   }
 
-  onUploadAvatar(event: any) {
+  onUpLoadAvatar(event: any) {
     this.cvForm.value.fileCV = event;
   }
 
@@ -66,7 +70,7 @@ export class CreateCvComponent implements OnInit {
           this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
         });
       }
-    })
+    });
   }
 
   addSkill() {
@@ -87,7 +91,7 @@ export class CreateCvComponent implements OnInit {
       startDate: [''],
       endDate: [''],
       content: ['']
-    })
+    });
     this.workExps.push(workExpForm);
   }
 

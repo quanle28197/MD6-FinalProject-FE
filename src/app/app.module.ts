@@ -43,16 +43,26 @@ import {MatSliderModule} from '@angular/material/slider';
 import {registerLocaleData} from '@angular/common';
 import { RegisterCompanyComponent } from './company/register-company/register-company.component';
 import { WebCompanyComponent } from './company/web-company/web-company.component';
-import { CreateCvComponent } from './user/create-cv/create-cv.component';
-import { DetailCvComponent } from './user/detail-cv/detail-cv.component';
-import { EditCvComponent } from './user/edit-cv/edit-cv.component';
+import { CreateCvComponent } from './user/CV/create-cv/create-cv.component';
+import { DetailCvComponent } from './user/CV/detail-cv/detail-cv.component';
+import { EditCvComponent } from './user/CV/edit-cv/edit-cv.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { DialogCreateCvComponent } from './dialog/CV/dialog-create-cv/dialog-create-cv.component';
+import { DialogNoCreateComponent } from './dialog/CV/dialog-no-create/dialog-no-create.component';
+import {ActiveStatusComponent} from './user/active-status/active-status.component';
 
 
 export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
+  {path: 'register-company', component: RegisterCompanyComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'create-cv', component: CreateCvComponent},
+  {path: 'update-cv/:id', component: EditCvComponent},
+  {path: 'detail-cv/:id', component: DetailCvComponent},
   {path: 'register-user', component: RegisterUserComponent},
+  {path: 'active-status/:id', component: ActiveStatusComponent},
   {path: 'home', component: HomepageComponent},
+  {path: 'web-company/:id', component: WebCompanyComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];
 
@@ -62,13 +72,17 @@ export const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    RegisterUserComponent,
-    HomepageComponent,
     RegisterCompanyComponent,
-    WebCompanyComponent,
+    DialogComponent,
+    RegisterUserComponent,
     CreateCvComponent,
-    DetailCvComponent,
     EditCvComponent,
+    DetailCvComponent,
+    HomepageComponent,
+    ActiveStatusComponent,
+    WebCompanyComponent,
+    DialogCreateCvComponent,
+    DialogNoCreateComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -101,7 +115,8 @@ export const appRoutes: Routes = [
     MatBadgeModule,
     MatSliderModule
   ],
-  providers: [httpInterceptorProvider,{provide: LOCALE_ID, useValue: 'en-US'}],
+  providers: [httpInterceptorProvider,
+    {provide: LOCALE_ID, useValue: 'en-US'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
