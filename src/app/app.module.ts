@@ -43,6 +43,9 @@ import {MatSliderModule} from '@angular/material/slider';
 import {registerLocaleData} from '@angular/common';
 import { RegisterCompanyComponent } from './company/register-company/register-company.component';
 import { WebCompanyComponent } from './company/web-company/web-company.component';
+import { CreateCvComponent } from './user/create-cv/create-cv.component';
+import { DetailCvComponent } from './user/detail-cv/detail-cv.component';
+import { EditCvComponent } from './user/edit-cv/edit-cv.component';
 
 
 export const appRoutes: Routes = [
@@ -63,6 +66,9 @@ export const appRoutes: Routes = [
     HomepageComponent,
     RegisterCompanyComponent,
     WebCompanyComponent,
+    CreateCvComponent,
+    DetailCvComponent,
+    EditCvComponent,
   ],
   imports: [
     ReactiveFormsModule,

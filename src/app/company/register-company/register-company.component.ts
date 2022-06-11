@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Company} from '../../model/company';
 import {AuthService} from '../../security/auth.service';
-import {CityService} from '../../service/city.service';
+import {CityService} from '../../service/city/city.service';
 import {MatDialog} from '@angular/material/dialog';
 import {Account} from '../../model/account';
 
