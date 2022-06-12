@@ -13,7 +13,7 @@ export class AccountService {
   constructor( private http: HttpClient) { }
 
   showAll(): Observable<any>{
-    return this.http.get(`${this.apiServerUrl}/showAllAccount`)
+    return this.http.get(`${this.apiServerUrl}/showAllAccount`);
   }
 
   changeStatusById(id: number): Observable<any> {
@@ -26,6 +26,6 @@ export class AccountService {
   }
 
   showAllAdminRecruitment(): Observable<any> {
-    return this.http.get(`${environment.apiBaseUrl}/recruitment/list`)
+    return this.http.get(`${environment.apiBaseUrl}/recruitment/list`);
   }
 }

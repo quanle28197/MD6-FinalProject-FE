@@ -39,9 +39,10 @@ export class HeaderComponent implements OnInit {
       this.idGuest = this.tokenService.getIdGuest();
       if (this.idGuest == -10) {
         this.checkRole = 'ADMIN';
-        this.name = "ADMIN";
+        this.name = 'ADMIN';
       }
       else {
+        // tslint:disable-next-line:prefer-for-of
           for (let i = 0; i < this.tokenService.getRoles().length; i++) {
             if (this.tokenService.getRoles()[i] == 'COMPANY') {
               this.companyService.getCompanyNameById(this.idGuest).subscribe(data => {

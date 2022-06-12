@@ -38,8 +38,10 @@ export class LoginComponent implements OnInit {
           roles.forEach(role => {
             if (role === 'COMPANY') {
               this.router.navigate(['home']).then(() => console.log('redirect to home page'));
+              window.location.reload();
             } else if (role === 'ADMIN') {
               this.router.navigate(['home']).then(() => console.log('redirect to admin page'));
+              window.location.reload();
             }
           });
         }

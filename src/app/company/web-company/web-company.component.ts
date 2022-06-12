@@ -24,7 +24,7 @@ export class WebCompanyComponent implements OnInit {
               private dialog: MatDialog) {
     this.sub = this.activeRouter.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = Number(paramMap.get('id'));
-      this.emailCompany = tokenService.getTokenKey();
+      this.emailCompany = tokenService.getUsername();
       this.companyService.getCompanyNameById(this.id).subscribe(data => {
         console.log(data);
         this.companyCurrent = data;

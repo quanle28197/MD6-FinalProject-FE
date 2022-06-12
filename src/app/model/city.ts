@@ -1,4 +1,4 @@
-export class City {
+export class City{
   private _id: number;
   private _name: string;
 
@@ -7,7 +7,6 @@ export class City {
     this._id = id;
     this._name = name;
   }
-
 
   get id(): number {
     return this._id;

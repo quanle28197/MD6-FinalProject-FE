@@ -28,7 +28,7 @@ export class DetailCvComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.idUser = this.route.snapshot.params['id'];
+    this.idUser = this.route.snapshot.params.id;
     this.cvService.findByUserId(this.idUser).subscribe((data: CvDTO) => {
       this.cv = data;
     });
@@ -36,7 +36,7 @@ export class DetailCvComponent implements OnInit {
       if (this.tokenService.getTokenKey()[i] == 'USER') {
         this.userService.getUserById(this.tokenService.getIdGuest()).subscribe(data => {
           this.checkRole = 'USER';
-        })
+        });
       }
     }
   }
