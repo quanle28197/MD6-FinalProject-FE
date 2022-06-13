@@ -1,17 +1,19 @@
-import { Injectable } from '@angular/core';
-import {environment} from '../../../environments/environment';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {environment} from '../../../environments/environment';
 import {RecruitmentNew} from '../../model/recruitmentNew';
-import {SearchJob} from '../../model/searchJob';
+import {Observable} from 'rxjs';
+import {StatusRequest} from '../../model/statusRequest';
+import {SearchJob} from '../../model/SearchJob';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RecruitmentNewServiceService {
+export class RecruitmentNewService {
   private apiServerUrl = environment.apiBaseUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getRecruitmentNewById(id: number): Observable<RecruitmentNew> {
     return this.http.get<RecruitmentNew>(`${this.apiServerUrl}/recruitment/${id}`);
@@ -26,7 +28,7 @@ export class RecruitmentNewServiceService {
   }
 
   showAllListRecruitmentNew(id: number): Observable<any> {
-    return this.http.get(`${this.apiServerUrl}/recruitment/list/${id}`);
+    return this.http.get(`${this.apiServerUrl}/recruitment/showAll/${id}`);
   }
 
   deleteRecruitmentNewById(id: number): Observable<any> {
@@ -43,9 +45,9 @@ export class RecruitmentNewServiceService {
     return this.http.put(`${this.apiServerUrl}/recruitment/editStatus/${id}`);
   }
   searchByObj(searchJob: SearchJob): Observable<any>{
-    return this.http.post(`${this.apiServerUrl}/recruitment/findByObj`, searchJob);
+    return this.http.post(`${this.apiServerUrl}/recruitment/findByObj`,searchJob);
   }
   getAll(): Observable<any []>{
-    return this.http.get<any []>(`${this.apiServerUrl}/recruitment/list`);
+    return this.http.get<any []>(`${this.apiServerUrl}/recruitment/list`)
   }
 }

@@ -1,38 +1,38 @@
-!-- Start Page Title Area -->
+<!-- Start Page Title Area -->
 <div class="page-title-area" style="height: 439px">
-  <div class="container">
-    <div class="page-title-content">
-      <h2>Hồ Sơ Ứng Tuyển</h2>
-      <ul>
-        <li>
-          <a routerLink="list-recruitmentnew-user/xxx">
-            Home
-          </a>
-        </li>
+    <div class="container">
+        <div class="page-title-content">
+            <h2>Hồ Sơ Ứng Tuyển</h2>
+            <ul>
+                <li>
+                    <a routerLink="list-recruitmentnew-user/xxx">
+                        Home
+                    </a>
+                </li>
 
-        <li>Pages</li>
+                <li>Pages</li>
 
-        <li class="active">FAQ</li>
-      </ul>
+                <li class="active">FAQ</li>
+            </ul>
+        </div>
     </div>
-  </div>
-  <div class="page-shape">
-    <div class="shape1">
-      <img src="assets/images/shape/1.png" alt="shape">
+    <div class="page-shape">
+        <div class="shape1">
+            <img src="assets/images/shape/1.png" alt="shape">
+        </div>
+        <div class="shape3">
+            <img src="assets/images/shape/3.png" alt="shape">
+        </div>
+        <div class="shape4">
+            <img src="assets/images/shape/4.png" alt="shape">
+        </div>
+        <div class="shape5">
+            <img src="assets/images/shape/5.png" alt="shape">
+        </div>
+        <div class="shape6">
+            <img src="assets/images/shape/6.png" alt="shape">
+        </div>
     </div>
-    <div class="shape3">
-      <img src="assets/images/shape/3.png" alt="shape">
-    </div>
-    <div class="shape4">
-      <img src="assets/images/shape/4.png" alt="shape">
-    </div>
-    <div class="shape5">
-      <img src="assets/images/shape/5.png" alt="shape">
-    </div>
-    <div class="shape6">
-      <img src="assets/images/shape/6.png" alt="shape">
-    </div>
-  </div>
 </div>
 <!-- End Page Title Area -->
 
@@ -41,143 +41,143 @@
 
 <!-- Home Contact Area -->
 <section class="home-contact-area home-2-contact pb-100">
-  <div class="container">
-    <div class="section-title">
-      <span></span>
-      <h2>Hãy Bắt Đầu Tạo CV Ngay Hôm Nay!</h2>
-      <p style="color: red">{{status}}</p>
-    </div>
-    <div class="content" style="margin-left: 130px;margin-right: 130px;">
-      <form [formGroup]="cvForm" (ngSubmit)="ngSubmit()" id="contactForm" class="create-category"
-            novalidate>
-        <div id="container" class="row">
-          <div class="col-lg-6 col-sm-6">
-            <mat-form-field style="width: 100%" appearance="outline">
-              <!--                            NĂM KINH NGHIỆM-->
-              <mat-label>Năm kinh nghiệm</mat-label>
-              <input matInput placeholder="Nhập năm kinh nghiệm" formControlName="expYear">
-              <mat-icon color="black" matSuffix>business_center</mat-icon>
-            </mat-form-field>
-          </div>
-          <!--LƯƠNG MONG MUỐN-->
-          <div class="col-lg-6 col-sm-6">
-            <mat-form-field style="width: 100%" appearance="outline">
-              <mat-label>Lương mong muốn</mat-label>
-              <input matInput placeholder="Nhập lương mong muốn" formControlName="salaryExpectation">
-              <mat-icon color="black" matSuffix>monetization_on</mat-icon>
-            </mat-form-field>
-          </div>
-
-          <!--                    KĨ NĂNG CÁ NHÂN-->
-          <p style="text-align: center;color: #3e8acc">Kỹ năng cá nhân</p>
-          <div formArrayName="skills">
-            <div style="border: 1px solid black">
-              <ng-container formArrayName="skills">
-                <ng-container *ngFor="let skillForm of skills.controls; let i = index">
-                  <div [formGroup]="skillForm">
-                    <div class="col-lg-12 col-sm-12">
-                      <mat-form-field style="width: 100%" appearance="outline">
-                        <mat-label>Kỹ năng làm việc</mat-label>
-                        <input formControlName="name" matInput
-                               placeholder="Nhập kỹ năng làm việc">
-                        <mat-icon color="black" matSuffix>stream</mat-icon>
-                      </mat-form-field>
-                    </div>
-                    <div class="col-lg-12 col-sm-12">
-                      <mat-form-field style="width: 100%" appearance="outline">
-                        <mat-label>Mức độ thành thạo</mat-label>
-                        <input formControlName="proficiency" matInput
-                               placeholder="Nhập mức độ làm việc">
-                        <mat-icon color="black" matSuffix>stream</mat-icon>
-                      </mat-form-field>
-                    </div>
-                    <button style="width: 50px; height: 50px; padding: 0; margin-bottom: 20px"
-                            (click)="deleteSkill(i)" mat-raised-button>
-                      Xóa
-                    </button>
-                  </div>
-                </ng-container>
-              </ng-container>
-            </div>
-
-            <button style="width: 200px; height: 50px; padding: 0; margin-bottom: 20px" type="button"
-                    (click)="addSkill()"
-                    mat-raised-button>
-              Thêm kỹ năng mới
-            </button>
-          </div>
-
-          <!--                    //------------------------------------------------------------------------>
-          <p style="text-align: center;color: #3e8acc">Kinh nghiệm bản thân</p>
-          <div formArrayName="workExps">
-            <div style="border: 1px solid black">
-              <ng-container formControlName="workExps">
-                <ng-container *ngFor="let workExpForm of workExps.controls; let i = index">
-                  <div [formGroup]="workExpForm">
-                    <div class="col-lg-12 col-sm-12">
-                      <mat-form-field style="width: 100%" appearance="outline">
-                        <mat-label>Công việc</mat-label>
-                        <input formControlName="title" matInput
-                               placeholder="Nhập kinh nghiệm làm việc">
-                        <mat-icon color="black" matSuffix>workspace_premium</mat-icon>
-                      </mat-form-field>
-                    </div>
-                    <div class="col-lg-12 col-sm-12">
-                      <mat-form-field appearance="outline" style="width: 100%">
-                        <mat-label>Ngày bắt đầu công việc</mat-label>
-                        <input formControlName="startDate" matInput [matDatepicker]="picker">
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                      </mat-form-field>
-                    </div>
-                    <div class="col-lg-12 col-sm-12">
-                      <mat-form-field appearance="outline" style="width: 100%">
-                        <mat-label>Ngày kết thúc công việc</mat-label>
-                        <input formControlName="endDate" matInput [matDatepicker]="picker1">
-                        <mat-datepicker-toggle matSuffix
-                                               [for]="picker1"></mat-datepicker-toggle>
-                        <mat-datepicker #picker1></mat-datepicker>
-                      </mat-form-field>
-                    </div>
-                    <div class="col-lg-12 col-sm-12">
-                      <mat-form-field style="width: 100%" appearance="outline">
-                        <mat-label>Nội dung</mat-label>
-                        <input formControlName="content" matInput placeholder="Nội dung">
-                        <mat-icon color="black" matSuffix>sort</mat-icon>
-                      </mat-form-field>
-                    </div>
-                    <button style="width: 50px; height: 50px; padding: 0; margin-bottom: 20px"
-                            (click)="deleteWorkExp(i)" mat-raised-button>
-                      Xóa
-                    </button>
-                  </div>
-                </ng-container>
-              </ng-container>
-            </div>
-            <button type="button" style="width: 200px; height: 50px; padding: 0; margin-bottom: 20px"
-                    (click)="addWorkExp()"
-                    mat-raised-button>
-              Thêm kinh nghiệm mới
-            </button>
-          </div>
-
-          <div class="file-cv col-lg-12 col-sm-12">
-            <mat-form-field appearance="outline" style="width: 50%">
-              <input matInput
-                     hidden
-                     placeholder="Placeholder">
-              <app-upload-file style="width: 100%"
-                               (giveURLtoCreate)="onUpLoadAvatar($event)"></app-upload-file>
-              <mat-icon color="black" matSuffix>add_photo_alternate</mat-icon>
-            </mat-form-field>
-          </div>
-          <button type="submit" class="default-btn page-btn box-btn">
-            Tạo CV
-          </button>
-          <div id="msgSubmit" class="h3 text-center hidden"></div>
-          <div class="clearfix"></div>
+    <div class="container">
+        <div class="section-title">
+            <span></span>
+            <h2>Hãy Bắt Đầu Tạo CV Ngay Hôm Nay!</h2>
+            <p style="color: red">{{status}}</p>
         </div>
-      </form>
+        <div class="content" style="margin-left: 130px;margin-right: 130px;">
+            <form [formGroup]="cvForm" (ngSubmit)="ngSubmit()" id="contactForm" class="create-category"
+                  novalidate>
+                <div id="container" class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <mat-form-field style="width: 100%" appearance="outline">
+                            <!--                            NĂM KINH NGHIỆM-->
+                            <mat-label>Năm kinh nghiệm</mat-label>
+                            <input matInput placeholder="Nhập năm kinh nghiệm" formControlName="expYear">
+                            <mat-icon color="black" matSuffix>business_center</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <!--LƯƠNG MONG MUỐN-->
+                    <div class="col-lg-6 col-sm-6">
+                        <mat-form-field style="width: 100%" appearance="outline">
+                            <mat-label>Lương mong muốn</mat-label>
+                            <input matInput placeholder="Nhập lương mong muốn" formControlName="salaryExpectation">
+                            <mat-icon color="black" matSuffix>monetization_on</mat-icon>
+                        </mat-form-field>
+                    </div>
+
+                    <!--                    KĨ NĂNG CÁ NHÂN-->
+                    <p style="text-align: center;color: #3e8acc">Kỹ năng cá nhân</p>
+                    <div formArrayName="skills">
+                        <div style="border: 1px solid black">
+                            <ng-container formArrayName="skills">
+                                <ng-container *ngFor="let skillForm of skills.controls; let i = index">
+                                    <div [formGroup]="skillForm">
+                                        <div class="col-lg-12 col-sm-12">
+                                            <mat-form-field style="width: 100%" appearance="outline">
+                                                <mat-label>Kỹ năng làm việc</mat-label>
+                                                <input formControlName="name" matInput
+                                                       placeholder="Nhập kỹ năng làm việc">
+                                                <mat-icon color="black" matSuffix>stream</mat-icon>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-lg-12 col-sm-12">
+                                            <mat-form-field style="width: 100%" appearance="outline">
+                                                <mat-label>Mức độ thành thạo</mat-label>
+                                                <input formControlName="proficiency" matInput
+                                                       placeholder="Nhập mức độ làm việc">
+                                                <mat-icon color="black" matSuffix>stream</mat-icon>
+                                            </mat-form-field>
+                                        </div>
+                                        <button style="width: 50px; height: 50px; padding: 0; margin-bottom: 20px"
+                                                (click)="deleteSkill(i)" mat-raised-button>
+                                            Xóa
+                                        </button>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                        </div>
+
+                        <button style="width: 200px; height: 50px; padding: 0; margin-bottom: 20px" type="button"
+                                (click)="addSkill()"
+                                mat-raised-button>
+                            Thêm kỹ năng mới
+                        </button>
+                    </div>
+
+                    <!--                    //------------------------------------------------------------------------>
+                    <p style="text-align: center;color: #3e8acc">Kinh nghiệm bản thân</p>
+                    <div formArrayName="workExps">
+                        <div style="border: 1px solid black">
+                            <ng-container formControlName="workExps">
+                                <ng-container *ngFor="let workExpForm of workExps.controls; let i = index">
+                                    <div [formGroup]="workExpForm">
+                                        <div class="col-lg-12 col-sm-12">
+                                            <mat-form-field style="width: 100%" appearance="outline">
+                                                <mat-label>Công việc</mat-label>
+                                                <input formControlName="title" matInput
+                                                       placeholder="Nhập kinh nghiệm làm việc">
+                                                <mat-icon color="black" matSuffix>workspace_premium</mat-icon>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-lg-12 col-sm-12">
+                                            <mat-form-field appearance="outline" style="width: 100%">
+                                                <mat-label>Ngày bắt đầu công việc</mat-label>
+                                                <input formControlName="startDate" matInput [matDatepicker]="picker">
+                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker></mat-datepicker>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-lg-12 col-sm-12">
+                                            <mat-form-field appearance="outline" style="width: 100%">
+                                                <mat-label>Ngày kết thúc công việc</mat-label>
+                                                <input formControlName="endDate" matInput [matDatepicker]="picker1">
+                                                <mat-datepicker-toggle matSuffix
+                                                                       [for]="picker1"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker1></mat-datepicker>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-lg-12 col-sm-12">
+                                            <mat-form-field style="width: 100%" appearance="outline">
+                                                <mat-label>Nội dung</mat-label>
+                                                <input formControlName="content" matInput placeholder="Nội dung">
+                                                <mat-icon color="black" matSuffix>sort</mat-icon>
+                                            </mat-form-field>
+                                        </div>
+                                        <button style="width: 50px; height: 50px; padding: 0; margin-bottom: 20px"
+                                                (click)="deleteWorkExp(i)" mat-raised-button>
+                                            Xóa
+                                        </button>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                        </div>
+                        <button type="button" style="width: 200px; height: 50px; padding: 0; margin-bottom: 20px"
+                                (click)="addWorkExp()"
+                                mat-raised-button>
+                            Thêm kinh nghiệm mới
+                        </button>
+                    </div>
+
+                    <div class="file-cv col-lg-12 col-sm-12">
+                        <mat-form-field appearance="outline" style="width: 50%">
+                            <input matInput
+                                   hidden
+                                   placeholder="Placeholder">
+                            <app-upload-file style="width: 100%"
+                                              (giveURLtoCreate)="onUpLoadAvatar($event)"></app-upload-file>
+                            <mat-icon color="black" matSuffix>add_photo_alternate</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <button type="submit" class="default-btn page-btn box-btn">
+                        Tạo CV
+                    </button>
+                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                    <div class="clearfix"></div>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
 </section>

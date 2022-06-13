@@ -4,7 +4,6 @@ const ID_GUEST = 'Id_Guest';
 const USERNAME_KEY = 'Username_Key';
 const TOKEN_KEY = 'Token_Key';
 const ROLE_KEY = 'Role_Key';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,10 +12,10 @@ export class TokenService {
   constructor() { }
 
   public setIdAccount(id: number){
-
-    window.sessionStorage.removeItem(String(id));
-
-    window.sessionStorage.setItem(ID_ACCOUNT, String(id));
+    // @ts-ignore
+    window.sessionStorage.removeItem(id);
+    // @ts-ignore
+    window.sessionStorage.setItem(ID_ACCOUNT, id);
   }
   public getIdAccount(): number {
     // @ts-ignore
@@ -39,6 +38,7 @@ export class TokenService {
     window.sessionStorage.setItem(USERNAME_KEY, name);
   }
   public getNameKey(): string {
+    // @ts-ignore
     return window.sessionStorage.getItem(USERNAME_KEY);
   }
   public setTokenKey(token: string){
@@ -47,6 +47,7 @@ export class TokenService {
   }
 
   public getTokenKey(): string {
+    // @ts-ignore
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
   public setRoleKey(roles: string[]){
@@ -54,13 +55,15 @@ export class TokenService {
     window.sessionStorage.setItem(ROLE_KEY, JSON.stringify(roles));
   }
   public getRoleKey(): string[]{
+    // @ts-ignore
     const roles = [];
-    if (sessionStorage.getItem(TOKEN_KEY)){
+    if(sessionStorage.getItem(TOKEN_KEY)){
       // @ts-ignore
-      JSON.parse(sessionStorage.getItem(ROLE_KEY)).forEach(role => {
+      JSON.parse(sessionStorage.getItem(ROLE_KEY)).forEach(role =>{
         roles.push(role.authority);
-      });
+      })
     }
+    // @ts-ignore
     return roles;
   }
 }

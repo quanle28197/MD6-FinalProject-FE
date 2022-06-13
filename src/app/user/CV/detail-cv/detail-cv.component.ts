@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {TokenService} from '../../../security/token.service';
-import {UserService} from '../../service/user.service';
-import {SkillService} from '../../../service/skill/skill.service';
-import {CVService} from '../../../service/cv/cv.service';
-import {WorkExpService} from '../../../service/workExp/work-exp.service';
-import {ActivatedRoute} from '@angular/router';
-import {CvDTO} from '../../../model/dto/cv-dto';
+import {Cv} from "../../../model/cv";
+import {User} from "../../../model/user";
+import {Skill} from "../../../model/skill";
+import {TokenService} from "../../../security/token.service";
+import {UserService} from "../../service/user.service";
+import {SkillService} from "../../../service/skill/skill.service";
+import {CVService} from "../../../service/cv/cv.service";
+import {ActivatedRoute} from "@angular/router";
+import {WorkExp} from "../../../model/workExp";
+import {WorkExpService} from "../../../service/workExp/work-exp.service";
+import {CvDTO} from "../../../model/dto/cv-dto";
 
 @Component({
   selector: 'app-detail-cv',
@@ -36,7 +40,7 @@ export class DetailCvComponent implements OnInit {
       if (this.tokenService.getRoleKey()[i] == "USER") {
         this.userService.getUserById(this.tokenService.getIdGuest()).subscribe(data => {
           this.checkRole = "USER";
-        });
+        })
       }
     }
   }

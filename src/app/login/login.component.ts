@@ -16,9 +16,9 @@ export class LoginComponent implements OnInit {
   form: any = {};
 
   status = '';
-  errorLock: any = {
+  errorLock: any= {
     message: "LOCK"
-  };
+  }
   emailFormControl = new FormControl('', [
     Validators.email, Validators.required
   ]);
@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit {
       this.form.password
     );
     this.authService.signIn(this.signInForm).subscribe(data => {
-      console.log ('dinh' , data);
-      if(JSON.stringify(data) == JSON.stringify(this.errorLock)) {
+      console.log("dinh" ,data);
+      if(JSON.stringify(data)== JSON.stringify(this.errorLock)) {
         this.status = 'Tài khoản của bạn đang bị khoá. Chuyển khoản đến stk này để mở khóa. !';
         return;
       }

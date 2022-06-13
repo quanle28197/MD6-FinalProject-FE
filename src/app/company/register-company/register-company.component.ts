@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import {Company} from '../../model/company';
-import {AuthService} from '../../security/auth.service';
-import {CityService} from '../../service/city/city.service';
-import {MatDialog} from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
 import {Account} from '../../model/account';
+import {AuthService} from '../../security/auth.service';
+import {Company} from '../../model/company';
+import {CityService} from '../../service/city/city.service';
+import {DialogApplyComponent} from '../../dialog/dialogApplyFail/dialog-apply/dialog-apply.component';
+import {DialogCreateCompanyComponent} from '../../dialog/dialogCreateCompany/dialog-create-company/dialog-create-company.component';
+import {MatDialog} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-register-company',
@@ -11,6 +14,7 @@ import {Account} from '../../model/account';
   styleUrls: ['./register-company.component.scss']
 })
 export class RegisterCompanyComponent implements OnInit {
+
   data: any = {
     avatar: '',
     password: ''
@@ -20,30 +24,30 @@ export class RegisterCompanyComponent implements OnInit {
   idAccount: number;
   cities: any = [];
   status = '';
-  success: any = {
-    message: 'yes'
-  };
-
+  success:any = {
+    message: "yes"
+  }
   constructor(private authService: AuthService,
               private cityService: CityService,
               private dialog: MatDialog) {
-
+    this.showAllCity();
   }
 
   showAllCity() {
     this.cityService.showAll().subscribe(data3 => {
       this.cities = data3;
       console.log(data3);
-    }, error => console.log(error));
+    });
   }
 
   ngOnInit(): void {
-    this.showAllCity();
   }
+
 
   ngSubmit(form: any) {
     console.log();
     const roles: string[] = ['company'];
+    // @ts-ignore
     this.account = new Account(this.data.username, this.data.password, roles);
     this.authService.signUp(this.account).subscribe(data1 => {
       console.log(data1);
@@ -66,8 +70,8 @@ export class RegisterCompanyComponent implements OnInit {
       this.data.address, this.data.employeeQuantity, city, this.data.linkMap, this.data.phone, account11);
     console.log(this.company);
     this.authService.registerCompany(this.company).subscribe(data2 => {
-      console.log(data2);
-      if (JSON.stringify(data2) == JSON.stringify(this.success)){
+      console.log(data2)
+      if(JSON.stringify(data2)==JSON.stringify(this.success)){
         // @ts-ignore
         const dialogRef1 = this.dialog.open(DialogCreateCompanyComponent);
         dialogRef1.afterClosed().subscribe(result => {

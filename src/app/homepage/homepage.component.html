@@ -1,176 +1,179 @@
 <section class="banner-area">
-  <div class="d-table">
-    <div class="d-table-cell">
-      <div class="container-fluid">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="banner-content">
-              <h1>
-                Chào mừng bạn đã đến với Paso.vn
-              </h1>
-              <p>
-                Cơ hội vàng nằm gọn trong tay bạn. Bất cứ khi nào bạn muốn tìm công việc phù hợp với
-                bạn, Hãy đến với chúng tôi.
-              </p>
-              <div class="banner-btn">
-                <!--                                <a href="contact.html" class="box-btn" routerLink="/list-recruitmentnew-user">Tìm kiếm-->
-                <!--                                    việc làm</a>-->
-                <form class="newsletter-form" data-toggle="validator" #f="ngForm" (ngSubmit)="ngSubmit(f)" novalidate >
-                  <div style="display: flex">
-                    <input style="width: 300px; margin-right: 10px" name="searchKey" ngModel class="form-control" placeholder="Nhập vào tên công việc, tên công ty..."
-                           required="" autocomplete="off">
-                    <button class="box-btn" type="submit">
-                      Tìm kiếm việc làm
-                    </button>
-                  </div>
-                  <div id="validator-newsletter" class="form-result"></div>
-                </form>
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="banner-content">
+                            <h1>
+                                Chào mừng bạn đã đến với Paso.vn
+                            </h1>
+                            <p>
+                                Cơ hội vàng nằm gọn trong tay bạn. Bất cứ khi nào bạn muốn tìm công việc phù hợp với
+                                bạn, Hãy đến với chúng tôi.
+                            </p>
+                            <div class="banner-btn">
+<!--                                <a href="contact.html" class="box-btn" routerLink="/list-recruitmentnew-user">Tìm kiếm-->
+<!--                                    việc làm</a>-->
+                                <form class="newsletter-form" data-toggle="validator" #f="ngForm" (ngSubmit)="ngSubmit(f)" novalidate >
+                                    <div style="display: flex">
+                                        <input style="width: 300px; margin-right: 10px" name="searchKey" ngModel class="form-control" placeholder="Nhập vào tên công việc, tên công ty..."
+                                               required="" autocomplete="off">
+                                        <button class="box-btn" type="submit">
+                                            Tìm kiếm việc làm
+                                        </button>
+                                    </div>
+                                    <div id="validator-newsletter" class="form-result"></div>
+                                </form>
 
-              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="banner-img">
+                            <img src="../../../../assets/images/home-bg-1-img.png" alt="banner-img">
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="banner-img">
-              <img src="../../../../assets/images/home-bg-1-img.png" alt="banner-img">
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="home-shape">
-    <div class="shape1">
-      <img src="../../../../assets/images/shape/1.png" alt="shape">
+    <div class="home-shape">
+        <div class="shape1">
+            <img src="../../../../assets/images/shape/1.png" alt="shape">
+        </div>
+        <div class="shape2">
+            <img src="../../../../assets/images/shape/2.png" alt="shape">
+        </div>
+        <div class="shape3">
+            <img src="../../../../assets/images/shape/3.png" alt="shape">
+        </div>
+        <div class="shape4">
+            <img src="../../../../assets/images/shape/4.png" alt="shape">
+        </div>
+        <div class="shape5">
+            <img src="../../../../assets/images/shape/5.png" alt="shape">
+        </div>
+        <div class="shape6">
+            <img src="../../../../assets/images/shape/6.png" alt="shape">
+        </div>
     </div>
-    <div class="shape2">
-      <img src="../../../../assets/images/shape/2.png" alt="shape">
-    </div>
-    <div class="shape3">
-      <img src="../../../../assets/images/shape/3.png" alt="shape">
-    </div>
-    <div class="shape4">
-      <img src="../../../../assets/images/shape/4.png" alt="shape">
-    </div>
-    <div class="shape5">
-      <img src="../../../../assets/images/shape/5.png" alt="shape">
-    </div>
-    <div class="shape6">
-      <img src="../../../../assets/images/shape/6.png" alt="shape">
-    </div>
-  </div>
 </section>
 <!-- End Banner Area -->
 
 
 <!-- Info Area -->
 <div class="info-area pt-100 pb-70">
-  <div class="container">
-    <div class="section-title">
-      <h2>CÁC CÔNG TY ĐANG HOT</h2>
-      <p>Các công ty hiện tai đang được nhiều người đăng ký tuyển dụng</p>
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-sm-6" *ngFor="let comhot of companyHot">
-        <div class="single-info">
-          <div class="info-img">
-            <img width="400px" src="{{comhot.avatar}}">
-          </div>
-          <div class="content">
-            <h3><i class="flaticon-info"></i> {{comhot.name}}</h3>
-            <div class="arrow">
-              <a [routerLink]="['/web-company/', comhot.id]"><i class="flaticon-next-1"></i></a>
-            </div>
-          </div>
-
+    <div class="container">
+        <div class="section-title">
+            <h2>CÁC CÔNG TY ĐANG HOT</h2>
+            <p>Các công ty hiện tai đang được nhiều người đăng ký tuyển dụng</p>
         </div>
-      </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6" *ngFor="let comhot of companyHot">
+                <div class="single-info">
+                    <div class="info-img">
+                        <img width="400px" src="{{comhot.avatar}}">
+                    </div>
+                    <div class="content">
+                        <h3><i class="flaticon-info"></i> {{comhot.name}}</h3>
+                        <div class="arrow">
+                            <a [routerLink]="['/web-company/', comhot.id]"><i class="flaticon-next-1"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <div class="info-area pt-100 pb-70">
-  <div class="container">
-    <div class="section-title">
-      <h2>CÁC CÔNG TY CÓ NHU CẦU TUYỂN DỤNG CAO NHẤT</h2>
-      <p>Các công ty hiện tai đang cần tuyển dùng cao nhất</p>
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-sm-6" *ngFor="let rnn of RecuitmentNewNeed">
-        <div class="single-info">
-          <div class="info-img">
-            <img width="400px" src="{{rnn.avatar}}">
-          </div>
-          <div class="content">
-            <h3>Tên công ty: {{rnn.name}}</h3>
-            <h3>Số lượng vị trí cần tuyển: {{rnn.count}}</h3>
-            <div class="arrow">
-              <a [routerLink]="['/web-company/', rnn.id]"><i class="flaticon-next-1"></i></a>
-            </div>
-          </div>
+    <div class="container">
+        <div class="section-title">
+            <h2>CÁC CÔNG TY CÓ NHU CẦU TUYỂN DỤNG CAO NHẤT</h2>
+            <p>Các công ty hiện tai đang cần tuyển dùng cao nhất</p>
         </div>
-      </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6" *ngFor="let rnn of RecuitmentNewNeed">
+                <div class="single-info">
+                    <div class="info-img">
+                        <img width="400px" src="{{rnn.avatar}}">
+                    </div>
+                    <div class="content">
+                        <h3>Tên công ty: {{rnn.name}}</h3>
+                        <h3>Số lượng vị trí cần tuyển: {{rnn.count}}</h3>
+                        <div class="arrow">
+                            <a [routerLink]="['/web-company/', rnn.id]"><i class="flaticon-next-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <div class="testimonials-area ptb-100">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="section-title">
-          <h2>TIN TUYỂN DỤNG, VIỆC LÀM TỐT NHẤT</h2>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-6" *ngFor="let ctg of recruimentNew">
-        <div class="single-testimonials">
-          <div class="testimonials-head">
-            <div class="row align-items-center">
-              <div class="col-lg-3 col-md-3 col-5">
-                <div class="testimonials-img">
-                  <img src="{{ctg.company.avatar}}" alt="testimonials"
-                       style="width: 150px;height: 139px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>TIN TUYỂN DỤNG, VIỆC LÀM TỐT NHẤT</h2>
                 </div>
-              </div>
-              <div class="col-lg-9 col-md-9 col-7">
-                <div class="content">
-                  <h2>{{ctg.title}}</h2>
-                  <span *ngIf="checkLogin == true">Tiền lương: {{ctg.salary}}</span>
-                  <span *ngIf="checkLogin == false">Tiền lương: Bạn cần đăng nhập để xem</span>
-                  <div>Địa điểm: {{ctg.company.address}}</div>
-                  <p>Tuyển dụng đến: {{ctg.expDate}}</p>
-
-                </div>
-              </div>
             </div>
-          </div>
-          <hr>
-          <div style="display: flex">
-            <div class="testimonials-foot" style="margin-right: 10px">
-              <button *ngIf="checkUser" class="text-center" mat-stroked-button color="accent"
-                      (click)="openDialogApply(ctg.id)">Xem chi tiêt
-              </button>
-            </div>
-            <div class="testimonials-foot">
-              <button *ngIf="checkUser" class="text-center" mat-stroked-button color="accent"
-                      (click)="openDialogApplyNow(ctg.id)">Ứng tuyển ngay
-              </button>
-            </div>
-          </div>
         </div>
-      </div>
+
+        <div class="row">
+            <div class="col-lg-6" *ngFor="let ctg of recruimentNew">
+                <div class="single-testimonials">
+                    <div class="testimonials-head">
+                        <div class="row align-items-center">
+                            <div class="col-lg-3 col-md-3 col-5">
+                                <div class="testimonials-img">
+                                    <img src="{{ctg.company.avatar}}" alt="testimonials"
+                                         style="width: 150px;height: 139px">
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-7">
+                                <div class="content">
+                                    <h2>{{ctg.title}}</h2>
+                                    <span *ngIf="checkLogin == true">Tiền lương: {{ctg.salary}}</span>
+                                    <span *ngIf="checkLogin == false">Tiền lương: Bạn cần đăng nhập để xem</span>
+                                    <div>Địa điểm: {{ctg.company.address}}</div>
+                                    <p>Tuyển dụng đến: {{ctg.expDate}}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div style="display: flex">
+                        <div class="testimonials-foot" style="margin-right: 10px">
+                            <button *ngIf="checkUser" class="text-center" mat-stroked-button color="accent"
+                                    (click)="openDialogApply(ctg.id)">Xem chi tiêt
+                            </button>
+                        </div>
+                        <div class="testimonials-foot">
+                            <button *ngIf="checkUser" class="text-center" mat-stroked-button color="accent"
+                                    (click)="openDialogApplyNow(ctg.id)">Ứng tuyển ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <mat-paginator [length]="totalElements"
+                       [pageSize]="4"
+                       [pageSizeOptions]="[4, 8, 12, 16]"
+                       (page)="nextPage($event)"
+                       aria-label="Select page">
+        </mat-paginator>
     </div>
-    <mat-paginator [length]="totalElements"
-                   [pageSize]="4"
-                   [pageSizeOptions]="[4, 8, 12, 16]"
-                   (page)="nextPage($event)"
-                   aria-label="Select page">
-    </mat-paginator>
-  </div>
 </div>>
+
+
 
 <!-- Testimonials -->
 
 <!-- End Testimonials -->
+

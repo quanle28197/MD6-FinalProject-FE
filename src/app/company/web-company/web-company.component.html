@@ -1,116 +1,116 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
-  <section class="member-details">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-4">
-          <div class="card border-0 shadow">
-            <img src="{{companyCurrent.avatar}}" alt="...">
-            <div class="card-body p-1-9 p-xl-5">
-              <div class="mb-4">
-                <h3 class="h4 mb-0">{{companyCurrent.name}}</h3>
-                <span class="text-primary">MSDN: {{companyCurrent.codeCompany}}</span>
-              </div>
-              <ul class="list-unstyled mb-4">
-                <li class="mb-3"><a href="#!"><i
-                  class="far fa-envelope display-25 me-3 text-secondary"></i>{{companyCurrent.account.username}}</a>
-                </li>
-                <li class="mb-3"><a href="#!"><i
-                  class="fas fa-mobile-alt display-25 me-3 text-secondary"></i>{{companyCurrent.phone}}
-                </a></li>
-                <li><a href="#!"><i
-                  class="fas fa-map-marker-alt display-25 me-3 text-secondary"></i>{{companyCurrent.address}}
-                </a></li>
-              </ul>
-              <ul class="social-icon-style2 ps-0">
-                <li><a href="#!" class="rounded-3"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#!" class="rounded-3"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#!" class="rounded-3"><i class="fab fa-youtube"></i></a></li>
-                <li><a href="#!" class="rounded-3"><i class="fab fa-linkedin-in"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-9 col-md-8">
-          <div class="member_desc">
-            <h4 style="font-style: italic">{{companyCurrent.name}}</h4>
-            <p>
-              {{companyCurrent.description}}
-            </p>
-          </div>
-          <div class="bg-image "
-               style="background-image: url('https://www.bootdey.com/img/Content/bg_element.jpg');">
-            <div class="member_contact">
-              <div class="row">
-                <div class="col-lg-4  mb-3 mb-lg-0">
-                  <div class="media-box">
-                    <div class="media-icon">
-                      <i class="fa fa-tablet" aria-hidden="true"></i>
+    <section class="member-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="card border-0 shadow">
+                        <img src="{{companyCurrent.avatar}}" alt="...">
+                        <div class="card-body p-1-9 p-xl-5">
+                            <div class="mb-4">
+                                <h3 class="h4 mb-0">{{companyCurrent.name}}</h3>
+                                <span class="text-primary">MSDN: {{companyCurrent.codeCompany}}</span>
+                            </div>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-3"><a href="#!"><i
+                                        class="far fa-envelope display-25 me-3 text-secondary"></i>{{companyCurrent.account.username}}</a>
+                                </li>
+                                <li class="mb-3"><a href="#!"><i
+                                        class="fas fa-mobile-alt display-25 me-3 text-secondary"></i>{{companyCurrent.phone}}
+                                </a></li>
+                                <li><a href="#!"><i
+                                        class="fas fa-map-marker-alt display-25 me-3 text-secondary"></i>{{companyCurrent.address}}
+                                </a></li>
+                            </ul>
+                            <ul class="social-icon-style2 ps-0">
+                                <li><a href="#!" class="rounded-3"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#!" class="rounded-3"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#!" class="rounded-3"><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="#!" class="rounded-3"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="media-content">
-                      <h5>Phone</h5>
-                      <p><a href="">{{companyCurrent.phone}}</a></p>
+                </div>
+                <div class="col-lg-9 col-md-8">
+                    <div class="member_desc">
+                        <h4 style="font-style: italic">{{companyCurrent.name}}</h4>
+                        <p>
+                            {{companyCurrent.description}}
+                        </p>
                     </div>
-                  </div>
-                </div>
-                <div class="col-lg-4  mb-3 mb-lg-0">
-                  <div class="media-box">
-                    <div class="media-icon">
-                      <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    <div class="bg-image "
+                         style="background-image: url('https://www.bootdey.com/img/Content/bg_element.jpg');">
+                        <div class="member_contact">
+                            <div class="row">
+                                <div class="col-lg-4  mb-3 mb-lg-0">
+                                    <div class="media-box">
+                                        <div class="media-icon">
+                                            <i class="fa fa-tablet" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="media-content">
+                                            <h5>Phone</h5>
+                                            <p><a href="">{{companyCurrent.phone}}</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4  mb-3 mb-lg-0">
+                                    <div class="media-box">
+                                        <div class="media-icon">
+                                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="media-content">
+                                            <h5>Email</h5>
+                                            <p><a href="">{{companyCurrent.account.username}}</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="social-icons">
+                                        <button class="btn btn-social outlined"><i class="fa fa-facebook-f"></i>
+                                        </button>
+                                        <button class="btn btn-social outlined"><i class="fa fa-twitter"></i></button>
+                                        <button class="btn btn-social outlined"><i class="fa fa-linkedin"></i></button>
+                                        <button class="btn btn-social outlined"><i class="fa fa-pinterest-p"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="media-content">
-                      <h5>Email</h5>
-                      <p><a href="">{{companyCurrent.account.username}}</a></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="social-icons">
-                    <button class="btn btn-social outlined"><i class="fa fa-facebook-f"></i>
-                    </button>
-                    <button class="btn btn-social outlined"><i class="fa fa-twitter"></i></button>
-                    <button class="btn btn-social outlined"><i class="fa fa-linkedin"></i></button>
-                    <button class="btn btn-social outlined"><i class="fa fa-pinterest-p"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="member_desc">
-            <section class="home-service-area ptb-100">
-              <div class="container">
-                <div class="section-title">
-                  <span>Smart Services</span>
-                  <h2>Tuyển Dụng</h2>
-                  <p> Go as far as you can see; when you get there, you’ll be able to see further.</p>
-                  <p>- Thomas Carlyle - </p>
-                </div>
+                    <div class="member_desc">
+                        <section class="home-service-area ptb-100">
+                            <div class="container">
+                                <div class="section-title">
+                                    <span>Smart Services</span>
+                                    <h2>Tuyển Dụng</h2>
+                                    <p> If your dreams don’t scare you, they are too smal</p>
+                                      <p>- Richard Branson, businessman - </p>
+                                </div>
 
-                <div class="row">
-                  <div class="col-lg-4 col-sm-6" *ngFor="let rcm of recruitmentNews">
-                    <div class="single-service">
-                      <div class="service-img">
-                        <img src="{{companyCurrent.avatar}}" alt="service">
-                      </div>
-                      <div class="service-content">
-                        <h3>{{rcm.title}}</h3>
-                        <p><b>Nơi làm việc:</b> {{rcm.city.name}}</p>
-                        <p><b>Thời gian làm việc:</b> {{rcm.workingTime.name}}</p>
-                        <p><b>Ngày ứng tuyển:</b> {{rcm.expDate}}</p>
-                        <a class="line-bnt"
-                           (click)="openDialogApply(rcm.id)"><span
-                          class="btn btn-link">Chi tiết</span>
-                        </a>
-                      </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-6" *ngFor="let rcm of recruitmentNews">
+                                        <div class="single-service">
+                                            <div class="service-img">
+                                                <img src="{{companyCurrent.avatar}}" alt="service">
+                                            </div>
+                                            <div class="service-content">
+                                                <h3>{{rcm.title}}</h3>
+                                                <p><b>Nơi làm việc:</b> {{rcm.city.name}}</p>
+                                                <p><b>Thời gian làm việc:</b> {{rcm.workingTime.name}}</p>
+                                                <p><b>Ngày ứng tuyển:</b> {{rcm.expDate}}</p>
+                                                <a class="line-bnt"
+                                                   (click)="openDialogApply(rcm.id)"><span
+                                                        class="btn btn-link">Chi tiết</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
-                  </div>
                 </div>
-              </div>
-            </section>
-          </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </div>

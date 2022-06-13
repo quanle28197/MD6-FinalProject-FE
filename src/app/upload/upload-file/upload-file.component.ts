@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {AngularFireStorage, AngularFireStorageReference} from '@angular/fire/storage';
+import {AngularFireStorage, AngularFireStorageReference} from "@angular/fire/storage";
 
 @Component({
   selector: 'app-upload-file',
@@ -8,11 +8,13 @@ import {AngularFireStorage, AngularFireStorageReference} from '@angular/fire/sto
 })
 export class UploadFileComponent implements OnInit {
   selectFile: File;
+  // @ts-ignore
   ref: AngularFireStorageReference;
+  // @ts-ignore
   downloadURL: string;
   checkUpLoadFile = false;
   @Output()
-  giveURLtoCreate = new EventEmitter<string>();
+  giveURLtoCreate = new EventEmitter<string>()
 
   constructor(private afStorage: AngularFireStorage) {
   }
@@ -40,7 +42,6 @@ export class UploadFileComponent implements OnInit {
       return downloadURL;
     }).catch(error => {
       console.log('Fail Upload ' + error);
-    });
+    })
   }
 }
-

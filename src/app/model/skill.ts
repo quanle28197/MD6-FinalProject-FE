@@ -1,13 +1,12 @@
-export class Skill {
-  id?: number;
-  name: string;
+export class Skill{
+  id?:number;
+  name:string;
   proficiency: string;
-  cv: any;
+  cv:any;
 
-
-  constructor(name: string, proficiency: string, cv: any) {
+  constructor(name: string, cv: any, proficiency: string) {
     this.name = name;
-    this.proficiency = proficiency;
     this.cv = cv;
+    this.proficiency = proficiency;
   }
 }

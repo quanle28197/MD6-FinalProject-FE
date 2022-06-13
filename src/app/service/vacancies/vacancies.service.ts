@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs';
+import {City} from '../../model/city';
 import {Vacancies} from '../../model/vacancies';
 
 @Injectable({
@@ -13,6 +14,6 @@ export class VacanciesService {
   constructor(private http: HttpClient) { }
 
   showAll(): Observable<Vacancies []> {
-    return this.http.get<Vacancies []>(`${this.apiServerUrl}/vacancies/showAll`);
+    return this.http.get<Vacancies []>(`${this.apiServerUrl}/vacancies/showAll`)
   }
 }

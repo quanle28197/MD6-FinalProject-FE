@@ -1,3 +1,5 @@
+import {WorkingTime} from './workingTime';
+
 export class RecruitmentNew {
   id?: number;
   title: string;
@@ -13,7 +15,8 @@ export class RecruitmentNew {
   status?: number | string;
   salary: number;
 
-  // tslint:disable-next-line:max-line-length
+
+
   constructor(title: string, workingTime: any, field: any, company: any, vacancies: any, expDate: string, description: string, city: any, quantity: number, gender: number, salary: number) {
     this.title = title;
     this.workingTime = workingTime;

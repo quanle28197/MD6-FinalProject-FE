@@ -3,6 +3,7 @@ import {Account} from '../../model/account';
 import {AuthService} from '../../security/auth.service';
 import {User} from '../../model/user';
 import {MatDialog} from '@angular/material/dialog';
+import {DialogCreateCompanyComponent} from '../../dialog/dialogCreateCompany/dialog-create-company/dialog-create-company.component';
 
 
 @Component({

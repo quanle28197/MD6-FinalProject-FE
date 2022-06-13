@@ -1,5 +1,5 @@
-export class Field {
-  id: number;
+export class Field{
+  id:number;
   name: string;
 
   constructor(id: number, name: string) {

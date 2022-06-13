@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import {TokenService} from '../../../security/token.service';
-import {FormArray, FormBuilder} from '@angular/forms';
-import {Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {CVService} from '../../../service/cv/cv.service';
 import {WorkExpService} from '../../../service/workExp/work-exp.service';
 import {SkillService} from '../../../service/skill/skill.service';
-import {DialogCreateCvComponent} from '../../../dialog/CV/dialog-create-cv/dialog-create-cv.component';
-import {MatDialog} from '@angular/material/dialog';
+import {AuthService} from '../../../security/auth.service';
+import {TokenService} from '../../../security/token.service';
+import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {CvDTO} from "../../../model/dto/cv-dto";
+import {DialogComponent} from "../../../dialog/dialog.component";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogCreateCvComponent} from "../../../dialog/CV/dialog-create-cv/dialog-create-cv.component";
+import {Router} from "@angular/router";
 import {DialogNoCreateComponent} from '../../../dialog/CV/dialog-no-create/dialog-no-create.component';
-import {CVService} from '../../../service/cv/cv.service';
 
 @Component({
   selector: 'app-create-cv',
@@ -15,10 +18,10 @@ import {CVService} from '../../../service/cv/cv.service';
   styleUrls: ['./create-cv.component.scss']
 })
 export class CreateCvComponent implements OnInit {
-  status: string = 'Vui lòng bổ sung các thông tin dưới đây để hoàn tất tài khoản.'
-  error1: any = {
-    message: 'user_da_ton_tai'
-  };
+  status: string = "Vui lòng bổ sung các thông tin dưới đây để hoàn tất tài khoản."
+  error1:any = {
+    message: "user_da_ton_tai"
+  }
   constructor(private cvService: CVService,
               private workExpService: WorkExpService,
               private skillService: SkillService,
@@ -41,14 +44,14 @@ export class CreateCvComponent implements OnInit {
     userId: this.token.getIdGuest(),
     skills: this.fb.array([]),
     workExps: this.fb.array([])
-  });
+  })
 
   get skills() {
     return this.cvForm.get('skills') as FormArray;
   }
 
   get workExps() {
-    return this.cvForm.get('workExps') as FormArray;
+    return this.cvForm.get("workExps") as FormArray;
   }
 
   onUpLoadAvatar(event: any) {
@@ -70,14 +73,14 @@ export class CreateCvComponent implements OnInit {
           this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
         });
       }
-    });
+    })
   }
 
   addSkill() {
     const skillForm = this.fb.group({
       name: [''],
       proficiency: ['50%']
-    });
+    })
     this.skills.push(skillForm);
   }
 
@@ -91,7 +94,7 @@ export class CreateCvComponent implements OnInit {
       startDate: [''],
       endDate: [''],
       content: ['']
-    });
+    })
     this.workExps.push(workExpForm);
   }
 

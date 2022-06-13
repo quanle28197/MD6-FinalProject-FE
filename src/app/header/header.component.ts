@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {TokenService} from '../security/token.service';
+import {CompanyService} from '../service/company/company.service';
+import {Company} from '../model/company';
 import {Router} from '@angular/router';
 import {User} from '../model/user';
 import {UserService} from '../user/service/user.service';
-import {Company} from '../model/company';
-import {CompanyService} from '../service/company/company.service';
 
 @Component({
   selector: 'app-header',
@@ -16,10 +16,13 @@ export class HeaderComponent implements OnInit {
 
   checkRole: string;
 
+  // @ts-ignore
   name: string;
 
+  // @ts-ignore
   idGuest: number;
 
+  // @ts-ignore
   company: Company;
 
   user: User;
@@ -36,7 +39,7 @@ export class HeaderComponent implements OnInit {
       this.idGuest = this.tokenService.getIdGuest();
       if (this.idGuest == -10) {
         this.checkRole = 'ADMIN';
-        this.name = 'ADMIN';
+        this.name = "ADMIN"
       }
       else {
         for (let i = 0; i < this.tokenService.getRoleKey().length; i++) {

@@ -1,5 +1,4 @@
 export class Company{
-  id?: number;
   codeCompany?: string;
   name: string;
   avatar: string;
@@ -7,7 +6,7 @@ export class Company{
   address: string;
   employeeQuantity: number;
   city: any;
-  linkMap: string;
+  linkMap: string
   phone: string;
   statusCompany?: number;
   account: any;

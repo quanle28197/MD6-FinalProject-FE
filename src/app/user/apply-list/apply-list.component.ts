@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApplyService} from '../../service/apply/apply.service';
 import {TokenService} from '../../security/token.service';
-import {MatDialog} from '@angular/material/dialog';
 import {PageEvent} from '@angular/material/paginator';
-import {
-  DetailRecruitmentnewCompanyComponent
-} from '../../company/recruitmentnew/detail-recruitmentnew-company/detail-recruitmentnew-company.component';
+import {DetailRecruitmentnewComponent} from '../../company/recruitmentnew/detail-recruitmentnew/detail-recruitmentnew.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-apply-list',
@@ -13,7 +11,7 @@ import {
   styleUrls: ['./apply-list.component.scss']
 })
 export class ApplyListComponent implements OnInit {
-  applist: any [] = [];
+  applis: any [] = [];
   totalElements: number = 0;
   idGuest: number;
 
@@ -29,7 +27,7 @@ export class ApplyListComponent implements OnInit {
   pageApply(nextPage) {
     this.idGuest = this.token.getIdGuest();
     this.applyService.pageApply(nextPage, this.idGuest).subscribe(data => {
-      this.applist = data['content'];
+      this.applis = data['content'];
       this.totalElements = data['totalElements'];
       console.log(data);
     });
@@ -43,7 +41,7 @@ export class ApplyListComponent implements OnInit {
   }
 
   openDialogDetails(id) {
-    const dialogRef = this.dialog.open(DetailRecruitmentnewCompanyComponent, {
+    const dialogRef = this.dialog.open(DetailRecruitmentnewComponent, {
       data : {
         id: id
       }
@@ -54,4 +52,3 @@ export class ApplyListComponent implements OnInit {
     });
   }
 }
-

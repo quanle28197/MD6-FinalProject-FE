@@ -1,13 +1,18 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {RecruitmentNew} from '../../../model/recruitmentNew';
 import {MatPaginator} from '@angular/material/paginator';
-import {StatusRequest} from '../../../model/statusRequest';
+import {RecruitmentNewService} from '../../../service/recruitmentNew/recruitment-new.service';
+import {RecruitmentNew} from '../../../model/recruitmentNew';
 import {TokenService} from '../../../security/token.service';
-import {MatDialog} from '@angular/material/dialog';
-import {CompanyService} from '../../../service/company/company.service';
-import {RecruitmentNewServiceService} from '../../../service/recruitmentNew/recruitment-new.service';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatDialog} from '@angular/material/dialog';
 import {DialogComponent} from '../../../dialog/dialog.component';
+import {CompanyService} from '../../../service/company/company.service';
+
+import {StatusRequest} from '../../../model/statusRequest';
+import {any} from 'codelyzer/util/function';
+
+import {DetailRecruitmentnewComponent} from '../detail-recruitmentnew/detail-recruitmentnew.component';
+
 
 @Component({
   selector: 'app-list-recruitmentnew-company',
@@ -24,8 +29,8 @@ export class ListRecruitmentnewCompanyComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   form: any = {};
-  status: boolean;
-  constructor(private recruitmentNewService: RecruitmentNewServiceService,
+  status:boolean;
+  constructor(private recruitmentNewService: RecruitmentNewService,
               private token: TokenService,
               private dialog: MatDialog,
               private companyService: CompanyService
@@ -74,9 +79,27 @@ export class ListRecruitmentnewCompanyComponent implements OnInit {
     });
   }
 
+
+
   changeStatus(idRecrui: number) {
     this.recruitmentNewService.changeStatusById(idRecrui).subscribe(data=>{
       this.getListRecruitmentNew();
+    });
+  }
+
+
+
+
+
+  openDialogDetails(id) {
+    const dialogRef = this.dialog.open(DetailRecruitmentnewComponent, {
+      data : {
+        id: id
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getListRecruitmentNew();
+      console.log('The dialog was closed');
     });
   }
 

@@ -1,7 +1,10 @@
 export class JwtResponse {
+  // @ts-ignore
   idAccount: number;
-  idGuest: number;
+  // @ts-ignore
+  idGuest: number
   token: string;
+  // @ts-ignore
   username: string;
   roles: string[];
 
