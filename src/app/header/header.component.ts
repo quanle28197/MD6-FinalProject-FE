@@ -16,21 +16,18 @@ export class HeaderComponent implements OnInit {
 
   checkRole: string;
 
-  // @ts-ignore
   name: string;
 
-  // @ts-ignore
   idGuest: number;
-
 
   company: Company;
 
   user: User;
 
   constructor(private tokenService: TokenService,
+              private companyService: CompanyService,
               private userService: UserService,
-              private router: Router,
-              private companyService: CompanyService) {
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -42,17 +39,16 @@ export class HeaderComponent implements OnInit {
         this.name = 'ADMIN';
       }
       else {
-        // tslint:disable-next-line:prefer-for-of
-          for (let i = 0; i < this.tokenService.getRoles().length; i++) {
-            if (this.tokenService.getRoles()[i] == 'COMPANY') {
-              this.companyService.getCompanyNameById(this.idGuest).subscribe(data => {
-                console.log(data);
-                this.company = data;
-                this.checkRole = 'COMPANY';
-                this.name = this.company.name;
-              });
-            }
-          if (this.tokenService.getRoles()[i] == 'USER') {
+        for (let i = 0; i < this.tokenService.getRoleKey().length; i++) {
+          if (this.tokenService.getRoleKey()[i] == 'COMPANY') {
+            this.companyService.getCompanyNameById(this.idGuest).subscribe(data => {
+              console.log(data);
+              this.company = data;
+              this.checkRole = 'COMPANY';
+              this.name = this.company.name;
+            });
+          }
+          if (this.tokenService.getRoleKey()[i] == 'USER') {
             this.userService.getUserById(this.idGuest).subscribe(data => {
               console.log(data);
               this.user = data;

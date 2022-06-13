@@ -18,7 +18,8 @@ export class DetailCompanyComponent implements OnInit {
   constructor(private router: Router,
               private companyService: CompanyService,
               private tokenService: TokenService) {
-    this.idCustom = tokenService.getAccountId();
+    // @ts-ignore
+    this.idCustom = tokenService.setIdGuest();
     this.companyService.getCompanyNameById(this.idCustom).subscribe(data => {
       this.companyCurrent = data;
     });

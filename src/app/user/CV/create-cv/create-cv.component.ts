@@ -15,19 +15,19 @@ import {CVService} from '../../../service/cv/cv.service';
   styleUrls: ['./create-cv.component.scss']
 })
 export class CreateCvComponent implements OnInit {
-  status: string = 'Please add more information to complete your account!';
+  status: string = 'Vui lòng bổ sung các thông tin dưới đây để hoàn tất tài khoản.';
   error1: any = {
-    message: 'User is exist'
+    message: 'user is exist',
   };
-
   constructor(private cvService: CVService,
               private workExpService: WorkExpService,
               private skillService: SkillService,
               private token: TokenService,
               private fb: FormBuilder,
+              private dialog: MatDialog,
               private router: Router,
-              private tokenService: TokenService,
-              private dialog: MatDialog) { }
+              private tokenService: TokenService) {
+  }
 
   ngOnInit(): void {
   }
@@ -38,9 +38,9 @@ export class CreateCvComponent implements OnInit {
     expYear: [],
     salaryExpectation: [],
     fileCV: [],
-    userId: this.token.getAccountId(),
+    userId: this.token.getIdGuest(),
     skills: this.fb.array([]),
-    workExp: this.fb.array([])
+    workExps: this.fb.array([])
   });
 
   get skills() {
@@ -61,13 +61,13 @@ export class CreateCvComponent implements OnInit {
         const dialogRef = this.dialog.open(DialogNoCreateComponent);
         dialogRef.afterClosed().subscribe(result => {
           this.cvForm.reset();
-          this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
+          this.router.navigate(['detail-cv', this.tokenService.getIdGuest()]);
         });
       } else {
         const dialogRef = this.dialog.open(DialogCreateCvComponent);
         dialogRef.afterClosed().subscribe(result => {
           this.cvForm.reset();
-          this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
+          this.router.navigate(['detail-cv', this.tokenService.getIdGuest()]);
         });
       }
     });
@@ -77,7 +77,7 @@ export class CreateCvComponent implements OnInit {
     const skillForm = this.fb.group({
       name: [''],
       proficiency: ['50%']
-    })
+    });
     this.skills.push(skillForm);
   }
 

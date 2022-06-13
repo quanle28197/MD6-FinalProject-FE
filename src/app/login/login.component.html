@@ -6,7 +6,7 @@
         <div class="signup-form">
           <div class="section-tittle text-center">
             <h2>Đăng nhập</h2>
-            <p>Social Network Account</p>
+            <p>Với tài khoản mạng xã hội</p>
           </div>
           <form #f="ngForm" (ngSubmit)="f.form.valid && onLogin()">
             <mat-error  style="text-align: center">{{status}}</mat-error>
@@ -15,7 +15,7 @@
                 <div class="form-group">
                   <mat-form-field style="width: 100%" appearance="outline">
                     <mat-label>Email:</mat-label>
-                    <input matInput placeholder="Email ..." name="username" [(ngModel)]="signInForm.username" [formControl]="emailFormControl" required>
+                    <input matInput placeholder="Email ..." name="username" [(ngModel)]="form.username" [formControl]="emailFormControl" required>
                     <mat-icon color="black" matSuffix>email</mat-icon>
                     <mat-error *ngIf="emailFormControl.hasError('required')">Bắt buộc phải nhập email!</mat-error>
                     <mat-error *ngIf="emailFormControl.hasError('email')">Email không đúng định dạng!</mat-error>
@@ -23,16 +23,16 @@
                 </div>
               </div>
               <div class="col-md-12 col-sm-12">
-                  <mat-form-field style="width: 100%" appearance="outline">
-                      <mat-label>Nhập mật khẩu của bạn</mat-label>
-                      <input name="password" [(ngModel)]="signInForm.password" #password="ngModel" matInput
-                             [type]="isShowPassword ? 'password' : 'text'" required>
-                      <button mat-icon-button matSuffix (click)="isShowPassword = !isShowPassword" [attr.aria-label]="'Hide password'"
-                              [attr.aria-pressed]="isShowPassword">
-                          <mat-icon color="black">{{isShowPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-                      </button>
-                      <mat-error *ngIf="password.hasError('required')">Bắt buộc phải nhập mật khẩu!</mat-error>
-                  </mat-form-field>
+                <mat-form-field style="width: 100%" appearance="outline">
+                  <mat-label>Nhập mật khẩu của bạn</mat-label>
+                  <input name="password" [(ngModel)]="form.password" #password="ngModel" matInput
+                         [type]="hide ? 'password' : 'text'" required>
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                          [attr.aria-pressed]="hide">
+                    <mat-icon color="black">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                  <mat-error *ngIf="password.hasError('required')">Bắt buộc phải nhập mật khẩu!</mat-error>
+                </mat-form-field>
               </div>
               <div class="col-12 text-center">
                 <button class="box-btn signup-btn">

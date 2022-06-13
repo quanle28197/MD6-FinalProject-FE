@@ -12,7 +12,7 @@ export class FieldService {
 
   constructor(private http: HttpClient) { }
 
-  showAll(): Observable<Field []> {
-    return this.http.get<Field []>(`${this.apiServerUrl}/field/showAll`);
+  findAll(): Observable<Field []> {
+    return this.http.get<Field []>(`${this.apiServerUrl}/fields`);
   }
 }

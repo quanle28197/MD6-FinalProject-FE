@@ -26,7 +26,7 @@ export class RecruitmentNewServiceService {
   }
 
   showAllListRecruitmentNew(id: number): Observable<any> {
-    return this.http.get(`${this.apiServerUrl}/recruitment/showAll/${id}`);
+    return this.http.get(`${this.apiServerUrl}/recruitment/list/${id}`);
   }
 
   deleteRecruitmentNewById(id: number): Observable<any> {
@@ -49,5 +49,3 @@ export class RecruitmentNewServiceService {
     return this.http.get<any []>(`${this.apiServerUrl}/recruitment/list`);
   }
 }
-
-

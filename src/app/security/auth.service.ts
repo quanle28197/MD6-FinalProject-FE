@@ -4,8 +4,9 @@ import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {SignInForm} from './SignInForm';
 import {Observable} from 'rxjs';
-import {ResponseBody} from '../model/response-body';
 import {Company} from '../model/company';
+import {ChangePassword} from '../service/account/changePassword';
+import {JwtResponse} from './JwtResponses';
 
 @Injectable({
     providedIn: 'root'
@@ -13,31 +14,30 @@ import {Company} from '../model/company';
 export class AuthService {
   private apiServerUrl = environment.apiBaseUrl;
 
-    constructor(private http: HttpClient) {
-    }
+  constructor(private http: HttpClient) {
+  }
 
-    signIn(signInForm: SignInForm): Observable<ResponseBody> {
-        return this.http.post<ResponseBody>(`${this.apiServerUrl}/signin`, signInForm);
-    }
+  signIn(signInForm: SignInForm): Observable<JwtResponse> {
+    return this.http.post<JwtResponse>(`${this.apiServerUrl}/signin`, signInForm);
+  }
 
-    registerCompany(company: Company): Observable<any> {
+  signUp(signInForm: SignInForm): Observable<any> {
+    return this.http.post<any>(`${this.apiServerUrl}/signup`, signInForm);
+  }
+
+  registerCompany(company: Company): Observable<any> {
     return this.http.post<any>(`${this.apiServerUrl}/company`, company);
-    }
-
-    signUp(signInForm: SignInForm): Observable<any> {
-        return this.http.post<any>(`${this.apiServerUrl}/signup`, signInForm);
-    }
-
-    registerUser(user: User): Observable<any>{
-        return this.http.post<any>(`${this.apiServerUrl}/user`, user);
-    }
-    activeStatus(id: number): Observable<any>{
-        return this.http.get(this.apiServerUrl + `/verify/${id}`);
-    }
-    findById(id: number): Observable<any>{
-        return this.http.get(`${this.apiServerUrl}/${id}`);
-    }
-
-
-
+  }
+  changePassword(changePassword: ChangePassword): Observable<any>{
+    return this.http.put(`${this.apiServerUrl}/change-password`, changePassword);
+  }
+  registerUser(user: User): Observable<any>{
+    return this.http.post<any>(`${this.apiServerUrl}/user`, user);
+  }
+  activeStatus(id: number): Observable<any>{
+    return this.http.get(this.apiServerUrl + `/verify/${id}`);
+  }
+  findById(id: number): Observable<any>{
+    return this.http.get(`${this.apiServerUrl}/${id}`);
+  }
 }

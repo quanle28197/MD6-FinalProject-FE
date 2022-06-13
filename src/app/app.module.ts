@@ -56,7 +56,12 @@ import { DialogNoCreateComponent } from './dialog/CV/dialog-no-create/dialog-no-
 import {registerLocaleData} from '@angular/common';
 import {ListAccountComponent} from './list-account/list-account.component';
 import {DialogCreateCompanyComponent} from './dialog/dialog-create-company/dialog-create-company.component';
-import { CreateRecruitmentnewComponent } from './company/create-recruitmentnew/create-recruitmentnew.component';
+import { CreateRecruitmentnewComponent } from './company/recruitmentnew/create-recruitmentnew/create-recruitmentnew.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import {ApplyCompanyComponent} from './company/apply-company/apply-company.component';
+import { ListRecruitmentnewCompanyComponent } from './company/recruitmentnew/list-recruitmentnew-company/list-recruitmentnew-company.component';
+import { DetailRecruitmentnewCompanyComponent } from './company/detail-recruitmentnew-company/detail-recruitmentnew-company.component';
+import { UpdateRecruitmentnewCompanyComponent } from './company/update-recruitmentnew-company/update-recruitmentnew-company.component';
 
 
 
@@ -69,12 +74,15 @@ export const appRoutes: Routes = [
   {path: 'create-cv', component: CreateCvComponent},
   {path: 'update-cv/:id', component: EditCvComponent},
   {path: 'detail-cv/:id', component: DetailCvComponent},
-  {path: 'register-user', component: RegisterUserComponent},
   {path: 'active-status/:id', component: ActiveStatusComponent},
   {path: 'home', component: HomepageComponent},
   {path: 'list-account', component: ListAccountComponent},
   {path: 'web-company/:id', component: WebCompanyComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'change-password', component: ChangePasswordComponent},
+  {path: 'apply-company', component: ApplyCompanyComponent},
+  {path: 'create-recruitmentnew', component: CreateRecruitmentnewComponent},
+  {path: 'list-recruitmentnew-company', component: ListRecruitmentnewCompanyComponent}
 ];
 
 @NgModule({
@@ -100,8 +108,13 @@ export const appRoutes: Routes = [
     DetailCompanyComponent,
     UploadFileComponent,
     ListCompanyComponent,
+    CreateRecruitmentnewComponent,
+    ChangePasswordComponent,
+    ApplyCompanyComponent,
+    ListRecruitmentnewCompanyComponent,
     DialogCreateCompanyComponent,
-    CreateRecruitmentnewComponent
+    DetailRecruitmentnewCompanyComponent,
+    UpdateRecruitmentnewCompanyComponent,
   ],
   imports: [
     ReactiveFormsModule,
