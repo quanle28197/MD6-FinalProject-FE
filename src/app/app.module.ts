@@ -56,6 +56,7 @@ import { DialogNoCreateComponent } from './dialog/CV/dialog-no-create/dialog-no-
 import {registerLocaleData} from '@angular/common';
 import {ListAccountComponent} from './list-account/list-account.component';
 import {DialogCreateCompanyComponent} from './dialog/dialog-create-company/dialog-create-company.component';
+import { CreateRecruitmentnewComponent } from './company/create-recruitmentnew/create-recruitmentnew.component';
 
 
 
@@ -97,9 +98,10 @@ export const appRoutes: Routes = [
     ListAccountComponent,
     DialogEditCvComponent,
     DetailCompanyComponent,
-    DialogCreateCompanyComponent,
     UploadFileComponent,
     ListCompanyComponent,
+    DialogCreateCompanyComponent,
+    CreateRecruitmentnewComponent
   ],
   imports: [
     ReactiveFormsModule,

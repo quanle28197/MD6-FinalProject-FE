@@ -2,19 +2,17 @@ import { Injectable } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {City} from '../../model/city';
+import {Field} from '../../model/field';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CityService {
-  // @ts-ignore
+export class FieldService {
   private apiServerUrl = environment.apiBaseUrl;
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
-  showAll(): Observable<City []> {
-    return this.http.get<City []>(`${this.apiServerUrl}/cities`);
+  showAll(): Observable<Field []> {
+    return this.http.get<Field []>(`${this.apiServerUrl}/field/showAll`);
   }
 }

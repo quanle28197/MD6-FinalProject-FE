@@ -34,7 +34,7 @@
                 <mat-card class="text-center">
                   <form #form="ngForm"
                         (ngSubmit)="form.form.valid && ngSubmit(form)" novalidate>
-                    <!--                                        <mat-error class="alert alert-primary">{{status}}</mat-error>-->
+                    <mat-error class="alert alert-primary">{{status}}</mat-error>
                     <mat-form-field style="width: 350px" appearance="outline">
                       <mat-label>Tài khoản</mat-label>
                       <input matInput placeholder="Nhập tài khoản" name="username"
@@ -70,7 +70,7 @@
                       <input matInput placeholder="Nhập địa chỉ" name="address"
                              [(ngModel)]="data.address">
                       <mat-icon color="black" matSuffix>home</mat-icon>
-                      <!--            <mat-error *ngIf="form.controls.username?.errors?.required">Phải điền thông tin</mat-error>-->
+                      <mat-error *ngIf="form.controls.username?.errors?.required">Phải điền thông tin</mat-error>
                     </mat-form-field>
                     <br>
                     <mat-form-field style="width: 350px" appearance="outline">

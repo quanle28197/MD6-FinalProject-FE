@@ -1,4 +1,5 @@
 export class Company{
+  id?: number;
   codeCompany?: string;
   name: string;
   avatar: string;

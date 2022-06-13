@@ -13,15 +13,9 @@ import {CompanyService} from '../service/company/company.service';
 })
 export class HomepageComponent implements OnInit {
   companyHot: any[] = [];
-  totalElements: number = 0;
   checkLogin: boolean = false;
   checkUser: boolean = false;
   idGuest: number;
-  searchKey: string = '';
-
-
-  rcmdate: any[] = [];
-
 
   constructor(private companyService: CompanyService,
               private tokenService: TokenService,
@@ -37,11 +31,12 @@ export class HomepageComponent implements OnInit {
     this.checklogin();
   }
 
+
   checkUserCurrent() {
     if (this.tokenService.getTokenKey()) {
       this.idGuest = this.tokenService.getIdGuest();
-      for (let i = 0; i < this.tokenService.getTokenKey().length; i++) {
-        if (this.tokenService.getTokenKey()[i] == 'USER') {
+      for (let i = 0; i < this.tokenService.getRoles().length; i++) {
+        if (this.tokenService.getRoles()[i] == 'USER') {
           this.userService.getUserById(this.idGuest).subscribe(data => {
             if (data) {
               this.checkUser = true;
@@ -56,12 +51,14 @@ export class HomepageComponent implements OnInit {
     }
   }
 
+  ngOnInit(): void {
+    this.checkUserCurrent();
+
+  }
+
   checklogin() {
     if (this.tokenService.getTokenKey()) {
       this.checkLogin = true;
     }
-  }
-
-  ngOnInit(): void {
   }
 }

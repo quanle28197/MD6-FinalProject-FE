@@ -13,8 +13,6 @@
                                 bạn, Hãy đến với chúng tôi.
                             </p>
                             <div class="banner-btn">
-<!--                                <a href="contact.html" class="box-btn" routerLink="/list-recruitmentnew-user">Tìm kiếm-->
-<!--                                    việc làm</a>-->
                                 <form class="newsletter-form" data-toggle="validator" #f="ngForm" (ngSubmit)="ngSubmit(f)" novalidate >
                                     <div style="display: flex">
                                         <input style="width: 300px; margin-right: 10px" name="searchKey" ngModel class="form-control" placeholder="Nhập vào tên công việc, tên công ty..."
@@ -94,22 +92,6 @@
             <h2>CÁC CÔNG TY CÓ NHU CẦU TUYỂN DỤNG CAO NHẤT</h2>
             <p>Các công ty hiện tai đang cần tuyển dùng cao nhất</p>
         </div>
-        <div class="row">
-            <div class="col-lg-4 col-sm-6" *ngFor="let rnn of RecuitmentNewNeed">
-                <div class="single-info">
-                    <div class="info-img">
-                        <img width="400px" src="{{rnn.avatar}}">
-                    </div>
-                    <div class="content">
-                        <h3>Tên công ty: {{rnn.name}}</h3>
-                        <h3>Số lượng vị trí cần tuyển: {{rnn.count}}</h3>
-                        <div class="arrow">
-                            <a [routerLink]="['/web-company/', rnn.id]"><i class="flaticon-next-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -123,51 +105,6 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-6" *ngFor="let ctg of recruimentNew">
-                <div class="single-testimonials">
-                    <div class="testimonials-head">
-                        <div class="row align-items-center">
-                            <div class="col-lg-3 col-md-3 col-5">
-                                <div class="testimonials-img">
-                                    <img src="{{ctg.company.avatar}}" alt="testimonials"
-                                         style="width: 150px;height: 139px">
-                                </div>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-7">
-                                <div class="content">
-                                    <h2>{{ctg.title}}</h2>
-                                    <span *ngIf="checkLogin == true">Tiền lương: {{ctg.salary}}</span>
-                                    <span *ngIf="checkLogin == false">Tiền lương: Bạn cần đăng nhập để xem</span>
-                                    <div>Địa điểm: {{ctg.company.address}}</div>
-                                    <p>Tuyển dụng đến: {{ctg.expDate}}</p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div style="display: flex">
-                        <div class="testimonials-foot" style="margin-right: 10px">
-                            <button *ngIf="checkUser" class="text-center" mat-stroked-button color="accent"
-                                    (click)="openDialogApply(ctg.id)">Xem chi tiêt
-                            </button>
-                        </div>
-                        <div class="testimonials-foot">
-                            <button *ngIf="checkUser" class="text-center" mat-stroked-button color="accent"
-                                    (click)="openDialogApplyNow(ctg.id)">Ứng tuyển ngay
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <mat-paginator [length]="totalElements"
-                       [pageSize]="4"
-                       [pageSizeOptions]="[4, 8, 12, 16]"
-                       (page)="nextPage($event)"
-                       aria-label="Select page">
-        </mat-paginator>
     </div>
 </div>>
 

@@ -27,23 +27,23 @@ export class RegisterCompanyComponent implements OnInit {
   constructor(private authService: AuthService,
               private cityService: CityService,
               private dialog: MatDialog) {
-    this.showAllCity();
+
   }
 
   showAllCity() {
     this.cityService.showAll().subscribe(data3 => {
       this.cities = data3;
       console.log(data3);
-    });
+    }, error => console.log(error));
   }
 
   ngOnInit(): void {
+    this.showAllCity();
   }
 
   ngSubmit(form: any) {
     console.log();
     const roles: string[] = ['company'];
-    // @ts-ignore
     this.account = new Account(this.data.username, this.data.password, roles);
     this.authService.signUp(this.account).subscribe(data1 => {
       console.log(data1);
@@ -62,7 +62,6 @@ export class RegisterCompanyComponent implements OnInit {
     const account11 = {
       id: this.idAccount
     };
-    // @ts-ignore
     this.company = new Company(this.data.name, this.data.avatar, this.data.description,
       this.data.address, this.data.employeeQuantity, city, this.data.linkMap, this.data.phone, account11);
     console.log(this.company);
