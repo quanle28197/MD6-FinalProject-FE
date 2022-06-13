@@ -28,14 +28,14 @@ export class DetailCvComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.idUser = this.route.snapshot.params.id;
+    this.idUser = this.route.snapshot.params['id'];
     this.cvService.findByUserId(this.idUser).subscribe((data: CvDTO) => {
       this.cv = data;
     });
-    for (let i = 0; i < this.tokenService.getTokenKey().length; i++) {
-      if (this.tokenService.getTokenKey()[i] == 'USER') {
+    for (let i = 0; i < this.tokenService.getRoleKey().length; i++) {
+      if (this.tokenService.getRoleKey()[i] == "USER") {
         this.userService.getUserById(this.tokenService.getIdGuest()).subscribe(data => {
-          this.checkRole = 'USER';
+          this.checkRole = "USER";
         });
       }
     }

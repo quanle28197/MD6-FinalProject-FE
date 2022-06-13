@@ -34,8 +34,6 @@ export class HomepageComponent implements OnInit {
   recruitmentNew: RecruitmentNew;
 
   rcmdate: any[] = [];
-
-
   constructor(private companyService: CompanyService,
               private rcms: RecruitmentNewServiceService,
               private tokenService: TokenService,
@@ -128,16 +126,16 @@ export class HomepageComponent implements OnInit {
     this.pageRecruiment(request);
   }
 
-  // openDialogApply(id: number) {
-  //   const dialogRef = this.dialog.open(ApplyRecruitmentnewComponent, {
-  //     data: {
-  //       id: id
-  //     }
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //   });
-  // }
+  openDialogApply(id: number) {
+    const dialogRef = this.dialog.open(this.ApplyRecruitmentnewComponent, {
+      data: {
+        id: id
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
   openDialogApplyNow(id: number) {
     const dialogRef = this.dialog.open(ApplyNowComponent, {

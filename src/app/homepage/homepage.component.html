@@ -171,48 +171,6 @@
   </div>
 </div>>
 
-<div class="container">
-    <div class="row">
-        <div class="col-12" style="margin-top: 20px">
-            <mat-card style="margin: 50px 0">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">Tên sách</th>
-                        <th scope="col">Anh</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr *ngFor="let ctg of recruimentNew" style="align-items: center">
-                        <td>
-                            <i style="font-size: 1.5vw;color: crimson">{{ctg.title}}</i>
-                        </td>
-                        <td>
-                            <img style="width: 50px;height: 50px" src="{{ctg.company.avatar}}">
-                        </td>
-                        <td>
-                            <button mat-icon-button color="accent" routerLink="/update-category/{{ctg.id}}">
-                                <mat-icon color="primary">edit</mat-icon>
-                            </button>
-                        </td>
-                        <td>
-
-                        </td>
-                    </tr>
-                    <mat-paginator [length]="totalElements"
-                                   [pageSize]="3"
-                                   [pageSizeOptions]="[3, 6, 9, 12]"
-                                   (page)="nextPage($event)"
-                                   aria-label="Select page">
-                    </mat-paginator>
-                    </tbody>
-                </table>
-            </mat-card>
-        </div>
-    </div>
-</div>
-
-
 <!-- Testimonials -->
 
 <!-- End Testimonials -->

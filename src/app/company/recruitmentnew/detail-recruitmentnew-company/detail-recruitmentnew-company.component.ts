@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {RecruitmentNew} from '../../model/recruitmentNew';
-import {RecruitmentNewServiceService} from '../../service/recruitmentNew/recruitment-new.service';
+import {RecruitmentNew} from '../../../model/recruitmentNew';
+import {RecruitmentNewServiceService} from '../../../service/recruitmentNew/recruitment-new.service';
 import {Router} from '@angular/router';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 

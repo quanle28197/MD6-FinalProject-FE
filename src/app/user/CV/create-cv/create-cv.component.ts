@@ -15,9 +15,9 @@ import {CVService} from '../../../service/cv/cv.service';
   styleUrls: ['./create-cv.component.scss']
 })
 export class CreateCvComponent implements OnInit {
-  status: string = 'Vui lòng bổ sung các thông tin dưới đây để hoàn tất tài khoản.';
+  status: string = 'Vui lòng bổ sung các thông tin dưới đây để hoàn tất tài khoản.'
   error1: any = {
-    message: 'user is exist',
+    message: 'user_da_ton_tai'
   };
   constructor(private cvService: CVService,
               private workExpService: WorkExpService,
@@ -61,13 +61,13 @@ export class CreateCvComponent implements OnInit {
         const dialogRef = this.dialog.open(DialogNoCreateComponent);
         dialogRef.afterClosed().subscribe(result => {
           this.cvForm.reset();
-          this.router.navigate(['detail-cv', this.tokenService.getIdGuest()]);
+          this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
         });
       } else {
         const dialogRef = this.dialog.open(DialogCreateCvComponent);
         dialogRef.afterClosed().subscribe(result => {
           this.cvForm.reset();
-          this.router.navigate(['detail-cv', this.tokenService.getIdGuest()]);
+          this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
         });
       }
     });

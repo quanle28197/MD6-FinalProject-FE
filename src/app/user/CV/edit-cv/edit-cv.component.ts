@@ -17,7 +17,7 @@ import {DialogEditCvComponent} from '../../../dialog/CV/dialog-edit-cv/dialog-ed
   styleUrls: ['./edit-cv.component.scss']
 })
 export class EditCvComponent implements OnInit {
-  user: User = {account: null, phone: '', name: ''};
+  user: User = {account: null, phone: "", name: ''};
 
   idUser: number;
 
@@ -87,7 +87,7 @@ export class EditCvComponent implements OnInit {
   }
 
   onUpdate() {
-    console.log(this.cvForm.value);
+    console.log(this.cvForm.value)
     this.cvService.updateCV(this.tokenService.getIdGuest(), this.cvForm.value).subscribe(data => {
       const dialogRef = this.dialog.open(DialogEditCvComponent);
 
@@ -95,7 +95,7 @@ export class EditCvComponent implements OnInit {
         this.cvForm.reset();
         this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
       });
-    });
+    })
   }
 
   addSkill() {
@@ -103,7 +103,7 @@ export class EditCvComponent implements OnInit {
       id: [''],
       name: [''],
       proficiency: ['50%']
-    });
+    })
     this.skills.push(skillForm);
   }
 
@@ -118,7 +118,7 @@ export class EditCvComponent implements OnInit {
       startDate: [''],
       endDate: [''],
       content: ['']
-    });
+    })
     this.workExps.push(workExpForm);
   }
 
