@@ -57,6 +57,7 @@ import {registerLocaleData} from '@angular/common';
 import {ListAccountComponent} from './list-account/list-account.component';
 import {DialogCreateCompanyComponent} from './dialog/dialog-create-company/dialog-create-company.component';
 import { CreateRecruitmentnewComponent } from './company/create-recruitmentnew/create-recruitmentnew.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
@@ -101,7 +102,7 @@ export const appRoutes: Routes = [
     UploadFileComponent,
     ListCompanyComponent,
     DialogCreateCompanyComponent,
-    CreateRecruitmentnewComponent
+    CreateRecruitmentnewComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -132,7 +133,8 @@ export const appRoutes: Routes = [
     MatSelectModule,
     MatDatepickerModule,
     MatBadgeModule,
-    MatSliderModule
+    MatSliderModule,
+    AppRoutingModule
   ],
   providers: [httpInterceptorProvider,
     {provide: LOCALE_ID, useValue: 'en-US'}],
