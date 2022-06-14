@@ -21,4 +21,7 @@ export class RecruitmentnewService {
   findById(id: number): Observable<RecuitmentNew> {
     return this.http.get<RecuitmentNew>(`${API_URL}/recruitment/${id}`);
   }
+  searchCity(): Observable<RecuitmentNew[]> {
+    return this.http.get<RecuitmentNew[]>(API_URL + '/search/q-search/city');
+  }
 }

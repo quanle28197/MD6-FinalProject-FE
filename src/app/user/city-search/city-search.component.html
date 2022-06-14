@@ -1,0 +1,21 @@
+<h1>Danh sach</h1>
+
+<table>
+
+  <tr>
+    <td>STT</td>
+    <td>ten tp</td>
+    <td>tieu de</td>
+    <td>quantity</td>
+    <td>salary</td>
+  </tr>
+
+  <tr *ngFor="let searchCity of recruitment; index as i" >
+    <td>{{i + 1}}</td>
+    <td>{{searchCity.city.id}}</td>
+    <td>{{searchCity.title}}</td>
+    <td>{{searchCity.quantity}}</td>
+    <td>{{searchCity.salary}}</td>
+  </tr>
+
+</table>

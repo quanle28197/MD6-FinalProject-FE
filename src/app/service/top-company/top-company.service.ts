@@ -15,7 +15,7 @@ export class TopCompanyService {
   }
 
   getAll(): Observable<Company[]> {
-    return this.http.get<Company[]>(API_URL + '/company/list');
+    return this.http.get<Company[]>(API_URL + '/company');
   }
 
   findById(id: number): Observable<Company> {
