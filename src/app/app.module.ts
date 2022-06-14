@@ -36,7 +36,6 @@ import {
 } from './company/recruitmentnew/list-recruitmentnew-company/list-recruitmentnew-company.component';
 import {RegisterCompanyComponent} from './company/register-company/register-company.component';
 import {UploadImageComponent} from './upload/upload-image/upload-image.component';
-import {CompanyService} from './service/company/company.service';
 import {ChangePasswordComponent} from './account/change-password/change-password.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -101,6 +100,7 @@ export const appRoutes: Routes = [
 
 ];
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -159,7 +159,9 @@ export const appRoutes: Routes = [
     NgxAudioPlayerModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule, MatSliderModule
+    // tslint:disable-next-line:max-line-length
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule, MatSliderModule,
+
   ],
   providers: [httpInterceptorProvider,{provide: LOCALE_ID, useValue: "en-US"}],
   bootstrap: [AppComponent]

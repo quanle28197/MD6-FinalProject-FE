@@ -15,23 +15,24 @@ export class ApplyCompanyComponent implements OnInit {
   idCompany: number;
   notify: any = null;
 
-  constructor(private applyService: ApplyService,private tokenService: TokenService) { }
+  constructor(private applyService: ApplyService,
+              private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    this.pageCategory({page: 0, size: 3})
+    this.pageCategory({page: 0, size: 3});
   }
   pageCategory(nextPage){
     this.idCompany = this.tokenService.getIdGuest();
     this.applyService.pageCompany(nextPage,this.idCompany).subscribe(data =>{
       this.applyList = data['content'];
       console.log(this.applyList);
-      this.totalElements = data['totalElements']
+      this.totalElements = data['totalElements'];
       console.log(this.totalElements);
-    })
+    });
   }
   nextPage(event: PageEvent){
     console.log(event);
-    const request = {}
+    const request = {};
     request['page'] = event.pageIndex.toString();
     request['size'] = event.pageSize.toString();
     this.pageCategory(request);
@@ -42,21 +43,21 @@ export class ApplyCompanyComponent implements OnInit {
     const event: PageEvent = undefined;
     const changeStatus: ChangeStatusApply = new ChangeStatusApply(id,1);
     this.applyService.apply(changeStatus).subscribe(data =>{
-      this.notify = data.message
+      this.notify = data.message;
       this.pageCategory(event);
-    })
+    });
   }
 
   reject(id) {
     const changeStatus: ChangeStatusApply = new ChangeStatusApply(id,0);
     this.applyService.apply(changeStatus).subscribe(data =>{
-      this.notify = data.message
+      this.notify = data.message;
       this.pageCategory(event);
-    })
+    });
   }
 
   checkAccept(status) {
-    if(status == "APCEPT" || status == "REJECT"){
+    if (status == 'APCEPT' || status == 'REJECT'){
       return false;
     }
     else {

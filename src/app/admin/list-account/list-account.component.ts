@@ -5,7 +5,7 @@ import {StatusRequest} from '../../model/statusRequest';
 import {AccountService} from '../../service/account/account.service';
 import {Account} from '../../model/account';
 import {MatPaginator} from '@angular/material/paginator';
-import {MatDialog} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-list-account',
@@ -13,7 +13,7 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./list-account.component.scss']
 })
 export class ListAccountComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name','editStatus'];
+  displayedColumns: string[] = ['id', 'name', 'editStatus'];
 
   dataSource: any;
   accounts: any [] = [];
@@ -25,7 +25,7 @@ export class ListAccountComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getListAccount()
+    this.getListAccount();
   }
 
   getListAccount() {
@@ -39,7 +39,7 @@ export class ListAccountComponent implements OnInit {
     });
   }
   changeStatus(id: number) {
-    this.accountService.changeStatusById(id).subscribe(data=>{
+    this.accountService.changeStatusById(id).subscribe(data => {
       this.getListAccount();
     });
   }

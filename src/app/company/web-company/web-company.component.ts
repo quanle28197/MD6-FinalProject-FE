@@ -3,8 +3,6 @@ import {CompanyService} from '../../service/company/company.service';
 import {TokenService} from '../../security/token.service';
 import {RecruitmentNewService} from '../../service/recruitmentNew/recruitment-new.service';
 import {RecruitmentNew} from '../../model/recruitmentNew';
-import {MatTableDataSource} from '@angular/material/table';
-import {DetailRecruitmentnewComponent} from '../recruitmentnew/detail-recruitmentnew/detail-recruitmentnew.component';
 import {MatDialog} from '@angular/material/dialog';
 import {ApplyRecruitmentnewComponent} from '../../user/apply-recruitmentnew/apply-recruitmentnew.component';
 import {Company} from '../../model/company';

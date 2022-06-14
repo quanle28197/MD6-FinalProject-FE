@@ -3,9 +3,9 @@ import {Account} from '../../model/account';
 import {AuthService} from '../../security/auth.service';
 import {Company} from '../../model/company';
 import {CityService} from '../../service/city/city.service';
-import {DialogApplyComponent} from '../../dialog/dialogApplyFail/dialog-apply/dialog-apply.component';
 import {DialogCreateCompanyComponent} from '../../dialog/dialogCreateCompany/dialog-create-company/dialog-create-company.component';
 import {MatDialog} from '@angular/material/dialog';
+import {Report} from 'notiflix';
 
 
 @Component({
@@ -24,9 +24,9 @@ export class RegisterCompanyComponent implements OnInit {
   idAccount: number;
   cities: any = [];
   status = '';
-  success:any = {
-    message: "yes"
-  }
+  success: any = {
+    message: 'yes'
+  };
   constructor(private authService: AuthService,
               private cityService: CityService,
               private dialog: MatDialog) {
@@ -70,12 +70,12 @@ export class RegisterCompanyComponent implements OnInit {
       this.data.address, this.data.employeeQuantity, city, this.data.linkMap, this.data.phone, account11);
     console.log(this.company);
     this.authService.registerCompany(this.company).subscribe(data2 => {
-      console.log(data2)
-      if(JSON.stringify(data2)==JSON.stringify(this.success)){
+      console.log(data2);
+      if (JSON.stringify(data2) == JSON.stringify(this.success)) {
         // @ts-ignore
         const dialogRef1 = this.dialog.open(DialogCreateCompanyComponent);
         dialogRef1.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');
+          Report.success('Success', 'Lập tài khoản công ty thành công', 'Close');
         });
       }
     });

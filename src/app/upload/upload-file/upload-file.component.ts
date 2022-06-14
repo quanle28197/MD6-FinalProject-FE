@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {AngularFireStorage, AngularFireStorageReference} from "@angular/fire/storage";
+import {AngularFireStorage, AngularFireStorageReference} from '@angular/fire/storage';
+import {Notify} from 'notiflix';
 
 @Component({
   selector: 'app-upload-file',
@@ -14,7 +15,7 @@ export class UploadFileComponent implements OnInit {
   downloadURL: string;
   checkUpLoadFile = false;
   @Output()
-  giveURLtoCreate = new EventEmitter<string>()
+  giveURLtoCreate = new EventEmitter<string>();
 
   constructor(private afStorage: AngularFireStorage) {
   }
@@ -41,7 +42,7 @@ export class UploadFileComponent implements OnInit {
       console.log(this.downloadURL);
       return downloadURL;
     }).catch(error => {
-      console.log('Fail Upload ' + error);
-    })
+      Notify.failure('Đăng tải thất bại');
+    });
   }
 }

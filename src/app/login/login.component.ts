@@ -4,6 +4,7 @@ import {TokenService} from '../security/token.service';
 import {Router} from '@angular/router';
 import {SignInForm} from '../security/SignInForm';
 import {FormControl, Validators} from '@angular/forms';
+import {Notify, Report} from 'notiflix';
 
 @Component({
   selector: 'app-login',
@@ -16,9 +17,9 @@ export class LoginComponent implements OnInit {
   form: any = {};
 
   status = '';
-  errorLock: any= {
-    message: "LOCK"
-  }
+  errorLock: any = {
+    message: 'LOCK'
+  };
   emailFormControl = new FormControl('', [
     Validators.email, Validators.required
   ]);
@@ -40,10 +41,10 @@ export class LoginComponent implements OnInit {
       this.form.password
     );
     this.authService.signIn(this.signInForm).subscribe(data => {
-      console.log("dinh" ,data);
-      if(JSON.stringify(data)== JSON.stringify(this.errorLock)) {
-        this.status = 'Tài khoản của bạn đang bị khoá. Chuyển khoản đến stk này để mở khóa. !';
-        return;
+      console.log(data);
+      if (JSON.stringify(data) == JSON.stringify(this.errorLock)) {
+         Report.failure('Warning', 'Kích hoạt tài khoản trước khi đăng nhập nhé', 'Close');
+         return;
       }
       if (data.token != undefined) {
         this.tokenService.setIdAccount(data.idAccount);
@@ -78,6 +79,6 @@ export class LoginComponent implements OnInit {
         }
       }
     });
-    this.status = 'Bạn nhập sai tài khoản hoặc mật khẩu!';
+    Notify.failure('Bạn nhập sai tài khoản hoặc mật khẩu rồi kìa');
   }
 }

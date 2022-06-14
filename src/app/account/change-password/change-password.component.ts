@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ChangePassword} from '../../service/account/changePassword';
 import {AuthService} from '../../security/auth.service';
+import {Report} from 'notiflix';
+
 
 @Component({
   selector: 'app-change-password',
@@ -15,9 +17,9 @@ export class ChangePasswordComponent implements OnInit {
     newPassword: '',
     confirmPassword: ''
   };
-  status = "";
-  success:any = {
-    message: "yes"
+  status = '';
+  success: any = {
+    message: 'yes'
   };
   constructor(private authService: AuthService) {
   }
@@ -30,8 +32,7 @@ export class ChangePasswordComponent implements OnInit {
       console.log(this.changePassword);
       this.authService.changePassword(this.changePassword).subscribe(data => {
         if (JSON.stringify(data) == JSON.stringify(this.success)) {
-          // @ts-ignore
-          this.status = 'Đổi mật khẩu thành công !';
+          Report.success('Success', 'Bạn đã đổi mật khẩu thành công', 'Close');
         }
       });
     }

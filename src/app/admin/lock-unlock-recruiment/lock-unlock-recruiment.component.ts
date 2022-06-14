@@ -37,7 +37,7 @@ export class LockUnlockRecruimentComponent implements OnInit {
   }
 
   changeStatus(id: number) {
-    this.accountService.changeStatusById2(id).subscribe(data=>{
+    this.accountService.changeStatusById2(id).subscribe(data => {
       this.getListRecruitmentNew();
     });
   }

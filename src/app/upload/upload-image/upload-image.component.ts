@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AngularFireStorage, AngularFireStorageReference} from "@angular/fire/storage";
+import {Notify} from 'notiflix';
 
 @Component({
     selector: 'app-upload-image',
@@ -42,7 +43,7 @@ export class UploadImageComponent implements OnInit {
             console.log(this.downloadURL);
             return downloadURL;
         }).catch(error => {
-            console.log('Fail Upload ' + error);
-        })
+          Notify.failure('Đăng tải thất bại') + error;
+        });
     }
 }

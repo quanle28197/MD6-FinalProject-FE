@@ -17,9 +17,9 @@ export class ActiveStatusComponent implements OnInit {
     this.sub = this.activeRouter.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = Number(paramMap.get('id'));
       console.log(this.id);
-      this.auth.activeStatus(this.id).subscribe(data =>{
+      this.auth.activeStatus(this.id).subscribe(data => {
         console.log(data);
-        this.router.navigate(["login"]).then(window.location.reload);
+        this.router.navigate(['login']).then(window.location.reload);
       });
     });
   }

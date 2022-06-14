@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {TokenService} from "../../../security/token.service";
-import {User} from "../../../model/user";
-import {UserService} from "../../service/user.service";
-import {SkillService} from "../../../service/skill/skill.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {CVService} from "../../../service/cv/cv.service";
-import {WorkExpService} from "../../../service/workExp/work-exp.service";
-import {CvDTO} from "../../../model/dto/cv-dto";
-import {MatDialog} from "@angular/material/dialog";
-import {FormArray, FormBuilder} from "@angular/forms";
-import {DialogEditCvComponent} from "../../../dialog/CV/dialog-edit-cv/dialog-edit-cv.component";
+import {TokenService} from '../../../security/token.service';
+import {User} from '../../../model/user';
+import {UserService} from '../../service/user.service';
+import {SkillService} from '../../../service/skill/skill.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {CVService} from '../../../service/cv/cv.service';
+import {WorkExpService} from '../../../service/workExp/work-exp.service';
+import {CvDTO} from '../../../model/dto/cv-dto';
+import {MatDialog} from '@angular/material/dialog';
+import {FormArray, FormBuilder} from '@angular/forms';
+import {DialogEditCvComponent} from '../../../dialog/CV/dialog-edit-cv/dialog-edit-cv.component';
 
 @Component({
   selector: 'app-edit-cv',
@@ -17,7 +17,7 @@ import {DialogEditCvComponent} from "../../../dialog/CV/dialog-edit-cv/dialog-ed
   styleUrls: ['./edit-cv.component.scss']
 })
 export class EditCvComponent implements OnInit {
-  user: User = {account: null, phone: "", name: ''};
+  user: User = {account: null, phone: '', name: ''};
 
   idUser: number;
 
@@ -93,9 +93,9 @@ export class EditCvComponent implements OnInit {
 
       dialogRef.afterClosed().subscribe(result => {
         this.cvForm.reset();
-        this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
+        this.router.navigate(['detail-cv', this.tokenService.getIdGuest()]);
       });
-    })
+    });
   }
 
   addSkill() {
@@ -103,7 +103,7 @@ export class EditCvComponent implements OnInit {
       id: [''],
       name: [''],
       proficiency: ['50%']
-    })
+    });
     this.skills.push(skillForm);
   }
 
@@ -118,7 +118,7 @@ export class EditCvComponent implements OnInit {
       startDate: [''],
       endDate: [''],
       content: ['']
-    })
+    });
     this.workExps.push(workExpForm);
   }
 

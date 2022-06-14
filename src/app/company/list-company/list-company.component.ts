@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CompanyService} from '../../service/company/company.service';
-import {MatTableDataSource} from '@angular/material/table';
-import {RecruitmentNew} from '../../model/recruitmentNew';
 import {Company} from '../../model/company';
 import {Subscription} from 'rxjs';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-list-company',
@@ -13,14 +11,14 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
 })
 export class ListCompanyComponent implements OnInit {
   company: Company[] = [];
-  id: number=0;
+  id: number = 0;
   sub: Subscription;
   constructor(private companyService: CompanyService,
               private activeRouter: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.getListCompany()
+    this.getListCompany();
   }
 
 

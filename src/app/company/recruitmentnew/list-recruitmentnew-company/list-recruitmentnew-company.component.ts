@@ -7,9 +7,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogComponent} from '../../../dialog/dialog.component';
 import {CompanyService} from '../../../service/company/company.service';
-
 import {StatusRequest} from '../../../model/statusRequest';
-import {any} from 'codelyzer/util/function';
+
 
 import {DetailRecruitmentnewComponent} from '../detail-recruitmentnew/detail-recruitmentnew.component';
 
@@ -82,7 +81,7 @@ export class ListRecruitmentnewCompanyComponent implements OnInit {
 
 
   changeStatus(idRecrui: number) {
-    this.recruitmentNewService.changeStatusById(idRecrui).subscribe(data=>{
+    this.recruitmentNewService.changeStatusById(idRecrui).subscribe(data => {
       this.getListRecruitmentNew();
     });
   }

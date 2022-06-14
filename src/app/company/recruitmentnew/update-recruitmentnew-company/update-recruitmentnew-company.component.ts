@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {City} from "../../../model/city";
-import {RecruitmentNew} from "../../../model/recruitmentNew";
-import {WorkingTimeService} from "../../../service/workingTime/working-time.service";
-import {FieldService} from "../../../service/field/field.service";
-import {VacanciesService} from "../../../service/vacancies/vacancies.service";
-import {CityService} from "../../../service/city/city.service";
-import {RecruitmentNewService} from "../../../service/recruitmentNew/recruitment-new.service";
-import {TokenService} from "../../../security/token.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {RecruitmentNew} from '../../../model/recruitmentNew';
+import {WorkingTimeService} from '../../../service/workingTime/working-time.service';
+import {FieldService} from '../../../service/field/field.service';
+import {VacanciesService} from '../../../service/vacancies/vacancies.service';
+import {CityService} from '../../../service/city/city.service';
+import {RecruitmentNewService} from '../../../service/recruitmentNew/recruitment-new.service';
+import {TokenService} from '../../../security/token.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Notify} from 'notiflix';
 
 @Component({
   selector: 'app-update-recruitmentnew-company',
@@ -17,7 +17,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class UpdateRecruitmentnewCompanyComponent implements OnInit {
   form: any = {};
 
-  status: string = "Mời bạn nhập thông tin cần sửa";
+  status: string = 'Mời bạn nhập thông tin cần sửa';
   recruitmentNew: RecruitmentNew;
 
   id: number;
@@ -29,26 +29,26 @@ export class UpdateRecruitmentnewCompanyComponent implements OnInit {
   gender: any = [
     {
       id: 1,
-      name: "Nam"
+      name: 'Nam'
     },
     {
       id: 2,
-      name: "Nữ"
+      name: 'Nữ'
     },
     {
       id: 3,
-      name: "Nam và Nữ"
+      name: 'Nam và Nữ'
     }
   ];
 
   error1: any = {
-    message: "no_quantity"
+    message: 'no_quantity'
   };
   error2: any = {
-    message: "no_salary"
+    message: 'no_salary'
   };
   success: any = {
-    message: "yes"
+    message: 'yes'
   };
 
   constructor(private workingTimeService: WorkingTimeService,
@@ -107,10 +107,10 @@ export class UpdateRecruitmentnewCompanyComponent implements OnInit {
         // @ts-ignore
         this.status = 'Vui lòng nhập mức lương!';
       }
-      if(JSON.stringify(data)==JSON.stringify(this.success)){
+      if (JSON.stringify(data) == JSON.stringify(this.success)) {
         // @ts-ignore
-        this.status = 'Cập nhật tin tuyển dụng thành công!'
+        Notify.success('Sửa tin tuyển dụng thành công');
       }
-    })
+    });
   }
 }
