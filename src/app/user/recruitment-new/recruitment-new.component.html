@@ -12,8 +12,8 @@
 
     <div class="row">
       <!--Xem tóm tắt tin tuyển dụng-->
-      <div class="col-lg-6">
-        <div class="single-testimonials">
+      <div *ngFor="let recruitment of recruitmentCompany ;index as i" class="col-lg-6">
+        <div  class="single-testimonials">
           <div class="testimonials-head">
             <div class="row align-items-center">
               <div class="col-lg-3 col-md-3 col-5">
@@ -23,23 +23,23 @@
               </div>
               <div class="col-lg-9 col-md-9 col-7">
                 <div class="content">
-                  <h2>Tên vị trí tuyển dụng 1</h2>
-                  <div>Tiền lương:</div>
+                  <h2>Tuyen:{{recruitment.title}}</h2>
+                  <div>Tiền lương: {{recruitment.salary}}</div>
                   <div>Địa điểm:</div>
-                  <div>Tuyển dụng đến:</div>
+                  <div>Tuyển dụng đến: {{recruitment.expDate}}</div>
                 </div>
               </div>
             </div>
           </div>
           <hr>
           <div class="testimonials-foot">
-            <button class="btn btn-outline-primary">Xem chi tiết</button>
+            <button class="btn btn-outline-primary" [routerLink]="['/user/list-recruitment',recruitment.id]">Chi tiết</button>
             &nbsp;
             <button class="btn btn-outline-primary">Ứng tuyển ngay</button>
           </div>
         </div>
       </div>
-      <div class="col-lg-6">
+      <!--<div class="col-lg-6">
         <div class="single-testimonials">
           <div class="testimonials-head">
             <div class="row align-items-center">
@@ -173,7 +173,7 @@
             <button class="btn btn-outline-primary">Ứng tuyển ngay</button>
           </div>
         </div>
-      </div>
+      </div>-->
       <!--End Xem tóm tắt tin tuyển dụng-->
 
       <!--Phân trang-->

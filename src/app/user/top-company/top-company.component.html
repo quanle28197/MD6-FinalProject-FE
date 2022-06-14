@@ -15,7 +15,7 @@
           <div class="service-content">
             <h3>{{topCom.name}}</h3>
             <div>Số lượng tuyển: {{topCom.emplployeeQuantity}}</div>
-            <a class="line-bnt" href="">Xem chi tiết</a>
+            <a class="line-bnt" [routerLink]="['/user/list-detail',topCom.id]">Xem chi tiết</a>
           </div>
         </div>
       </div>
