@@ -18,7 +18,7 @@ export class ChangePasswordComponent implements OnInit {
   status = "";
   success:any = {
     message: "yes"
-  }
+  };
   constructor(private authService: AuthService) {
   }
 

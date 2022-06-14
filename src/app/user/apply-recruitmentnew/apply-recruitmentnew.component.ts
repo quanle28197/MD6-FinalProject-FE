@@ -6,7 +6,6 @@ import {RecruitmentNew} from '../../model/recruitmentNew';
 import {TokenService} from '../../security/token.service';
 import {ApplyService} from '../../service/apply/apply.service';
 import {Apply} from '../../model/apply';
-import {DialogComponent} from '../../dialog/dialog.component';
 import {DialogApplyFailComponent} from '../../dialog/dialogApplyFail/dialog-apply-fail/dialog-apply-fail.component';
 import {DialogApplyComponent} from '../../dialog/dialogApplyFail/dialog-apply/dialog-apply.component';
 import {ForwardApply} from '../../model/forwardApply';

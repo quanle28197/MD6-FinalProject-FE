@@ -39,17 +39,17 @@ export class UpdateRecruitmentnewCompanyComponent implements OnInit {
       id: 3,
       name: "Nam và Nữ"
     }
-  ]
+  ];
 
   error1: any = {
     message: "no_quantity"
-  }
+  };
   error2: any = {
     message: "no_salary"
-  }
+  };
   success: any = {
     message: "yes"
-  }
+  };
 
   constructor(private workingTimeService: WorkingTimeService,
               private fieldService: FieldService,
@@ -59,41 +59,41 @@ export class UpdateRecruitmentnewCompanyComponent implements OnInit {
               private token: TokenService,
               private route: ActivatedRoute,
               private router: Router) {
-    this.showAllWorkingTime()
-    this.showAllField()
-    this.showAllVacancies()
-    this.showAllCity()
+    this.showAllWorkingTime();
+    this.showAllField();
+    this.showAllVacancies();
+    this.showAllCity();
   }
 
   showAllWorkingTime() {
     this.workingTimeService.showAll().subscribe(data => {
       this.workingTimes = data;
-    })
+    });
   }
 
   showAllField() {
     this.fieldService.showAll().subscribe(data1 => {
       this.fields = data1;
-    })
+    });
   }
 
   showAllVacancies() {
     this.vacanciesService.showAll().subscribe(data2 => {
       this.vacancies1 = data2;
-    })
+    });
   }
 
   showAllCity() {
     this.cityService.showAll().subscribe(data3 => {
       this.cities = data3;
-    })
+    });
   }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.recruitmentNewService.getRecruitmentNewById(this.id).subscribe(data => {
       this.recruitmentNew = data;
-    })
+    });
   }
 
   onUpdate() {
