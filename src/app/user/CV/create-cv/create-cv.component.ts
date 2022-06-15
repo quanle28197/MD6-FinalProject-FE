@@ -43,6 +43,7 @@ export class CreateCvComponent implements OnInit {
     skills: this.fb.array([]),
     workExps: this.fb.array([])
   });
+  usAmount: any;
 
   get skills() {
     return this.cvForm.get('skills') as FormArray;
@@ -73,6 +74,8 @@ export class CreateCvComponent implements OnInit {
       }
     });
   }
+
+  updateUSAmount(event) { this.usAmount = event.target.value; }
 
   addSkill() {
     const skillForm = this.fb.group({

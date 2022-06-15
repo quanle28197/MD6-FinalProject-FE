@@ -81,6 +81,13 @@ export class RegisterCompanyComponent implements OnInit {
     });
   }
 
+  numericOnly(event) {
+    const input = String.fromCharCode(event.keyCode);
+    if (!/^[0-9]*$/.test(input)) {
+      event.preventDefault();
+    }
+  }
+
   onUpLoadAvatar(event: any) {
     this.data.avatar = event;
   }

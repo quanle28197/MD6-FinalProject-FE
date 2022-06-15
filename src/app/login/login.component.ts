@@ -6,6 +6,7 @@ import {SignInForm} from '../security/SignInForm';
 import {FormControl, Validators} from '@angular/forms';
 import {Notify, Report} from 'notiflix';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,12 +25,15 @@ export class LoginComponent implements OnInit {
     Validators.email, Validators.required
   ]);
 
+
+
   // @ts-ignore
   signInForm: SignInForm;
 
   constructor(private authService: AuthService,
               private tokenService: TokenService,
-              private router: Router) {
+              private router: Router,
+              ) {
   }
 
   ngOnInit(): void {
@@ -67,7 +71,7 @@ export class LoginComponent implements OnInit {
                 });
               }
             });
-            this.router.navigate(['home']).then(() => {
+            this.router.navigate(['detail-cv/:id']).then(() => {
               window.location.reload();
             });
           }

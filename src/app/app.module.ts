@@ -72,6 +72,8 @@ import {ApplyCompanyComponent} from './company/apply-company/apply-company.compo
 import { DialogNoCreateComponent } from './dialog/CV/dialog-no-create/dialog-no-create.component';
 import { DialogMatchComponent } from './dialog/dialog-match/dialog-match.component';
 import {registerLocaleData} from '@angular/common';
+import {MatCurrencyFormatModule} from 'mat-currency-format';
+
 
 
 export const appRoutes: Routes = [
@@ -100,6 +102,7 @@ export const appRoutes: Routes = [
 
 ];
 
+// @ts-ignore
 // @ts-ignore
 @NgModule({
   declarations: [
@@ -160,10 +163,10 @@ export const appRoutes: Routes = [
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     // tslint:disable-next-line:max-line-length
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule, MatSliderModule,
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule, MatSliderModule, MatCurrencyFormatModule,
 
   ],
-  providers: [httpInterceptorProvider,{provide: LOCALE_ID, useValue: "en-US"}],
+  providers: [httpInterceptorProvider, {provide: LOCALE_ID, useValue: 'en-US'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

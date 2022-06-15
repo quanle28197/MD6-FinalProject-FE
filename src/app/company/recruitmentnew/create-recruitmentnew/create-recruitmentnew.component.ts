@@ -47,6 +47,7 @@ export class CreateRecruitmentnewComponent implements OnInit {
   success: any = {
     message: 'yes'
   };
+  private usAmount: any;
   constructor(private workingTimeService: WorkingTimeService,
               private fieldService: FieldService,
               private vacanciesService: VacanciesService,
@@ -88,6 +89,9 @@ export class CreateRecruitmentnewComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+
+  updateUSAmount(event) { this.usAmount = event.target.value; }
+
 
   ngSubmit() {
     const city = {

@@ -97,25 +97,25 @@
                                 <mat-datepicker #picker></mat-datepicker>
                             </mat-form-field>
 
-                            <!--description-->
-                            <div class="col-md-6 col-sm-6">
-                                <mat-form-field style="width: 100%" appearance="outline">
-                                    <mat-label>Mô Tả:</mat-label>
-                                    <input matInput placeholder="Mô tả ..." name="description"
-                                           [(ngModel)]="form.description"
-                                           #description="ngModel" required>
-                                    <mat-icon color="#051242" matSuffix>description</mat-icon>
-                                    <mat-error *ngIf="description.hasError('required')">Viết mô tả và chú thích công
-                                        việc
-                                    </mat-error>
-                                </mat-form-field>
-                            </div>
+                          <!--giới tính-->
+                          <div class="col-md-6 col-sm-6">
+                            <mat-form-field appearance="outline">
+                              <mat-label>Giới Tính Tuyển Dụng</mat-label>
+                              <mat-select [(ngModel)]="form.gender" style="width: 100%" name="gender">
+                                <mat-option *ngFor="let gen of gender" [value]="gen.id">{{gen.name}}</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
 
                             <!--mức lương -->
                             <div class="col-md-6 col-sm-6">
                                 <mat-form-field style="width: 100%" appearance="outline">
                                     <mat-label>Mức Lương:</mat-label>
-                                    <input matInput placeholder="Mức Lương..." name="description"
+                                    <input  mvndrMatCurrencyFormat
+                                            [allowNegative]="false"
+                                            [currencyCode]="'VND'"
+                                            [value]="usAmount"
+                                            (blur)="updateUSAmount($event)" matInput placeholder="Mức Lương..." name="description"
                                            [(ngModel)]="form.salary"
                                            #salary="ngModel" required>
                                     <mat-icon color="#051242" matSuffix>local_atm</mat-icon>
@@ -138,14 +138,17 @@
                                 </mat-form-field>
                             </div>
 
-                            <!--giới tính-->
-                            <mat-form-field appearance="outline">
-                                <mat-label>Giới Tính Tuyển Dụng</mat-label>
-                                <mat-select [(ngModel)]="form.gender" style="width: 100%" name="gender">
-                                    <mat-option *ngFor="let gen of gender" [value]="gen.id">{{gen.name}}</mat-option>
-                                </mat-select>
+                          <!--description-->
+                            <mat-form-field style="width: 100%" appearance="outline">
+                              <mat-label>Mô Tả:</mat-label>
+                              <textarea matInput placeholder="Mô tả ..." name="description"
+                                        [(ngModel)]="form.description"
+                                        #description="ngModel" required></textarea>
+                              <mat-icon color="#051242" matSuffix>description</mat-icon>
+                              <mat-error *ngIf="description.hasError('required')">Viết mô tả và chú thích công
+                                việc
+                              </mat-error>
                             </mat-form-field>
-
 
                             <!--nơi làm việc-->
                             <mat-form-field appearance="outline">

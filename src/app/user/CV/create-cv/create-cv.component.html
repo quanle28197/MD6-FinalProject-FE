@@ -63,7 +63,11 @@
                     <div class="col-lg-6 col-sm-6">
                         <mat-form-field style="width: 100%" appearance="outline">
                             <mat-label>Lương mong muốn</mat-label>
-                            <input matInput placeholder="Nhập lương mong muốn" formControlName="salaryExpectation">
+                            <input mvndrMatCurrencyFormat
+                                   [allowNegative]="false"
+                                   [currencyCode]="'VND'"
+                                   [value]="usAmount"
+                                   (blur)="updateUSAmount($event)" matInput placeholder="Nhập lương mong muốn" formControlName="salaryExpectation">
                             <mat-icon color="black" matSuffix>monetization_on</mat-icon>
                         </mat-form-field>
                     </div>

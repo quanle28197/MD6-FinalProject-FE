@@ -36,7 +36,7 @@
                                           (ngSubmit)="form.form.valid && ngSubmit(form)" novalidate>
                                         <!--                                        <mat-error class="alert alert-primary">{{status}}</mat-error>-->
                                         <mat-form-field style="width: 350px" appearance="outline">
-                                            <mat-label>Tài khoản</mat-label>
+                                            <mat-label>Email đăng ký</mat-label>
                                             <input matInput placeholder="Nhập tài khoản" name="username"
                                                    [(ngModel)]="data.username" #username="ngModel" required email>
                                             <mat-icon color="black" matSuffix>account_circle</mat-icon>
@@ -70,7 +70,7 @@
                                             <input matInput placeholder="Nhập địa chỉ" name="address"
                                                    [(ngModel)]="data.address">
                                             <mat-icon color="black" matSuffix>home</mat-icon>
-                                            <!--            <mat-error *ngIf="form.controls.username?.errors?.required">Phải điền thông tin</mat-error>-->
+                                          <mat-error *ngIf="form.controls.username?.errors?.required">Phải điền thông tin</mat-error>
                                         </mat-form-field>
                                         <br>
                                         <mat-form-field style="width: 350px" appearance="outline">
@@ -98,9 +98,12 @@
                                         <br>
                                         <mat-form-field style="width: 350px" appearance="outline">
                                             <mat-label>Số điện thoại</mat-label>
-                                            <input matInput placeholder="Số điện thoại" name="phone"
-                                                   [(ngModel)]="data.phone">
-                                            <!--            <mat-error *ngIf="form.controls.username?.errors?.required">Phải điền thông tin</mat-error>-->
+                                            <input pattern="[0-9]*"
+                                                   [type]="'text'"
+                                                   (keypress)="numericOnly($event)"
+                                                   autocomplete="off" matInput placeholder="Số điện thoại" name="phone"
+                                                   [(ngModel)]="data.phone" maxlength="12">
+                                          <mat-error *ngIf="form.controls.username?.errors?.required">Phải điền thông tin</mat-error>
                                             <mat-icon color="black" matSuffix>phone</mat-icon>
                                         </mat-form-field>
                                         <br>
