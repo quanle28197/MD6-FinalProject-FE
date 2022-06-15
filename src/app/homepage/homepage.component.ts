@@ -18,6 +18,8 @@ import {ForwardApplyService} from '../service/apply/forward-apply.service';
 import {Field} from '../model/field';
 import {SearchJob} from '../model/SearchJob';
 import {FieldService} from '../service/field/field.service';
+import {CityService} from '../service/city/city.service';
+import {City} from '../model/city';
 
 @Component({
   selector: 'app-homepage',
@@ -37,6 +39,7 @@ export class HomepageComponent implements OnInit {
   recruitmentNew: RecruitmentNew;
   fields: Field[] = [];
   searchJob: SearchJob;
+  cities: City[] = [];
 
   rcmdate: any[] = [];
 
@@ -50,7 +53,8 @@ export class HomepageComponent implements OnInit {
               private applyService: ApplyService,
               private forwardApplyService: ForwardApplyService,
               private recruitmentNewService: RecruitmentNewService,
-              private fieldService: FieldService
+              private fieldService: FieldService,
+              private cityService: CityService
   ) {
     this.companyService.fidAllCompanyByStatus(4).subscribe(data => {
 
@@ -114,6 +118,15 @@ export class HomepageComponent implements OnInit {
     this.findByRecuitmentNewNeed();
     this.getAllJobByField();
     this.getAllField();
+    this.getAllCity();
+  }
+
+  getAllCity() {
+    this.cityService.showAll().subscribe(resp => {
+      this.cities = resp;
+    }, error => {
+      console.log(error);
+    });
   }
 
   getAllJobByField() {

@@ -1,13 +1,9 @@
 import {Injectable} from '@angular/core';
 import {environment} from "../../../environments/environment";
-import {SignInForm} from "../../security/SignInForm";
 import {Observable} from "rxjs";
-import {JwtResponse} from "../../security/JwtResponses";
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Company} from "../../model/company";
-import {RecruitmentNew} from "../../model/recruitmentNew";
 import {EditCompany} from '../../model/editCompany';
-import {Field} from '../../model/field';
 
 @Injectable({
   providedIn: 'root'

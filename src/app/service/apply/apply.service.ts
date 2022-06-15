@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Cv} from '../../model/cv';
 import {Observable} from 'rxjs';
 import {Apply} from '../../model/apply';
 import {environment} from '../../../environments/environment';
@@ -14,21 +13,21 @@ export class ApplyService {
   constructor(private http: HttpClient) { }
 
   createCV(apply: Apply): Observable<any> {
-    return this.http.post(`${this.apiServerUrl}/applies`, apply)
+    return this.http.post(`${this.apiServerUrl}/applies`, apply);
   }
 
-  pageCompany(request,id){
+  pageCompany(request, id){
     const params = request;
-    return this.http.get(`${this.apiServerUrl}/applies/findAllByCompanyID/${id}`,{params})
+    return this.http.get(`${this.apiServerUrl}/applies/findAllByCompanyID/${id}`, {params});
   }
 
   apply(changeStatusApply: ChangeStatusApply): Observable<any>{
-    return this.http.post<any>("http://localhost:8080/applies/changeStatusApply",changeStatusApply);
+    return this.http.post<any>(`${this.apiServerUrl}/applies/changeStatusApply`, changeStatusApply);
   }
 
-  pageApply(nextPage,id : number){
+  pageApply(nextPage, id: number){
     const params = nextPage;
-    return  this.http.get(`${this.apiServerUrl}/applies/showAllApply/${id}`,{params})
+    return  this.http.get(`${this.apiServerUrl}/applies/showAllApply/${id}`, {params});
   }
 
 }

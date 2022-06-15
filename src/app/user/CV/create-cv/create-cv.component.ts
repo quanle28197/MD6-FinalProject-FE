@@ -74,7 +74,6 @@ export class CreateCvComponent implements OnInit {
       }
     });
   }
-
   updateUSAmount(event) { this.usAmount = event.target.value; }
 
   addSkill() {

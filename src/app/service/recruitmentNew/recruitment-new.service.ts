@@ -4,6 +4,7 @@ import {environment} from '../../../environments/environment';
 import {RecruitmentNew} from '../../model/recruitmentNew';
 import {Observable} from 'rxjs';
 import {SearchJob} from '../../model/SearchJob';
+import {City} from '../../model/city';
 
 @Injectable({
   providedIn: 'root'
@@ -56,5 +57,9 @@ export class RecruitmentNewService {
 
   getAllJobByField(query: string): Observable<RecruitmentNew[]> {
     return this.http.get<RecruitmentNew[]>( this.apiServerUrl + '/recruitment/quick-search?query=' + query);
+  }
+
+  getAllJobByCity(query: string): Observable<RecruitmentNew[]> {
+    return this.http.get<RecruitmentNew[]>(this.apiServerUrl + '/recruitment/q-search/city?query=' + query);
   }
 }
