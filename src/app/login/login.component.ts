@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
                 });
               }
             });
-            this.router.navigate(['detail-cv/:id']).then(() => {
+            this.router.navigate(['home']).then(() => {
               window.location.reload();
             });
           }

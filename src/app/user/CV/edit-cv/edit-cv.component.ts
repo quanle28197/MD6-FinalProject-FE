@@ -10,6 +10,7 @@ import {CvDTO} from '../../../model/dto/cv-dto';
 import {MatDialog} from '@angular/material/dialog';
 import {FormArray, FormBuilder} from '@angular/forms';
 import {DialogEditCvComponent} from '../../../dialog/CV/dialog-edit-cv/dialog-edit-cv.component';
+import {Notify} from 'notiflix';
 
 @Component({
   selector: 'app-edit-cv',
@@ -89,12 +90,8 @@ export class EditCvComponent implements OnInit {
   onUpdate() {
     console.log(this.cvForm.value)
     this.cvService.updateCV(this.tokenService.getIdGuest(), this.cvForm.value).subscribe(data => {
-      const dialogRef = this.dialog.open(DialogEditCvComponent);
-
-      dialogRef.afterClosed().subscribe(result => {
-        this.cvForm.reset();
+        Notify.success('Sửa CV thành công');
         this.router.navigate(['detail-cv', this.tokenService.getIdGuest()]);
-      });
     });
   }
 

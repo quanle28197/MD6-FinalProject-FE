@@ -98,10 +98,9 @@
                                                 <p><b>Nơi làm việc:</b> {{rcm.city.name}}</p>
                                                 <p><b>Thời gian làm việc:</b> {{rcm.workingTime.name}}</p>
                                                 <p><b>Ngày ứng tuyển:</b> {{rcm.expDate}}</p>
-                                                <a class="line-bnt"
-                                                   (click)="openDialogApply(rcm.id)"><span
-                                                        class="btn btn-link">Chi tiết</span>
-                                                </a>
+                                                <button  (click)="openDialogApply(rcm.id)"
+                                                  mat-raised-button color="primary">Chi tiết
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
