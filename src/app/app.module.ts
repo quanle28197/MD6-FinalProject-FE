@@ -5,6 +5,7 @@ registerLocaleData(en);
 import {Routes, RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
+<<<<<<< HEAD
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // @ts-ignore
@@ -86,6 +87,11 @@ export const appRoutes: Routes = [
   {path: 'web-company/:id', component: WebCompanyComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];
+=======
+import {SharedModule} from './shared/shared.module';
+import {HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+>>>>>>> ea402ab761a67c2d98d1e1118db4a330bde7cef0
 
 @NgModule({
   declarations: [
@@ -116,6 +122,7 @@ export const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     BrowserModule,
+<<<<<<< HEAD
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
@@ -139,10 +146,17 @@ export const appRoutes: Routes = [
     MatDatepickerModule,
     MatBadgeModule,
     MatSliderModule
+=======
+    AppRoutingModule,
+    SharedModule,
+    HttpClientModule,
+    BrowserAnimationsModule
+>>>>>>> ea402ab761a67c2d98d1e1118db4a330bde7cef0
   ],
   providers: [httpInterceptorProvider,
     {provide: LOCALE_ID, useValue: 'en-US'}],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
 }
