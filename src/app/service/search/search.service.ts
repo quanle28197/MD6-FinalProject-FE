@@ -17,4 +17,8 @@ export class SearchService {
   getAllJobByField(query: string): Observable<RecuitmentNew[]> {
     return this.http.get<RecuitmentNew[]>(API_URL + '/search?query=' + query);
   }
+
+  getAllJobByCity(query: string): Observable<RecuitmentNew[]> {
+    return this.http.get<RecuitmentNew[]>(API_URL + '/city?query' + query);
+  }
 }

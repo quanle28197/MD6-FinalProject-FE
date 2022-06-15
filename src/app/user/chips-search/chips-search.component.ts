@@ -4,6 +4,7 @@ import {RecruitmentnewService} from '../../service/recruitmentnew/recruitmentnew
 import {SearchJob} from '../../model/search-job';
 import {Router} from '@angular/router';
 import {Field} from '../../model/field';
+import {City} from '../../model/city';
 
 @Component({
   selector: 'app-chips-search',
@@ -13,6 +14,7 @@ import {Field} from '../../model/field';
 export class ChipsSearchComponent implements OnInit {
   recruitmentCompany: RecuitmentNew[] = [];
   fields: Field[] = [];
+  cities: City[] = [];
   searchJob: SearchJob;
 
   constructor(private recruitmentService: RecruitmentnewService,
@@ -20,8 +22,9 @@ export class ChipsSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAllJobByField();
+    // this.getAllJobByField();
     this.getAllField();
+    this.getAllCity();
   }
 
   getAllJobByField() {
@@ -44,5 +47,11 @@ export class ChipsSearchComponent implements OnInit {
     this.router.navigate(['/user/q-search', param]).then(r => console.log(r));
   }
 
-
+  getAllCity() {
+    this.recruitmentService.getAllCity().subscribe(resp => {
+      this.cities = resp;
+    }, error => {
+      console.log(error);
+    });
+  }
 }

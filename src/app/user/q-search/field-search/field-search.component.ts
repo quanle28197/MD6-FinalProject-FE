@@ -15,15 +15,29 @@ export class FieldSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.queryParams
-      .subscribe(params => {
-          console.log(params.query);
-          this.searchService.getAllJobByField(params.query).subscribe(resp => {
-            this.recruitmentCompany = resp;
-            console.log(resp);
-            console.log('bla');
-          }, error => console.log(error));
-        }
-      );
+    this.getAllJobByField();
+    this.getAllJobByCity();
+  }
+
+  getAllJobByField() {
+    this.route.queryParams.subscribe(params => {
+        console.log(params.query);
+        this.searchService.getAllJobByField(params.query).subscribe(resp => {
+          this.recruitmentCompany = resp;
+          console.log(resp);
+          console.log('bla');
+        }, error => console.log(error));
+      }
+    );
+  }
+
+  getAllJobByCity() {
+    this.route.queryParams.subscribe(params => {
+      this.searchService.getAllJobByCity(params.query).subscribe(resp => {
+        this.recruitmentCompany = resp;
+      }, error => {
+        console.log(error);
+      });
+    });
   }
 }

@@ -12,7 +12,6 @@ import {FieldSearchComponent} from './q-search/field-search/field-search.compone
 import {ChipsSearchComponent} from './chips-search/chips-search.component';
 import {MatChipsModule} from '@angular/material';
 
-
 @NgModule({
   declarations: [HomepageComponent,
     BannerAreaComponent,

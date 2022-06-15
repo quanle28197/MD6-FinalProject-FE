@@ -2,8 +2,11 @@
   <div class="row">
     <div class="section-title">
       <mat-chip-list aria-label="Field selection">
-        <mat-chip *ngFor="let field of fields" [queryParams]="{ 'query': field.name}"
+        <mat-chip *ngFor="let field of fields" [queryParams]="{'query': field.name}"
                   [routerLink]="['/user/quick-search']" color="accent" selected>{{field.name}}
+        </mat-chip>
+        <mat-chip *ngFor="let city of cities" [queryParams]="{'query': city.name}"
+                  [routerLink]="['/user/quick-search']" color="warn" selected>{{city.name}}
         </mat-chip>
       </mat-chip-list>
     </div>

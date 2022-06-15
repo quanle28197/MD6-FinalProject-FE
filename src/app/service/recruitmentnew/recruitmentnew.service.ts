@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {SearchJob} from '../../model/search-job';
 import {Field} from '../../model/field';
+import {City} from '../../model/city';
 
 const API_URL = `${environment.apiURL}`;
 
@@ -30,5 +31,9 @@ export class RecruitmentnewService {
 
   getAllField(): Observable<Field[]> {
     return this.http.get<Field[]>(`${API_URL}/fields`);
+  }
+
+  getAllCity(): Observable<City[]> {
+    return this.http.get<City[]>(`${API_URL}/cities`);
   }
 }
