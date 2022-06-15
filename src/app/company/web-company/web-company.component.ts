@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CompanyService} from '../../service/company/company.service';
+// @ts-ignore
 import {MatDialog} from '@angular/material/dialog';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {Subscription} from 'rxjs';
