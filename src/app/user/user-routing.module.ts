@@ -4,6 +4,7 @@ import {HomepageComponent} from './homepage/homepage.component';
 import {TopCompanyComponent} from './top-company/top-company.component';
 import {DetailCompanyComponent} from './detail-company/detail-company.component';
 import {DetailRecruitmentComponent} from './detail-recruitment/detail-recruitment.component';
+import {FieldSearchComponent} from './q-search/field-search/field-search.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'list-company',
     component: TopCompanyComponent
+  },
+  {
+    path: 'quick-search',
+    component: FieldSearchComponent
   }
 ];
 
