@@ -4,6 +4,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {UserService} from '../user/service/user.service';
 import {Router} from '@angular/router';
 import {CompanyService} from '../service/company/company.service';
+import {NgForm} from "@angular/forms";
 
 
 @Component({
@@ -21,6 +22,8 @@ export class HomepageComponent implements OnInit {
 
 
   rcmdate: any[] = [];
+  RecuitmentNewNeed:any;
+  recruimentNew: any;
 
 
   constructor(private companyService: CompanyService,
@@ -64,4 +67,8 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  ngSubmit(f: NgForm) {
+  }
+
 }

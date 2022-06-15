@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Account} from '../../model/account';
 import {AuthService} from '../../security/auth.service';
 import {User} from '../../model/user';
+// @ts-ignore
 import {MatDialog} from '@angular/material/dialog';
 
 

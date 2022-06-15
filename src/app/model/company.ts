@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export class Company  {
   codeCompany?: string;
   name: string;
@@ -25,4 +26,19 @@ export class Company  {
     this.statusCompany = statusCompany;
     this.account = account;
   }
+=======
+export interface Company {
+  id?: number;
+  codeCompany?: number;
+  name?: number;
+  avatar?: string;
+  description?: string;
+  address?: string;
+  emplployeeQuantity?: number;
+  city?: any;
+  linkMap?: string;
+  phone?: string;
+  statusCompany?: any;
+  account?: string;
+>>>>>>> ea402ab761a67c2d98d1e1118db4a330bde7cef0
 }

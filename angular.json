@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               {
                 "input": "src/styles.scss"
               },
@@ -51,6 +52,19 @@
                 "input": "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
                 "bundleName": "assets/indigo-pink"
               }
+=======
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "src/styles.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/meanmenu.css",
+              "src/assets/css/boxicons.min.css",
+              "src/assets/css/flaticon.css",
+              "src/assets/css/magnific-popup.css",
+              "src/assets/css/animate.min.css",
+              "src/assets/css/owl.carousel.min.css",
+              "src/assets/css/style.css",
+              "src/assets/css/responsive.css"
+>>>>>>> ea402ab761a67c2d98d1e1118db4a330bde7cef0
             ],
             
             "scripts": []
@@ -114,7 +128,16 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+<<<<<<< HEAD
             ]
+=======
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "src/styles.css"
+            ],
+            "scripts": []
+>>>>>>> ea402ab761a67c2d98d1e1118db4a330bde7cef0
           }
         },
         "lint": {
@@ -200,8 +223,12 @@
       }
     }
   },
+<<<<<<< HEAD
   "defaultProject": "ngx-audio-player-demo",
   "cli": {
     "analytics": false
   }
+=======
+  "defaultProject": "findJob"
+>>>>>>> ea402ab761a67c2d98d1e1118db4a330bde7cef0
 }

@@ -44,6 +44,7 @@
   },
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@angular-devkit/build-ng-packagr": "^0.1002.0",
     "@angular/animations": "^11.1.2",
     "@angular/cdk": "^11.1.2",
@@ -64,6 +65,22 @@
     "rxjs": "^6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
+=======
+    "@angular/animations": "~8.2.14",
+    "@angular/cdk": "~8.2.3",
+    "@angular/common": "~8.2.14",
+    "@angular/compiler": "~8.2.14",
+    "@angular/core": "~8.2.14",
+    "@angular/forms": "~8.2.14",
+    "@angular/material": "^8.2.3",
+    "@angular/platform-browser": "~8.2.14",
+    "@angular/platform-browser-dynamic": "~8.2.14",
+    "@angular/router": "~8.2.14",
+    "hammerjs": "^2.0.8",
+    "rxjs": "~6.4.0",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.9.1"
+>>>>>>> ea402ab761a67c2d98d1e1118db4a330bde7cef0
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1100.7",

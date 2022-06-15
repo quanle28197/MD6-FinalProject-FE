@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {WorkExpService} from '../../../service/workExp/work-exp.service';
 import {SkillService} from '../../../service/skill/skill.service';
 import {DialogCreateCvComponent} from '../../../dialog/CV/dialog-create-cv/dialog-create-cv.component';
+// @ts-ignore
 import {MatDialog} from '@angular/material/dialog';
 import {DialogNoCreateComponent} from '../../../dialog/CV/dialog-no-create/dialog-no-create.component';
 import {CVService} from '../../../service/cv/cv.service';

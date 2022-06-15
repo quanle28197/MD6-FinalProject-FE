@@ -1,0 +1,25 @@
+<!-- Service Area -->
+<section class="home-service-area pb-70 pt-100">
+  <div class="container">
+    <div class="section-title">
+      <span></span>
+      <h2>Các công ty hàng đầu</h2>
+      <p>Các công ty hàng đầu có nhu cầu tuyển dụng lớn</p>
+    </div>
+    <div class="row">
+      <div *ngFor="let topCom of topCompany;index as i" class="col-lg-4 col-sm-6">
+        <div class="single-info single-service">
+          <div class="info-img">
+            <img height="100px" src="http://localhost:8080/image/{{topCom.avatar}}" width="100px">
+          </div>
+          <div class="service-content">
+            <h3>{{topCom.name}}</h3>
+            <div>Số lượng tuyển: {{topCom.emplployeeQuantity}}</div>
+            <a class="line-bnt" [routerLink]="['/user/list-detail',topCom.id]">Xem chi tiết</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Service Area -->
