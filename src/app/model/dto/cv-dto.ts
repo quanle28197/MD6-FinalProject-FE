@@ -1,5 +1,5 @@
-import {SkillDTO} from './skil-dto';
-import {WorkExpDTO} from './work-exp-dto';
+import {SkillDTO} from "./skill-dto";
+import {WorkExpDTO} from "./work-exp-dto";
 
 export interface CvDTO {
   id: number;

@@ -1,0 +1,135 @@
+
+<!-- End Banner Area -->
+
+<div class="container">
+    <div style="margin-top: 155px" class="row">
+        <div class="col-lg-10 mx-auto mb-4">
+            <div class="section-title text-center ">
+                <h3 style="font-size: 50px" class="top-c-sep">Danh sách việc làm</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <form class="career-form" #form="ngForm"
+                  (ngSubmit)="ngSubmit(form)">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 my-3">
+                        <div class="input-group position-relative" style="margin-top: 10px;">
+                            <input type="text" name="title" class="form-control" placeholder="Nhập vào tên công việc, tên công ty, tên thành phố..." id="keywords" [(ngModel)]="searchJob.title">
+                        </div>
+                    </div>
+                    <a class="btn btn-link"  style="color:#4e63d7;margin-left: -450px" *ngIf="!advancedForm" (click)=" advancedForm = !advancedForm" >Tìm kiếm nâng cao</a>
+                    <a class="btn btn-link"  style="color:#4e63d7;margin-left: -490px" *ngIf="advancedForm" (click)=" advancedForm = !advancedForm" >Đóng</a>
+                    <mat-form-field *ngIf="advancedForm" appearance="outline" class="col-md-6 col-lg-6 my-3">
+                        <mat-label>Thành phố</mat-label>
+                        <select matNativeControl ngModel name="cityId">
+                            <option *ngFor="let ct of city" [value]="ct.id">{{ct.name}}</option>
+                        </select>
+                    </mat-form-field>
+                    <mat-form-field  *ngIf="advancedForm" appearance="outline" class="col-md-6 col-lg-6 my-3">
+                        <mat-label>Lĩnh vực</mat-label>
+                        <select matNativeControl ngModel name="fieldId">
+                            <option *ngFor="let field of fields" [value]="field.id">{{field.name}}</option>
+                        </select>
+                    </mat-form-field>
+                    <mat-form-field *ngIf="advancedForm" appearance="outline" class="col-md-4 col-lg-4 my-3">
+                        <mat-label>Tên công ty</mat-label>
+                        <select matNativeControl ngModel name="companyId">
+                            <option *ngFor="let com of company" [value]="com.id">{{com.name}}</option>
+                        </select>
+                    </mat-form-field>
+                    <mat-form-field *ngIf="advancedForm" appearance="outline" class="col-md-4 col-lg-4 my-3">
+                        <mat-label>Vị trí tuyển dụng</mat-label>
+                        <select matNativeControl ngModel name="vacancies">
+                            <option *ngFor="let vc of vacancies" [value]="vc.id">{{vc.name}}</option>
+                        </select>
+                    </mat-form-field>
+                    <mat-form-field *ngIf="advancedForm" appearance="outline" class="col-md-4 col-lg-4 my-3">
+                        <mat-label>Thời gian làm việc</mat-label>
+                        <select matNativeControl ngModel name="workingTimeId">
+                            <option *ngFor="let wt of workingTime" [value]="wt.id">{{wt.name}}</option>
+                        </select>
+                    </mat-form-field>
+                    <mat-label  *ngIf="advancedForm">Mức lương</mat-label>
+                    <mat-slider *ngIf="advancedForm"
+                            thumbLabel
+                            [displayWith]="formatLabel"
+                            tickInterval="1000000"
+                            step="1000000"
+                            min="0"
+                            max="20000000"
+                            ngModel
+                            name="salary"
+                            aria-label="units"></mat-slider>
+                    <div class="col-md-6 col-lg-3 my-3" style="margin-left: 400px">
+                        <button type="submit" class="btn btn-lg btn-block btn-light btn-custom btn-outline-primary"
+                                id="contact-submit" style="margin-top: 10px;">
+                            Tìm Kiếm
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div class="filter-result">
+                <div *ngFor="let rcm of recruitmentNews"
+                     class="job-box d-md-flex align-items-center justify-content-between mb-30">
+                    <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+                        <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex">
+                            <img src="{{rcm.avatar}}" alt="">
+                        </div>
+                        <div class="job-content">
+                            <h5 class="text-center text-md-left">{{rcm.title}}</h5>
+                            <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
+                                <li class="mr-md-4">
+                                    <i class="zmdi zmdi-pin mr-2"></i> {{rcm.cityName}}
+                                </li>
+                                <li class="mr-md-4" *ngIf="check == true">
+                                    <i class="zmdi zmdi-money mr-2"></i> {{rcm.salary | currency:'VND' : true : '1.0-0': 'en-US' }}
+                                </li>
+                                <li class="mr-md-4" *ngIf="check == false">
+                                    <i class="zmdi zmdi-money mr-2"></i> Lương XXX
+                                </li>
+                                <li class="mr-md-4">
+                                    <i class="zmdi zmdi-time mr-2"></i> {{rcm.workingTimeName}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="job-right my-4 flex-shrink-0">
+                        <button *ngIf="checkUser" mat-stroked-button color="primary" (click)="openDialogApply(rcm.id)">Ứng tuyển</button>
+                    </div>
+                    <div class="job-right my-4 flex-shrink-0">
+                        <button *ngIf="checkUser" mat-stroked-button color="primary" (click)="openDialogApplyNow(rcm.id)"
+                                >Ứng tuyển ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="page-navigation-area">
+                    <nav aria-label="Page navigation example text-center">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link page-links" (click)="leftPage()">
+                                    <i class='bx bx-chevrons-left'></i>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" (click)="rightPage()">
+                                    <i class='bx bx-chevrons-right'></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!--                <mat-paginator [pageSizeOptions]="[5,15,30,90]" [length]="totalElements"-->
+            <!--                               (page)="nextPage($event)"></mat-paginator>-->
+        </div>
+    </div>
+</div>
+
+
+<!-- Testimonials -->
+<!-- End Testimonials -->
+

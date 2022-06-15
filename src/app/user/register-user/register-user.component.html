@@ -34,15 +34,15 @@
                                 <mat-card class="text-center">
                                     <form class="create-category" #form="ngForm"
                                           (ngSubmit)="form.form.valid && ngSubmit(form)" novalidate>
-                                        <!--                                        <mat-error class="alert alert-primary">{{status}}</mat-error>-->
+                                      <mat-error class="alert alert-primary">{{status}}</mat-error>
                                         <mat-form-field style="width: 350px" appearance="outline">
-                                            <mat-label>Tài khoản</mat-label>
+                                            <mat-label>Email đăng nhập</mat-label>
                                             <input matInput placeholder="username" name="username"
                                                    [(ngModel)]="data.username" #username="ngModel" required email>
                                             <mat-icon color="black" matSuffix>account_circle</mat-icon>
                                             <mat-error *ngIf="username?.hasError('required')">Không được bỏ trống
                                             </mat-error>
-                                            <mat-error *ngIf="username?.hasError('email')">Nhập đúng định dạng @
+                                            <mat-error *ngIf="username?.hasError('email')">Nhập đúng định dạng @gmail.com
                                             </mat-error>
                                         </mat-form-field>
                                         <br>
@@ -53,12 +53,18 @@
                                             <mat-icon color="black" matSuffix>badge</mat-icon>
                                             <mat-error *ngIf="name?.hasError('required')">Không được bỏ trống
                                             </mat-error>
+                                          <mat-error *ngIf="form.controls['name'].hasError('invalidName')">
+                                            Special characters not allowed!
+                                          </mat-error>
                                         </mat-form-field>
                                         <br>
                                         <mat-form-field style="width: 350px" appearance="outline">
                                             <mat-label>Số điện thoại</mat-label>
-                                            <input matInput placeholder="phone" name="phone" [(ngModel)]="data.phone"
-                                                   #phone="ngModel">
+                                            <input pattern="[0-9]*"
+                                                   [type]="'text'"
+                                                   (keypress)="numericOnly($event)"
+                                                    matInput placeholder="phone" name="phone" [(ngModel)]="data.phone"
+                                                   #phone="ngModel" maxlength="12">
                                             <mat-icon color="black" matSuffix>dialpad</mat-icon>
                                         </mat-form-field>
                                         <br>
@@ -97,9 +103,13 @@
                                         </p>
                                         <br>
                                         <button mat-raised-button color="black">Đăng ký</button>
+                                        <button routerLink="/login" mat-raised-button color="blue">Đăng nhập</button>
                                         <br>
-                                        <p></p>
-                                        <a routerLink="/register-company">Tạo tài khoản doanh nghiệp</a>
+                                        <p>
+                                        </p>
+                                      <button routerLink="/register-company" mat-stroked-button color="primary">Tạo tài khoản doanh nghiệp</button>
+
+
                                     </form>
                                 </mat-card>
                             </div>

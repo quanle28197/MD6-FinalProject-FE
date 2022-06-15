@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TokenService} from '../../../security/token.service';
+import {User} from '../../../model/user';
 import {UserService} from '../../service/user.service';
 import {SkillService} from '../../../service/skill/skill.service';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CVService} from '../../../service/cv/cv.service';
 import {WorkExpService} from '../../../service/workExp/work-exp.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {CvDTO} from '../../../model/dto/cv-dto';
 import {MatDialog} from '@angular/material/dialog';
 import {FormArray, FormBuilder} from '@angular/forms';
-import {CvDTO} from '../../../model/dto/cv-dto';
-import {User} from '../../../model/user';
 import {DialogEditCvComponent} from '../../../dialog/CV/dialog-edit-cv/dialog-edit-cv.component';
+import {Notify} from 'notiflix';
 
 @Component({
   selector: 'app-edit-cv',
@@ -87,14 +88,10 @@ export class EditCvComponent implements OnInit {
   }
 
   onUpdate() {
-    console.log(this.cvForm.value);
+    console.log(this.cvForm.value)
     this.cvService.updateCV(this.tokenService.getIdGuest(), this.cvForm.value).subscribe(data => {
-      const dialogRef = this.dialog.open(DialogEditCvComponent);
-
-      dialogRef.afterClosed().subscribe(result => {
-        this.cvForm.reset();
-        this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
-      });
+        Notify.success('Sửa CV thành công');
+        this.router.navigate(['detail-cv', this.tokenService.getIdGuest()]);
     });
   }
 

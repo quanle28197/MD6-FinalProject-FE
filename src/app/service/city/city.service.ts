@@ -1,20 +1,19 @@
-import { Injectable } from '@angular/core';
-import {environment} from '../../../environments/environment';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs';
 import {City} from '../../model/city';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class CityService {
-  // @ts-ignore
-  private apiServerUrl = environment.apiBaseUrl;
+    private apiServerUrl = environment.apiBaseUrl;
 
-  constructor(private http: HttpClient) {
-  }
+    constructor(private http: HttpClient) {
+    }
 
-  showAll(): Observable<City []> {
-    return this.http.get<City []>(`${this.apiServerUrl}/cities/showAll`);
-  }
+    showAll(): Observable<City []> {
+        return this.http.get<City []>(`${this.apiServerUrl}/cities`);
+    }
 }

@@ -28,4 +28,11 @@ export class AppComponent {
       head.appendChild(style);
     }
   }
+  onActivate(event) {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
 }

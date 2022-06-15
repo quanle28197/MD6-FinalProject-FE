@@ -1,63 +1,63 @@
-<div class="container" style="margin-top: 100px">
-  <div class="row">
-    <div class="col-lg-3 ">
-      <div class="card left-profile-card">
-        <div class="card-body">
-          <div class="text-center">
-            <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="user-profile">
-            <h3>{{cv?.fullName}}</h3>
-            <div class="d-flex align-items-center justify-content-center mb-3">
-              <i class="fas fa-star text-info"></i>
-              <i class="fas fa-star text-info"></i>
-              <i class="fas fa-star text-info"></i>
-              <i class="fas fa-star text-info"></i>
-              <i class="fas fa-star text-info"></i>
+<div class="container" >
+    <div class="row" style="padding: 100px 0 0 0">
+        <div class="col-lg-3 " >
+            <div class="card left-profile-card">
+                <div class="card-body" >
+                    <div class="text-center">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="user-profile">
+                        <h3>{{cv?.fullName}}</h3>
+                        <div class="d-flex align-items-center justify-content-center mb-3">
+                            <i class="fas fa-star text-info"></i>
+                            <i class="fas fa-star text-info"></i>
+                            <i class="fas fa-star text-info"></i>
+                            <i class="fas fa-star text-info"></i>
+                            <i class="fas fa-star text-info"></i>
+                        </div>
+                    </div>
+                    <div class="personal-info">
+                        <h3>Thông tin cá nhân</h3>
+                        <ul class="personal-list">
+                            <li><i class="fas fa-briefcase "></i><span><b>Năm kinh nghiệm: </b>{{cv?.expYear}}</span></li>
+                            <li><i class="fas fa-map-marker-alt "></i><span><b>Lương mong muốn: </b>{{cv?.salaryExpectation| currency:'VND' : true : '1.0-0': 'en-US'
+                                }}</span></li>
+                            <li><i class="far fa-envelope "></i><span>{{cv?.username}}</span></li>
+                            <li><i class="fas fa-mobile "></i><span>{{cv?.phone}}</span></li>
+                        </ul>
+                    </div>
+                    <div class="skill">
+                        <h3>Kỹ năng</h3>
+                        <div *ngFor="let skill of cv?.skills">
+                            <p>{{skill.name}}</p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" [style.width]="skill.proficiency"
+                                     [style.background]="'rgb(5 18 66)'" aria-valuenow="50" aria-valuemin="0"
+                                     aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="personal-info">
-            <h3>Thông tin cá nhân</h3>
-            <ul class="personal-list">
-              <li><i class="fas fa-briefcase "></i><span><b>Năm kinh nghiệm: </b>{{cv?.expYear}}</span></li>
-              <li><i class="fas fa-map-marker-alt "></i><span><b>Lương mong muốn: </b>{{cv?.salaryExpectation| currency:'VND' : true : '1.0-0': 'en-US'
-                }}</span></li>
-              <li><i class="far fa-envelope "></i><span>{{cv?.username}}</span></li>
-              <li><i class="fas fa-mobile "></i><span>{{cv?.phone}}</span></li>
-            </ul>
-          </div>
-          <div class="skill">
-            <h3>Kỹ năng</h3>
-            <div *ngFor="let skill of cv?.skills">
-              <p>{{skill.name}}</p>
-              <div class="progress mb-3">
-                <div class="progress-bar" role="progressbar" [style.width]="skill.proficiency"
-                     [style.background]="'rgb(5 18 66)'" aria-valuenow="50" aria-valuemin="0"
-                     aria-valuemax="100"></div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
+        <div class="col-lg-9">
+            <div class="card right-profile-card">
+                <div class="card-header alert-primary d-flex justify-content-between">
+                    <h2>Kinh nghiệm cá nhân</h2>
+                    <a class="btn btn-light" *ngIf="checkRole == 'USER'" [routerLink]="['/update-cv/', idUser]">Sửa hồ sơ</a>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                             aria-labelledby="pills-home-tab">
+                            <div *ngFor="let workExp of cv?.workExps" class="work-container">
+                                <h3>{{workExp.title}}</h3>
+                                <h4><i class="far fa-calendar-alt"></i>{{workExp.startDate}} to <span
+                                        class="badge badge-info">{{workExp.endDate}}</span></h4>
+                                <p>{{workExp.content}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-lg-9">
-      <div class="card right-profile-card">
-        <div class="card-header alert-primary d-flex justify-content-between">
-          <h2>Kinh nghiệm cá nhân</h2>
-          <a class="btn btn-light" *ngIf="checkRole == 'USER'" [routerLink]="['/update-cv/', idUser]">Sửa hồ sơ</a>
-        </div>
-        <div class="card-body">
-          <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                 aria-labelledby="pills-home-tab">
-              <div *ngFor="let workExp of cv?.workExps" class="work-container">
-                <h3>{{workExp.title}}</h3>
-                <h4><i class="far fa-calendar-alt"></i>{{workExp.startDate}} to <span
-                  class="badge badge-info">{{workExp.endDate}}</span></h4>
-                <p>{{workExp.content}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>

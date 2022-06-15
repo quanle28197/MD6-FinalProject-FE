@@ -1,122 +1,126 @@
 <div class="page-title-area" style="height: 200px">
-  <div class="container">
-    <div class="page-title-content">
-      <h2>Đăng Ký Công Ty</h2>
+    <div class="container">
+        <div class="page-title-content">
+            <h2>Đăng Ký Công Ty</h2>
+        </div>
     </div>
-  </div>
-  <div class="page-shape">
-    <div class="shape1">
-      <img src="../../../assets/images/shape/1.png" alt="shape">
+    <div class="page-shape">
+        <div class="shape1">
+            <img src="assets/images/shape/1.png" alt="shape">
+        </div>
+        <div class="shape3">
+            <img src="assets/images/shape/3.png" alt="shape">
+        </div>
+        <div class="shape4">
+            <img src="assets/images/shape/4.png" alt="shape">
+        </div>
+        <div class="shape5">
+            <img src="assets/images/shape/5.png" alt="shape">
+        </div>
+        <div class="shape6">
+            <img src="assets/images/shape/6.png" alt="shape">
+        </div>
     </div>
-    <div class="shape3">
-      <img src="../../../assets/images/shape/3.png" alt="shape">
-    </div>
-    <div class="shape4">
-      <img src="../../../assets/images/shape/4.png" alt="shape">
-    </div>
-    <div class="shape5">
-      <img src="../../../assets/images/shape/5.png" alt="shape">
-    </div>
-    <div class="shape6">
-      <img src="../../../assets/images/shape/6.png" alt="shape">
-    </div>
-  </div>
 </div>
 
 <section class="signup-area" style="margin: 10px">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="signup-form">
-          <form>
-            <div class="row">
-              <div class="col-12">
-                <mat-card class="text-center">
-                  <form #form="ngForm"
-                        (ngSubmit)="form.form.valid && ngSubmit(form)" novalidate>
-                    <!--                                        <mat-error class="alert alert-primary">{{status}}</mat-error>-->
-                    <mat-form-field style="width: 350px" appearance="outline">
-                      <mat-label>Tài khoản</mat-label>
-                      <input matInput placeholder="Nhập tài khoản" name="username"
-                             [(ngModel)]="data.username" #username="ngModel" required email>
-                      <mat-icon color="black" matSuffix>account_circle</mat-icon>
-                      <mat-error *ngIf="username?.hasError('required')">Không được bỏ trống
-                      </mat-error>
-                      <mat-error *ngIf="username?.hasError('email')">Nhập đúng định dạng @
-                      </mat-error>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field style="width: 350px" appearance="outline">
-                      <mat-label>Tên công ty</mat-label>
-                      <input matInput placeholder="Nhập tên công ty" name="name"
-                             [(ngModel)]="data.name" #name="ngModel" required>
-                      <mat-icon color="black" matSuffix>business</mat-icon>
-                      <mat-error *ngIf="name?.hasError('required')">Không được bỏ trống
-                      </mat-error>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field style="width: 350px" appearance="outline">
-                      <mat-label>Mô tả</mat-label>
-                      <input matInput placeholder="Mô tả" name="description"
-                             [(ngModel)]="data.description" #description="ngModel"
-                             requiredrequired>
-                      <mat-icon color="black" matSuffix>description</mat-icon>
-                      <mat-error *ngIf="description?.hasError('required')">Không được bỏ trống
-                      </mat-error>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field style="width: 350px" appearance="outline">
-                      <mat-label>Địa chỉ</mat-label>
-                      <input matInput placeholder="Nhập địa chỉ" name="address"
-                             [(ngModel)]="data.address">
-                      <mat-icon color="black" matSuffix>home</mat-icon>
-                      <!--            <mat-error *ngIf="form.controls.username?.errors?.required">Phải điền thông tin</mat-error>-->
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field style="width: 350px" appearance="outline">
-                      <mat-label>Số lượng nhân viên</mat-label>
-                      <mat-icon color="black" matSuffix>people_alt</mat-icon>
-                      <input matInput placeholder="Nhập số lượng nhân viên"
-                             name="employeeQuantity" [(ngModel)]="data.employeeQuantity">
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field style="width: 350px" appearance="outline">
-                      <mat-label>Link Google Map</mat-label>
-                      <input matInput placeholder="Link" name="linkMap"
-                             [(ngModel)]="data.linkMap">
-                      <mat-icon color="black" matSuffix>location_on</mat-icon>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field appearance="outline" style="width: 350px">
-                      <mat-label>Chọn thành phố</mat-label>
-                      <mat-select [(ngModel)]="data.city" name="city">
-                        <mat-option *ngFor="let city of cities"
-                                    [value]="city.id">{{city.name}}</mat-option>
-                      </mat-select>
-                      <mat-icon color="black" matSuffix>apartment</mat-icon>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field style="width: 350px" appearance="outline">
-                      <mat-label>Số điện thoại</mat-label>
-                      <input matInput placeholder="Số điện thoại" name="phone"
-                             [(ngModel)]="data.phone">
-                      <mat-icon color="black" matSuffix>phone</mat-icon>
-                    </mat-form-field>
-                    <br>
-                    <app-upload-image (giveURLtoCreate)="onUpLoadAvatar($event)">Ảnh
-                    </app-upload-image>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="signup-form">
+                    <form>
+                        <div class="row">
+                            <div class="col-12">
+                                <mat-card class="text-center">
+                                    <form #form="ngForm"
+                                          (ngSubmit)="form.form.valid && ngSubmit(form)" novalidate>
+                                        <!--                                        <mat-error class="alert alert-primary">{{status}}</mat-error>-->
+                                        <mat-form-field style="width: 350px" appearance="outline">
+                                            <mat-label>Email đăng ký</mat-label>
+                                            <input matInput placeholder="Nhập tài khoản" name="username"
+                                                   [(ngModel)]="data.username" #username="ngModel" required email>
+                                            <mat-icon color="black" matSuffix>account_circle</mat-icon>
+                                            <mat-error *ngIf="username?.hasError('required')">Không được bỏ trống
+                                            </mat-error>
+                                            <mat-error *ngIf="username?.hasError('email')">Nhập đúng định dạng @
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <br>
+                                        <mat-form-field style="width: 350px" appearance="outline">
+                                            <mat-label>Tên công ty</mat-label>
+                                            <input matInput placeholder="Nhập tên công ty" name="name"
+                                                   [(ngModel)]="data.name" #name="ngModel" required>
+                                            <mat-icon color="black" matSuffix>business</mat-icon>
+                                            <mat-error *ngIf="name?.hasError('required')">Không được bỏ trống
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <br>
+                                        <mat-form-field style="width: 350px" appearance="outline">
+                                            <mat-label>Mô tả</mat-label>
+                                            <input matInput placeholder="Mô tả" name="description"
+                                                   [(ngModel)]="data.description" #description="ngModel"
+                                                   requiredrequired>
+                                            <mat-icon color="black" matSuffix>description</mat-icon>
+                                            <mat-error *ngIf="description?.hasError('required')">Không được bỏ trống
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <br>
+                                        <mat-form-field style="width: 350px" appearance="outline">
+                                            <mat-label>Địa chỉ</mat-label>
+                                            <input matInput placeholder="Nhập địa chỉ" name="address"
+                                                   [(ngModel)]="data.address">
+                                            <mat-icon color="black" matSuffix>home</mat-icon>
+                                          <mat-error *ngIf="form.controls.username?.errors?.required">Phải điền thông tin</mat-error>
+                                        </mat-form-field>
+                                        <br>
+                                        <mat-form-field style="width: 350px" appearance="outline">
+                                            <mat-label>Số lượng nhân viên</mat-label>
+                                            <mat-icon color="black" matSuffix>people_alt</mat-icon>
+                                            <input matInput placeholder="Nhập số lượng nhân viên"
+                                                   name="employeeQuantity" [(ngModel)]="data.employeeQuantity">
+                                        </mat-form-field>
+                                        <br>
+                                        <mat-form-field style="width: 350px" appearance="outline">
+                                            <mat-label>Link Google Map</mat-label>
+                                            <input matInput placeholder="Link" name="linkMap"
+                                                   [(ngModel)]="data.linkMap">
+                                            <mat-icon color="black" matSuffix>location_on</mat-icon>
+                                        </mat-form-field>
+                                        <br>
+                                        <mat-form-field appearance="outline" style="width: 350px">
+                                            <mat-label>Chọn thành phố</mat-label>
+                                            <mat-select [(ngModel)]="data.city" name="city">
+                                                <mat-option *ngFor="let city of cities"
+                                                            [value]="city.id">{{city.name}}</mat-option>
+                                            </mat-select>
+                                            <mat-icon color="black" matSuffix>apartment</mat-icon>
+                                        </mat-form-field>
+                                        <br>
+                                        <mat-form-field style="width: 350px" appearance="outline">
+                                            <mat-label>Số điện thoại</mat-label>
+                                            <input pattern="[0-9]*"
+                                                   [type]="'text'"$
+                                                   (keypress)="numericOnly($event)"
+                                                   autocomplete="off" matInput placeholder="Số điện thoại" name="phone"
+                                                   [(ngModel)]="data.phone" maxlength="12">
+                                          <mat-error *ngIf="form.controls.username?.errors?.required">Phải điền thông tin</mat-error>
+                                            <mat-icon color="black" matSuffix>phone</mat-icon>
+                                        </mat-form-field>
+                                        <br>
+                                        <app-upload-image (giveURLtoCreate)="onUpLoadAvatar($event)">Ảnh
+                                        </app-upload-image>
 
-                    <button mat-raised-button class="btn btn-primary">Đăng ký</button>
-                    <br>
-                    <p></p>
-                    <a routerLink="register-user">Tạo tài khoản ứng viên</a>
-                  </form>
-                </mat-card>
-              </div>
+                                        <button mat-raised-button class="btn btn-primary">Đăng ký</button>
+                                        <br>
+                                        <p></p>
+                                        <a routerLink="register-user">Tạo tài khoản ứng viên</a>
+                                    </form>
+                                </mat-card>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
 </section>

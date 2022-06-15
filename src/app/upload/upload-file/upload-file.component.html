@@ -1,0 +1,7 @@
+<div>
+    <div class="input-group col-lg-12 col-sm-12">
+        <mat-label class="input-group-text" for="inputGroupFile01">File CV</mat-label>
+        <input type="file" class="form-control" id="inputGroupFile01" (change)="onFileChanged($event)">
+        <mat-spinner [diameter]="40" class="text-center" *ngIf="checkUpLoadFile"></mat-spinner>
+    </div>
+</div>

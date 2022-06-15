@@ -1050,21 +1050,6 @@ Navbar Area Css
   color: #1d42d9;
 }
 
-.is-sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  left: 0;
-  z-index: 999;
-  -webkit-animation: fadeInDown 500ms ease-in-out;
-          animation: fadeInDown 500ms ease-in-out;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  -webkit-box-shadow: 0 1px 10px rgba(221, 221, 221, 0.2);
-          box-shadow: 0 1px 10px rgba(221, 221, 221, 0.2);
-  background: #051242 !important;
-}
-
 /*
 Banner Area Css
 ======================================================*/
@@ -5662,7 +5647,7 @@ Footer Area Css
   display: none;
 }
 
-/* 
+/*
 Page Title Area Css
 =====================================================*/
 .page-title-area {
@@ -5766,7 +5751,7 @@ Page Title Area Css
           animation: rotaed360 6s infinite linear;
 }
 
-/* 
+/*
 Pagenavigation Area Css
 =====================================================*/
 .page-navigation-area {

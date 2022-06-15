@@ -1,136 +1,136 @@
 <h2 class="text-center" style="margin-top: 120px">Sửa hồ sơ của bạn</h2>
 <div class="container" style="margin-top: 50px">
-  <form [formGroup]="cvForm" (ngSubmit)="onUpdate()">
-    <div class="row">
-      <div class="col-lg-3 ">
-        <div class="card left-profile-card">
-          <div class="card-body">
-            <div class="text-center">
-              <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="user-profile">
-              <h3>{{user.name}}</h3>
-              <div class="d-flex align-items-center justify-content-center mb-3">
-                <i class="fas fa-star text-info"></i>
-                <i class="fas fa-star text-info"></i>
-                <i class="fas fa-star text-info"></i>
-                <i class="fas fa-star text-info"></i>
-                <i class="fas fa-star text-info"></i>
-              </div>
-            </div>
-            <div class="personal-info">
-              <h3>Thông tin cá nhân</h3>
-              <ul class="personal-list">
-                <li><h6>Năm kinh nghiệm</h6></li>
-                <li>
-                  <i class="fas fa-briefcase "></i>
-                  <input formControlName="expYear">
-                <li><h6>Lương mong muốn</h6></li>
-                <li>
-                  <i class="fas fa-money-bill-wave"></i>
-                  <input formControlName="salaryExpectation">
-                </li>
-                <li><i class="far fa-envelope "></i><span>{{user?.account?.username}}</span></li>
-                <li><i class="fas fa-mobile "></i><span>{{user?.phone}}</span></li>
-              </ul>
-            </div>
-            <h3 style="margin-bottom: 5px">Kỹ năng</h3>
-            <ng-container formArrayName="skills">
-              <ng-container *ngFor="let skillForm of skills.controls; let i = index">
-                <div class="d-flex justify-content-between">
-                  <h6 style="margin-top: 10px">Kỹ năng {{i + 1}}</h6>
-                  <button style="width: 50px; height: 50px; padding: 0; margin-bottom: 20px"
-                          (click)="deleteSkill(i)" mat-raised-button>
-                    Xóa
-                  </button>
-                </div>
-                <div [formGroup]="skillForm">
-                  <div class="form-group">
-                    <input type="text" formControlName="name" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <input type="text" formControlName="proficiency" class="form-control">
-                  </div>
-                </div>
-              </ng-container>
-            </ng-container>
-            <button color="primary" style="width: 200px; height: 50px; padding: 0; margin: 0 auto"
-                    type="button"
-                    (click)="addSkill()"
-                    mat-raised-button>
-              Thêm kỹ năng mới
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="card right-profile-card">
-          <div class="card-header alert-primary d-flex justify-content-between">
-            <h2>Kinh nghiệm cá nhân</h2>
-            <a color="#f8f9fa" style="font-size: 16px" mat-raised-button [routerLink]="['/detail-cv/', tokenService.getIdGuest()]">Quay lại</a>
-          </div>
-          <div class="card-body">
-            <div class="tab-content" id="pills-tabContent">
-              <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                   aria-labelledby="pills-home-tab">
-                <ng-container formArrayName="workExps">
-                  <ng-container *ngFor="let workExpForm of workExps.controls; let i = index">
-                    <div [formGroup]="workExpForm" class="form-group">
-                      <div class="d-flex justify-content-between">
-                        <h2>Kinh nghiệm {{i + 1}}</h2>
-                        <button style="width: 50px; height: 50px; padding: 0; margin-bottom: 20px"
-                                (click)="deleteWorkExp(i)" mat-raised-button>
-                          Xóa
+    <form [formGroup]="cvForm" (ngSubmit)="onUpdate()">
+        <div class="row">
+            <div class="col-lg-3 ">
+                <div class="card left-profile-card">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="user-profile">
+                            <h3>{{user.name}}</h3>
+                            <div class="d-flex align-items-center justify-content-center mb-3">
+                                <i class="fas fa-star text-info"></i>
+                                <i class="fas fa-star text-info"></i>
+                                <i class="fas fa-star text-info"></i>
+                                <i class="fas fa-star text-info"></i>
+                                <i class="fas fa-star text-info"></i>
+                            </div>
+                        </div>
+                        <div class="personal-info">
+                            <h3>Thông tin cá nhân</h3>
+                            <ul class="personal-list">
+                                <li><h6>Năm kinh nghiệm</h6></li>
+                                <li>
+                                    <i class="fas fa-briefcase "></i>
+                                    <input formControlName="expYear">
+                                <li><h6>Lương mong muốn</h6></li>
+                                <li>
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <input formControlName="salaryExpectation">
+                                </li>
+                                <li><i class="far fa-envelope "></i><span>{{user?.account?.username}}</span></li>
+                                <li><i class="fas fa-mobile "></i><span>{{user?.phone}}</span></li>
+                            </ul>
+                        </div>
+                        <h3 style="margin-bottom: 5px">Kỹ năng</h3>
+                        <ng-container formArrayName="skills">
+                            <ng-container *ngFor="let skillForm of skills.controls; let i = index">
+                                <div class="d-flex justify-content-between">
+                                    <h6 style="margin-top: 10px">Kỹ năng {{i + 1}}</h6>
+                                    <button style="width: 50px; height: 50px; padding: 0; margin-bottom: 20px"
+                                            (click)="deleteSkill(i)" mat-raised-button>
+                                        Xóa
+                                    </button>
+                                </div>
+                                <div [formGroup]="skillForm">
+                                    <div class="form-group">
+                                        <input type="text" formControlName="name" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" formControlName="proficiency" class="form-control">
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                        <button color="primary" style="width: 200px; height: 50px; padding: 0; margin: 0 auto"
+                                type="button"
+                                (click)="addSkill()"
+                                mat-raised-button>
+                            Thêm kỹ năng mới
                         </button>
-                      </div>
-                      <mat-form-field style="width: 50%" appearance="fill">
-                        <mat-label>Tiêu đề</mat-label>
-                        <input formControlName="title" matInput>
-                      </mat-form-field>
-                      <h4>
-                        <h6 style="margin-right: 10px">Ngày bắt đầu</h6>
-                        <input type="date" formControlName="startDate">
-                        <br>
-                        <br>
-                        <h6 style="margin-right: 10px">Ngày kết thúc</h6>
-                        <input type="date" formControlName="endDate">
-                      </h4>
-                      <mat-form-field style="width: 100%" appearance="fill">
-                        <mat-label>Nội dung</mat-label>
-                        <textarea formControlName="content" matInput
-                                  placeholder="..."></textarea>
-                      </mat-form-field>
                     </div>
-                  </ng-container>
-                </ng-container>
-                <div class="text-center">
-                  <button color="primary" type="button"
-                          style="width: 200px; height: 50px; padding: 0; margin-bottom: 20px"
-                          (click)="addWorkExp()"
-                          mat-raised-button>
-                    Thêm kinh nghiệm mới
-                  </button>
                 </div>
-              </div>
             </div>
-          </div>
-          <div class="file-cv col-lg-12 col-sm-12" style="border: 1px #f0f0f0 solid">
-            <h2>File hồ sơ</h2>
-            <mat-form-field appearance="outline" style="width: 50%">
-              <input matInput
-                     hidden
-                     placeholder="Placeholder">
-              <app-upload-file formControlName="fileCV" style="width: 100%"
-                               (giveURLtoCreate)="onUpLoadAvatar($event)"></app-upload-file>
-              <mat-icon color="black" matSuffix>add_photo_alternate</mat-icon>
-            </mat-form-field>
-          </div>
+            <div class="col-lg-9">
+                <div class="card right-profile-card">
+                    <div class="card-header alert-primary d-flex justify-content-between">
+                        <h2>Kinh nghiệm cá nhân</h2>
+                        <a color="#f8f9fa" style="font-size: 16px" mat-raised-button [routerLink]="['/detail-cv/', tokenService.getIdGuest()]">Quay lại</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                 aria-labelledby="pills-home-tab">
+                                <ng-container formArrayName="workExps">
+                                    <ng-container *ngFor="let workExpForm of workExps.controls; let i = index">
+                                        <div [formGroup]="workExpForm" class="form-group">
+                                            <div class="d-flex justify-content-between">
+                                                <h2>Kinh nghiệm {{i + 1}}</h2>
+                                                <button style="width: 50px; height: 50px; padding: 0; margin-bottom: 20px"
+                                                        (click)="deleteWorkExp(i)" mat-raised-button>
+                                                    Xóa
+                                                </button>
+                                            </div>
+                                            <mat-form-field style="width: 50%" appearance="fill">
+                                                <mat-label>Tiêu đề</mat-label>
+                                                <input formControlName="title" matInput>
+                                            </mat-form-field>
+                                            <h4>
+                                                <h6 style="margin-right: 10px">Ngày bắt đầu</h6>
+                                                <input type="date" formControlName="startDate">
+                                                <br>
+                                                <br>
+                                                <h6 style="margin-right: 10px">Ngày kết thúc</h6>
+                                                <input type="date" formControlName="endDate">
+                                            </h4>
+                                            <mat-form-field style="width: 100%" appearance="fill">
+                                                <mat-label>Nội dung</mat-label>
+                                                <textarea formControlName="content" matInput
+                                                          placeholder="..."></textarea>
+                                            </mat-form-field>
+                                        </div>
+                                    </ng-container>
+                                </ng-container>
+                                <div class="text-center">
+                                    <button color="primary" type="button"
+                                            style="width: 200px; height: 50px; padding: 0; margin-bottom: 20px"
+                                            (click)="addWorkExp()"
+                                            mat-raised-button>
+                                        Thêm kinh nghiệm mới
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="file-cv col-lg-12 col-sm-12" style="border: 1px #f0f0f0 solid">
+                        <h2>File hồ sơ</h2>
+                        <mat-form-field appearance="outline" style="width: 50%">
+                            <input matInput
+                                   hidden
+                                   placeholder="Placeholder">
+                            <app-upload-file formControlName="fileCV" style="width: 100%"
+                                             (giveURLtoCreate)="onUpLoadAvatar($event)"></app-upload-file>
+                            <mat-icon color="black" matSuffix>add_photo_alternate</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="text-center" style="margin: 10px 0">
-      <button mat-raised-button color="primary" type="submit"
-              style="width: 200px; height: 50px; padding: 0; margin-bottom: 20px">
-        Cập nhật
-      </button>
-    </div>
-  </form>
+        <div class="text-center" style="margin: 10px 0">
+            <button mat-raised-button color="primary" type="submit"
+                    style="width: 200px; height: 50px; padding: 0; margin-bottom: 20px">
+                Cập nhật
+            </button>
+        </div>
+    </form>
 </div>

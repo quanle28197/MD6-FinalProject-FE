@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import {Company} from '../../model/company';
-import {AuthService} from '../../security/auth.service';
-import {CityService} from '../../service/city/city.service';
-import {MatDialog} from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
 import {Account} from '../../model/account';
+import {AuthService} from '../../security/auth.service';
+import {Company} from '../../model/company';
+import {CityService} from '../../service/city/city.service';
+import {DialogCreateCompanyComponent} from '../../dialog/dialogCreateCompany/dialog-create-company/dialog-create-company.component';
+import {MatDialog} from '@angular/material/dialog';
+import {Report} from 'notiflix';
+
 
 @Component({
   selector: 'app-register-company',
@@ -11,6 +14,7 @@ import {Account} from '../../model/account';
   styleUrls: ['./register-company.component.scss']
 })
 export class RegisterCompanyComponent implements OnInit {
+
   data: any = {
     avatar: '',
     password: ''
@@ -23,7 +27,6 @@ export class RegisterCompanyComponent implements OnInit {
   success: any = {
     message: 'yes'
   };
-
   constructor(private authService: AuthService,
               private cityService: CityService,
               private dialog: MatDialog) {
@@ -39,6 +42,7 @@ export class RegisterCompanyComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
   ngSubmit(form: any) {
     console.log();
@@ -62,20 +66,26 @@ export class RegisterCompanyComponent implements OnInit {
     const account11 = {
       id: this.idAccount
     };
-    // @ts-ignore
     this.company = new Company(this.data.name, this.data.avatar, this.data.description,
       this.data.address, this.data.employeeQuantity, city, this.data.linkMap, this.data.phone, account11);
     console.log(this.company);
     this.authService.registerCompany(this.company).subscribe(data2 => {
-      console.log(data2)
-      if(JSON.stringify(data2)==JSON.stringify(this.success)){
+      console.log(data2);
+      if (JSON.stringify(data2) == JSON.stringify(this.success)) {
         // @ts-ignore
         const dialogRef1 = this.dialog.open(DialogCreateCompanyComponent);
         dialogRef1.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');
+          Report.success('Success', 'Lập tài khoản công ty thành công', 'Close');
         });
       }
     });
+  }
+
+  numericOnly(event) {
+    const input = String.fromCharCode(event.keyCode);
+    if (!/^[0-9]*$/.test(input)) {
+      event.preventDefault();
+    }
   }
 
   onUpLoadAvatar(event: any) {

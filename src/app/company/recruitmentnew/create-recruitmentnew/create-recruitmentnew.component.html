@@ -1,0 +1,177 @@
+<!-- Start Page Title Area -->
+<div class="page-title-area" style="height: 439px">
+    <div class="container">
+        <div class="page-title-content">
+            <h2>TẠO MỚI TIN TUYỂN DỤNG</h2>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        Trang chủ
+                    </a>
+                </li>
+
+                <li class="active">Tìm kiếm</li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="page-shape">
+        <div class="shape1">
+            <img src="assets/images/shape/1.png" alt="shape">
+        </div>
+        <div class="shape3">
+            <img src="assets/images/shape/3.png" alt="shape">
+        </div>
+        <div class="shape4">
+            <img src="assets/images/shape/4.png" alt="shape">
+        </div>
+        <div class="shape5">
+            <img src="assets/images/shape/5.png" alt="shape">
+        </div>
+        <div class="shape6">
+            <img src="assets/images/shape/6.png" alt="shape">
+        </div>
+    </div>
+</div>
+<!-- End Page Title Area -->
+<!--create-recruitmentnew-->
+<section class="signup-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="signup-form">
+                    <div class="section-tittle text-center">
+                        <h2>Tạo mới</h2>
+                        <p>Tạo mới tin tuyển dụng</p>
+                    </div>
+                    <form #f="ngForm" (ngSubmit)="f.form.valid &&ngSubmit()" novalidate>
+                        <div class="row">
+                            <mat-error class="alert alert-primary" style="text-align: center">{{status}}</mat-error>
+
+                            <!--tiêu đề-->
+                            <div class="col-md-12 col-sm-12">
+                                <mat-form-field style="width: 100%" appearance="outline">
+                                    <mat-label>Tiêu Đề:</mat-label>
+                                    <input matInput placeholder="Tiêu đề ..." name="title" [(ngModel)]="form.title"
+                                           #title="ngModel" required>
+                                    <mat-icon color="#051242" matSuffix>subtitles</mat-icon>
+                                    <mat-error *ngIf="title.hasError('required')">Không được để trống!</mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <!--Thời Gian Làm Việc-->
+                            <div class="col-md-6 col-sm-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Thời Gian Làm Việc</mat-label>
+                                    <mat-select [(ngModel)]="form.workingTime" style="width: 100%" name="workingTime">
+                                        <mat-option *ngFor="let workingTime of workingTimes"
+                                                    [value]="workingTime.id">{{workingTime.name}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <!--Lĩnh Vực Công Việc-->
+                            <div class="col-md-6 col-sm-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Lĩnh Vực Công Việc</mat-label>
+                                    <mat-select [(ngModel)]="form.field" style="width: 100%" name="field">
+                                        <mat-option *ngFor="let field of fields"
+                                                    [value]="field.id">{{field.name}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <!-- Vị Trí Tuyển Dụng-->
+                            <mat-form-field appearance="outline">
+                                <mat-label>Vị Trí Tuyển Dụng</mat-label>
+                                <mat-select [(ngModel)]="form.vacancies" style="width: 100%" name="vacancies">
+                                    <mat-option *ngFor="let vacancies of vacancies1"
+                                                [value]="vacancies.id">{{vacancies.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+
+                            <!--hạn nộp hồ sơ-->
+                            <mat-form-field appearance="outline">
+                                <mat-label>Hạn nộp hồ sơ</mat-label>
+                                <input matInput [matDatepicker]="picker" [(ngModel)]="form.expDate">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+
+                          <!--giới tính-->
+                          <div class="col-md-6 col-sm-6">
+                            <mat-form-field appearance="outline">
+                              <mat-label>Giới Tính Tuyển Dụng</mat-label>
+                              <mat-select [(ngModel)]="form.gender" style="width: 100%" name="gender">
+                                <mat-option *ngFor="let gen of gender" [value]="gen.id">{{gen.name}}</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+
+                            <!--mức lương -->
+                            <div class="col-md-6 col-sm-6">
+                                <mat-form-field style="width: 100%" appearance="outline">
+                                    <mat-label>Mức Lương:</mat-label>
+                                    <input  mvndrMatCurrencyFormat
+                                            [allowNegative]="false"
+                                            [currencyCode]="'VND'"
+                                            [value]="usAmount"
+                                            (blur)="updateUSAmount($event)" matInput placeholder="Mức Lương..." name="description"
+                                           [(ngModel)]="form.salary"
+                                           #salary="ngModel" required>
+                                    <mat-icon color="#051242" matSuffix>local_atm</mat-icon>
+                                    <mat-error *ngIf="salary.hasError('required')">Viết mức lương
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <!--số lượng nhân sự -->
+                            <div class="col-md-12 col-sm-12">
+                                <mat-form-field style="width: 100%" appearance="outline">
+                                    <mat-label>Số Lượng Ứng Tuyển :</mat-label>
+                                    <input matInput placeholder="Số lượng ..." name="quantity"
+                                           [(ngModel)]="form.quantity"
+                                           #quantity="ngModel" required>
+                                    <mat-icon color="#051242" matSuffix>person_add_alt</mat-icon>
+                                    <mat-error *ngIf="quantity.hasError('required')">Bắt buộc phải nhập số lượng người
+                                        ứng tuyển
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                          <!--description-->
+                            <mat-form-field style="width: 100%" appearance="outline">
+                              <mat-label>Mô Tả:</mat-label>
+                              <textarea matInput placeholder="Mô tả ..." name="description"
+                                        [(ngModel)]="form.description"
+                                        #description="ngModel" required></textarea>
+                              <mat-icon color="#051242" matSuffix>description</mat-icon>
+                              <mat-error *ngIf="description.hasError('required')">Viết mô tả và chú thích công
+                                việc
+                              </mat-error>
+                            </mat-form-field>
+
+                            <!--nơi làm việc-->
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nơi Làm Việc</mat-label>
+                                <mat-select [(ngModel)]="form.city" style="width: 100%" name="city">
+                                    <mat-option *ngFor="let city of cities" [value]="city.id">{{city.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                        </div>
+                        <div class="col-12 text-center">
+                            <button type="submit" mat-stroked-button
+                                    class="mat-button-toggle-group btn-outline-primary">
+                                Đăng bài
+                                <mat-icon matSuffix>add</mat-icon>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--create-recruitmentnew-->

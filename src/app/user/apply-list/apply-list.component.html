@@ -1,0 +1,97 @@
+<!-- Start Page Title Area -->
+<div class="page-title-area" style="height: 439px">
+    <div class="container">
+        <div class="page-title-content">
+            <h2>DANH SÁCH ỨNG TUYỂN CỦA BẠN</h2>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="active">Blog</li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-shape">
+        <div class="shape1">
+            <img src="assets/images/shape/1.png" alt="shape">
+        </div>
+        <div class="shape3">
+            <img src="assets/images/shape/3.png" alt="shape">
+        </div>
+        <div class="shape4">
+            <img src="assets/images/shape/4.png" alt="shape">
+        </div>
+        <div class="shape5">
+            <img src="assets/images/shape/5.png" alt="shape">
+        </div>
+        <div class="shape6">
+            <img src="assets/images/shape/6.png" alt="shape">
+        </div>
+    </div>
+</div>
+<!-- End Page Title Area -->
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+<div class="container mt-3 mb-4">
+    <div class="col-lg-12 mt-4 mt-lg-0">
+        <div class="row">
+            <div class="col-md-12" >
+                <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
+                    <table class="table manage-candidates-top mb-0">
+                        <thead>
+                        <tr>
+                            <th>Thông tin tuyển dụng</th>
+                            <th class="text-center">Trạng thái</th>
+                            <th class="action text-right">Hoạt động</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="candidates-list" *ngFor="let apply of applis">
+                            <td class="title">
+                                <div class="thumb">
+                                    <img class="img-fluid" src="{{apply.recuitmentNew.company.avatar}}" alt="">
+                                </div>
+                                <div class="candidate-list-details">
+                                    <div class="candidate-list-info">
+                                        <div class="candidate-list-title">
+                                            <h5 class="mb-0"><a (click)="openDialogDetails(apply.recuitmentNew.id)">{{apply.recuitmentNew.title}}</a></h5>
+                                        </div>
+                                        <div class="candidate-list-option">
+                                            <ul class="list-unstyled">
+                                                <li><i class="fas fa-filter pr-1"></i>{{apply.recuitmentNew.field.name}}</li>
+                                                <li><i class="fas fa-map-marker-alt pr-1"></i>{{apply.recuitmentNew.city.name}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="candidate-list-favourite-time text-center">
+                                <a class="candidate-list-favourite order-2 text-danger" href="#"><i class="fas fa-heart"></i></a>
+                                <span class="candidate-list-time order-1">{{apply.status}}</span>
+                            </td>
+                            <td>
+                                <ul class="list-unstyled mb-0 d-flex justify-content-end">
+                                    <li><a class="text-primary" data-toggle="tooltip" title="" data-original-title="view" (click)="openDialogDetails(apply.recuitmentNew.id)"><i class="far fa-eye"></i></a></li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    <div class="text-center mt-3 mt-sm-3">
+                        <mat-paginator [pageSizeOptions]="[3,6,15,30,90]"
+                                       [length]="totalElements"
+                                       (page)="nextPage($event)">
+                        </mat-paginator>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

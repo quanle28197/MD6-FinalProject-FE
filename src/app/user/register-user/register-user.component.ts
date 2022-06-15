@@ -3,7 +3,8 @@ import {Account} from '../../model/account';
 import {AuthService} from '../../security/auth.service';
 import {User} from '../../model/user';
 import {MatDialog} from '@angular/material/dialog';
-
+import {DialogCreateCompanyComponent} from '../../dialog/dialogCreateCompany/dialog-create-company/dialog-create-company.component';
+import {Report} from 'notiflix';
 
 @Component({
   selector: 'app-register-user',
@@ -25,9 +26,11 @@ export class RegisterUserComponent implements OnInit {
   success: any = {
     message: 'yes'
   };
+  status: any;
 
   constructor(private authService: AuthService,
-              private dialog: MatDialog) {
+              private dialog: MatDialog,
+              ) {
   }
 
   ngOnInit(): void {
@@ -60,11 +63,18 @@ export class RegisterUserComponent implements OnInit {
         // @ts-ignore
         const dialogRef1 = this.dialog.open(DialogCreateCompanyComponent);
         dialogRef1.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');
+          Report.success('Success', 'Lập tài khoản công ty thành công', 'Close');
 
         });
       }
     });
+  }
+
+  numericOnly(event) {
+    const input = String.fromCharCode(event.keyCode);
+    if (!/^[0-9]*$/.test(input)) {
+      event.preventDefault();
+    }
   }
 
   checkPassword() {
