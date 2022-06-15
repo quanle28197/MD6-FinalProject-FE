@@ -23,6 +23,17 @@
                                             Tìm kiếm việc làm
                                         </button>
                                     </div>
+                                  <div class="testimonials-area pt-5">
+                                    <div class="row">
+                                      <div class="section-title">
+                                        <mat-chip-list aria-label="Field selection">
+                                          <mat-chip *ngFor="let field of fields" [queryParams]="{ 'query': field.name}"
+                                                    [routerLink]="['/quick-search']" color="primary" selected>{{field.name}}
+                                          </mat-chip>
+                                        </mat-chip-list>
+                                      </div>
+                                    </div>
+                                  </div>
                                     <div id="validator-newsletter" class="form-result"></div>
                                 </form>
 
@@ -60,6 +71,8 @@
     </div>
 </section>
 <!-- End Banner Area -->
+
+
 
 
 <!-- Info Area -->

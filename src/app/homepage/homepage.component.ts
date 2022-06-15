@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {CompanyService} from '../service/company/company.service';
-import {Company} from '../model/company';
 import {RecruitmentNewService} from '../service/recruitmentNew/recruitment-new.service';
 import {RecruitmentNew} from '../model/recruitmentNew';
 import {TokenService} from '../security/token.service';
@@ -16,6 +15,9 @@ import {Router} from '@angular/router';
 import {ApplyService} from '../service/apply/apply.service';
 import {ForwardApply} from '../model/forwardApply';
 import {ForwardApplyService} from '../service/apply/forward-apply.service';
+import {Field} from '../model/field';
+import {SearchJob} from '../model/SearchJob';
+import {FieldService} from '../service/field/field.service';
 
 @Component({
   selector: 'app-homepage',
@@ -33,6 +35,8 @@ export class HomepageComponent implements OnInit {
   searchKey: string = '';
   forwardApply: ForwardApply;
   recruitmentNew: RecruitmentNew;
+  fields: Field[] = [];
+  searchJob: SearchJob;
 
   rcmdate: any[] = [];
 
@@ -45,7 +49,8 @@ export class HomepageComponent implements OnInit {
               private router: Router,
               private applyService: ApplyService,
               private forwardApplyService: ForwardApplyService,
-              private recruitmentNewService: RecruitmentNewService
+              private recruitmentNewService: RecruitmentNewService,
+              private fieldService: FieldService
   ) {
     this.companyService.fidAllCompanyByStatus(4).subscribe(data => {
 
@@ -107,6 +112,24 @@ export class HomepageComponent implements OnInit {
     this.pageRecruiment({page: 0, size: 4});
     this.checkUserCurrent();
     this.findByRecuitmentNewNeed();
+    this.getAllJobByField();
+    this.getAllField();
+  }
+
+  getAllJobByField() {
+    this.recruitmentNewService.getAllRecruitmentByField(this.searchJob).subscribe(recruiment => {
+      this.recruimentNew = recruiment;
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  getAllField() {
+    this.fieldService.showAll().subscribe(resp => {
+      this.fields = resp;
+    }, error => {
+      console.log(error);
+    });
   }
 
   checklogin() {

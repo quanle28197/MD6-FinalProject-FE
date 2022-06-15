@@ -73,6 +73,8 @@ import { DialogNoCreateComponent } from './dialog/CV/dialog-no-create/dialog-no-
 import { DialogMatchComponent } from './dialog/dialog-match/dialog-match.component';
 import {registerLocaleData} from '@angular/common';
 import {MatCurrencyFormatModule} from 'mat-currency-format';
+import {MatChipsModule} from '@angular/material/chips';
+import { QuickSearchComponent } from './quick-search/quick-search.component';
 
 
 
@@ -99,10 +101,10 @@ export const appRoutes: Routes = [
   {path: 'web-company/:id', component: WebCompanyComponent},
   {path: 'apply-company', component: ApplyCompanyComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'quick-search', component: QuickSearchComponent}
 
 ];
 
-// @ts-ignore
 // @ts-ignore
 @NgModule({
   declarations: [
@@ -141,31 +143,32 @@ export const appRoutes: Routes = [
     UploadFileComponent,
     ApplyCompanyComponent,
     DialogNoCreateComponent,
-    DialogMatchComponent
+    DialogMatchComponent,
+    QuickSearchComponent
   ],
-  imports: [
-    ReactiveFormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    FormsModule,
-    HttpClientModule,
-    BrowserModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatRadioModule,
-    MatCheckboxModule,
-    MatSlideToggleModule,
-    MatButtonModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    NgxAudioPlayerModule,
-    AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    // tslint:disable-next-line:max-line-length
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule, MatSliderModule, MatCurrencyFormatModule,
+    imports: [
+        ReactiveFormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        FormsModule,
+        HttpClientModule,
+        BrowserModule,
+        MatCardModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatRadioModule,
+        MatCheckboxModule,
+        MatSlideToggleModule,
+        MatButtonModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        NgxAudioPlayerModule,
+        AngularFireStorageModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        // tslint:disable-next-line:max-line-length
+        RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule, MatSliderModule, MatCurrencyFormatModule, MatChipsModule,
 
-  ],
+    ],
   providers: [httpInterceptorProvider, {provide: LOCALE_ID, useValue: 'en-US'}],
   bootstrap: [AppComponent]
 })
