@@ -1,4 +1,4 @@
-export interface Search {
+export interface SearchJob {
   title?: string;
   skill?: string;
   companyName?: string;
@@ -8,7 +8,7 @@ export interface Search {
 
   companyId?: number;
 
-  vacancies?: number;
+  vacancies?: any;
 
   workingTimeId?: number;
 

@@ -1,21 +1,31 @@
-<h1>Danh sach</h1>
 
+<p>Hiển thị kết quả sau khi tìm kiếm</p>
 <table>
-
   <tr>
     <td>STT</td>
-    <td>ten tp</td>
-    <td>tieu de</td>
-    <td>quantity</td>
-    <td>salary</td>
+    <td>Thanh Pho</td>
+    <td>Cong ty</td>
+    <td>Tiêu đề</td>
   </tr>
-
-  <tr *ngFor="let searchCity of recruitment; index as i" >
-    <td>{{i + 1}}</td>
-    <td>{{searchCity.city.id}}</td>
-    <td>{{searchCity.title}}</td>
-    <td>{{searchCity.quantity}}</td>
-    <td>{{searchCity.salary}}</td>
+  <tr *ngFor="let result of recruitmentCity; index as i">
+    <td>{{i+1}}</td>
+    <td>{{result.city.id}}</td>
+    <td>{{result.company.id}}</td>
+    <td>{{result.title}}</td>
   </tr>
 
 </table>
+<!--<input type="text" [(ngModel)]="data" ></input>-->
+<!--<table class="table">-->
+<!--  <tr>-->
+<!--    <td>ID</td>-->
+<!--    <td>title</td>-->
+<!--    <td>city</td>-->
+<!--  </tr>-->
+<!--  <tr *ngFor="let o of recruitmentCity, index as i">-->
+<!--    <td>{{i+1}}</td>-->
+<!--    <td>{{o.title}}</td>-->
+<!--    <td>{{o.codeNews}}</td>-->
+<!--  </tr>-->
+<!--</table>-->
+

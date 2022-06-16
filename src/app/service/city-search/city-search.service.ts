@@ -4,6 +4,7 @@ import {Company} from '../../model/company';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {RecuitmentNew} from '../../model/recuitment-new';
+import {SearchJob} from '../../model/searchJob';
 
 const API_URL = `${environment.apiURL}`;
 
@@ -14,7 +15,8 @@ export class CitySearchService {
 
   constructor(private http: HttpClient) { }
 
-  // searchCity(): Observable<RecuitmentNew[]> {
-  //   return this.http.get<RecuitmentNew[]>(API_URL + '/search/q-search/city');
-  // }
+  getResultJob(data: string): Observable<SearchJob[]> {
+    return this.http.get<SearchJob[]>(API_URL + '/search/result?query=' + data);
+  }
+
 }

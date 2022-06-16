@@ -1,6 +1,6 @@
 export interface RecuitmentNew {
   id?: number;
-  codeNews?: number;
+  codeNews?: string;
   title?: string;
   workingTime?: any;
   field?: any;

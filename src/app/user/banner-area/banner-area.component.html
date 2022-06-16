@@ -8,12 +8,14 @@
             <div class="banner-content">
               <h1>Trang tin tuyển dụng hàng đầu Việt Nam</h1>
               <p>Hàng ngàn công việc phù hợp đang chờ đón các bạn. Hãy để chúng tôi giúp bạn tìm
-                 được công việc mơ ước</p>
+                được công việc mơ ước</p>
               <div class="banner-btn">
                 <div class="pt-0">
-                  <label><input class="form-control search bg-light" placeholder="Nhập tên công việc, công ty, ..." type="search"></label>
-                  &nbsp;
-                  <button [routerLink]="['user/q-search/city']" class="box-btn" type="submit">Tìm kiếm việc làm</button>
+                  <label><input class="form-control search bg-light" placeholder="Nhập tên công việc, công ty, ..."
+                                type="search" [(ngModel)]="inputData"></label>&nbsp;
+                  <button [routerLink]="['/user/q-search']" [queryParams]="{'query':inputData}" class="box-btn"
+                          type="submit">Tìm kiếm việc làm
+                  </button>
                 </div>
               </div>
             </div>

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {RecuitmentNew} from '../../model/recuitment-new';
-import {Search} from '../../model/search';
+import {SearchJob} from '../../model/searchJob';
 import {RecruitmentnewService} from '../../service/recruitmentnew/recruitmentnew.service';
 import {CitySearchService} from '../../service/city-search/city-search.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {City} from '../../model/City';
 
 @Component({
   selector: 'app-city-search',
@@ -10,19 +12,24 @@ import {CitySearchService} from '../../service/city-search/city-search.service';
   styleUrls: ['./city-search.component.css']
 })
 export class CitySearchComponent implements OnInit {
-  recruitment: RecuitmentNew [] = [];
-  searchCity: Search [] = [];
+  // searchjob: SearchJob[] = [];
+  recruitmentCity: RecuitmentNew[] = [];
+  city: City[] = [];
+  data: string;
   constructor(private recruitmentService: RecruitmentnewService,
-              private search: CitySearchService) { }
+              private searchCityService: CitySearchService,
+              // private router: Router,
+              private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
-    this.getAllRecruitment();
   }
-  getAllRecruitment() {
-    this.recruitmentService.searchCity().subscribe(recruitment => {
-      this.recruitment = recruitment;
-    }, error => {
-      console.log(error);
+
+  /*getAllJob(data: string) {
+    this.searchCityService.getResultJob(data).subscribe(resp => {
+      this.recruitmentCity = resp;
+    }, e => {
+      console.log(e);
     });
-  }
+  }*/
 }

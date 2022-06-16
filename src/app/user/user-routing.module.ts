@@ -25,7 +25,7 @@ const routes: Routes = [
     component: TopCompanyComponent
   },
   {
-    path: 'q-search/city',
+    path: 'q-search',
     component: CitySearchComponent
   }
 
