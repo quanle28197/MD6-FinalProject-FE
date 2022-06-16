@@ -83,6 +83,6 @@ export class LoginComponent implements OnInit {
         }
       }
     });
-    Notify.failure('Bạn nhập sai tài khoản hoặc mật khẩu rồi kìa');
+    this.status = 'Bạn nhập sai tài khoản hoặc mật khẩu!';
   }
 }
