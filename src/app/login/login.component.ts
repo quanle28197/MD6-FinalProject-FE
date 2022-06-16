@@ -3,7 +3,7 @@ import {AuthService} from '../security/auth.service';
 import {TokenService} from '../security/token.service';
 import {Router} from '@angular/router';
 import {SignInForm} from '../security/SignInForm';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Notify, Report} from 'notiflix';
 
 
@@ -24,10 +24,6 @@ export class LoginComponent implements OnInit {
   emailFormControl = new FormControl('', [
     Validators.email, Validators.required
   ]);
-
-
-
-  // @ts-ignore
   signInForm: SignInForm;
 
   constructor(private authService: AuthService,

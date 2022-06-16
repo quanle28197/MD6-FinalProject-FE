@@ -34,7 +34,7 @@
                                 <mat-card class="text-center">
                                     <form #form="ngForm"
                                           (ngSubmit)="form.form.valid && ngSubmit(form)" novalidate>
-                                        <!--                                        <mat-error class="alert alert-primary">{{status}}</mat-error>-->
+                                             <mat-error class="alert alert-primary">{{status}}</mat-error>
                                         <mat-form-field style="width: 350px" appearance="outline">
                                             <mat-label>Email đăng ký</mat-label>
                                             <input matInput placeholder="Nhập tài khoản" name="username"
@@ -99,7 +99,7 @@
                                         <mat-form-field style="width: 350px" appearance="outline">
                                             <mat-label>Số điện thoại</mat-label>
                                             <input pattern="[0-9]*"
-                                                   [type]="'text'"$
+                                                   [type]="'text'"
                                                    (keypress)="numericOnly($event)"
                                                    autocomplete="off" matInput placeholder="Số điện thoại" name="phone"
                                                    [(ngModel)]="data.phone" maxlength="12">
