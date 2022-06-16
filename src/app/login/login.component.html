@@ -2,11 +2,10 @@
 <section class="signup-area ptb-100">
   <div class="container">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12" style="padding-top: 60px">
         <div class="signup-form">
           <div class="section-tittle text-center">
             <h2>Đăng nhập</h2>
-            <p>Với tài khoản mạng xã hội</p>
           </div>
           <form #f="ngForm" (ngSubmit)="f.form.valid && onLogin()">
             <mat-error  style="text-align: center">{{status}}</mat-error>

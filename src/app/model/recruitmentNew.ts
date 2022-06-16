@@ -1,8 +1,6 @@
-import {WorkingTime} from './workingTime';
-
 export class RecruitmentNew {
   id?: number;
-  title: string;
+  title?: string;
   workingTime: any;
   field: any;
   company: any;

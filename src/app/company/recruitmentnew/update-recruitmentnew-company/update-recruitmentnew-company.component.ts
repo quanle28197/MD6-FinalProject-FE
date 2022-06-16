@@ -19,7 +19,7 @@ export class UpdateRecruitmentnewCompanyComponent implements OnInit {
 
   status: string = 'Mời bạn nhập thông tin cần sửa';
   recruitmentNew: RecruitmentNew;
-
+  usAmount: any;
   id: number;
 
   workingTimes: any = [];
@@ -50,7 +50,6 @@ export class UpdateRecruitmentnewCompanyComponent implements OnInit {
   success: any = {
     message: 'yes'
   };
-
   constructor(private workingTimeService: WorkingTimeService,
               private fieldService: FieldService,
               private vacanciesService: VacanciesService,
@@ -90,24 +89,26 @@ export class UpdateRecruitmentnewCompanyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params.id;
     this.recruitmentNewService.getRecruitmentNewById(this.id).subscribe(data => {
       this.recruitmentNew = data;
     });
   }
 
+  updateUSAmount(event) { this.usAmount = event.target.value; }
+
   onUpdate() {
 
     this.recruitmentNewService.updateRecruitment(this.id, this.recruitmentNew).subscribe(data => {
-      if (JSON.stringify(data) == JSON.stringify(this.error1)) {
+      if (JSON.stringify(data) === JSON.stringify(this.error1)) {
         // @ts-ignore
         this.status = 'Vui lòng nhập số lượng người cần tuyển!';
       }
-      if (JSON.stringify(data) == JSON.stringify(this.error2)) {
+      if (JSON.stringify(data) === JSON.stringify(this.error2)) {
         // @ts-ignore
         this.status = 'Vui lòng nhập mức lương!';
       }
-      if (JSON.stringify(data) == JSON.stringify(this.success)) {
+      if (JSON.stringify(data) === JSON.stringify(this.success)) {
         // @ts-ignore
         Notify.success('Sửa tin tuyển dụng thành công');
       }

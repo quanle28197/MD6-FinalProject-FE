@@ -44,7 +44,7 @@
                         <h2>Tạo mới</h2>
                         <p>Tạo mới tin tuyển dụng</p>
                     </div>
-                    <form #f="ngForm" (ngSubmit)="f.form.valid &&ngSubmit()" novalidate>
+                    <form #f="ngForm" (ngSubmit)="f.form.valid &&ngSubmit()" novalidate >
                         <div class="row">
                             <mat-error class="alert alert-primary" style="text-align: center">{{status}}</mat-error>
 
@@ -53,7 +53,7 @@
                                 <mat-form-field style="width: 100%" appearance="outline">
                                     <mat-label>Tiêu Đề:</mat-label>
                                     <input matInput placeholder="Tiêu đề ..." name="title" [(ngModel)]="form.title"
-                                           #title="ngModel" required>
+                                           #title="ngModel" required [ngModelOptions]="{standalone: true}">
                                     <mat-icon color="#051242" matSuffix>subtitles</mat-icon>
                                     <mat-error *ngIf="title.hasError('required')">Không được để trống!</mat-error>
                                 </mat-form-field>
@@ -92,7 +92,7 @@
                             <!--hạn nộp hồ sơ-->
                             <mat-form-field appearance="outline">
                                 <mat-label>Hạn nộp hồ sơ</mat-label>
-                                <input matInput [matDatepicker]="picker" [(ngModel)]="form.expDate">
+                                <input matInput [matDatepicker]="picker" [(ngModel)]="form.expDate" [ngModelOptions]="{standalone: true}">
                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
                             </mat-form-field>
@@ -117,7 +117,7 @@
                                             [value]="usAmount"
                                             (blur)="updateUSAmount($event)" matInput placeholder="Mức Lương..." name="description"
                                            [(ngModel)]="form.salary"
-                                           #salary="ngModel" required>
+                                           #salary="ngModel" required [ngModelOptions]="{standalone: true}">
                                     <mat-icon color="#051242" matSuffix>local_atm</mat-icon>
                                     <mat-error *ngIf="salary.hasError('required')">Viết mức lương
                                     </mat-error>
@@ -130,7 +130,7 @@
                                     <mat-label>Số Lượng Ứng Tuyển :</mat-label>
                                     <input matInput placeholder="Số lượng ..." name="quantity"
                                            [(ngModel)]="form.quantity"
-                                           #quantity="ngModel" required>
+                                           #quantity="ngModel" required [ngModelOptions]="{standalone: true}">
                                     <mat-icon color="#051242" matSuffix>person_add_alt</mat-icon>
                                     <mat-error *ngIf="quantity.hasError('required')">Bắt buộc phải nhập số lượng người
                                         ứng tuyển

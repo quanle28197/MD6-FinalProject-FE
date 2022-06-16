@@ -12,9 +12,9 @@ import {RecruitmentNew} from '../../../model/recruitmentNew';
 export class DetailRecruitmentnewComponent implements OnInit {
   recruitmentNew: RecruitmentNew;
   constructor(private rcms : RecruitmentNewService,
-              private router: Router,@Inject(MAT_DIALOG_DATA) public data:any,
+              private router: Router,@Inject(MAT_DIALOG_DATA) public data: any,
               public dialogRef: MatDialogRef<DetailRecruitmentnewComponent>) {
-    this.rcms.getRecruitmentNewById(data.id).subscribe(data =>{
+    this.rcms.getRecruitmentNewById(data.id).subscribe(data => {
       this.recruitmentNew = data;
       console.log(this.recruitmentNew);
     })
