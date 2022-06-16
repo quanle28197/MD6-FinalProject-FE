@@ -9,7 +9,6 @@ import {WorkExpService} from '../../../service/workExp/work-exp.service';
 import {CvDTO} from '../../../model/dto/cv-dto';
 import {MatDialog} from '@angular/material/dialog';
 import {FormArray, FormBuilder} from '@angular/forms';
-import {DialogEditCvComponent} from '../../../dialog/CV/dialog-edit-cv/dialog-edit-cv.component';
 import {Notify} from 'notiflix';
 
 @Component({

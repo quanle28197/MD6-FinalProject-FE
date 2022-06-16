@@ -64,15 +64,19 @@
                                                    [type]="'text'"
                                                    (keypress)="numericOnly($event)"
                                                     matInput placeholder="phone" name="phone" [(ngModel)]="data.phone"
-                                                   #phone="ngModel" maxlength="12">
+                                                   #phone="ngModel" required [maxlength]="12" [minlength]="1">
                                             <mat-icon color="black" matSuffix>dialpad</mat-icon>
+                                          <mat-error *ngIf="phone.hasError('required')">Không được bỏ trống
+                                          </mat-error>
+                                          <mat-error *ngIf="phone.hasError('maxlength')">Không quá 12 ký tự!</mat-error>
+                                          <mat-error *ngIf="phone.hasError('minlength')">Không ít hơn 1 ký tự!</mat-error>
                                         </mat-form-field>
                                         <br>
                                         <mat-form-field style="width: 350px" appearance="outline">
                                             <mat-label>Mật khẩu</mat-label>
                                             <input matInput placeholder="password" name="password"
                                                    [(ngModel)]="data.password" #password="ngModel" required
-                                                   [type]="hide ? 'password' : 'text'">
+                                                   [type]="hide ? 'password' : 'text'" [maxlength]="10" [minlength]="4">
                                             <button mat-icon-button matSuffix (click)="hide = !hide"
                                                     [attr.aria-label]="'Hide password'"
                                                     [attr.aria-pressed]="hide">
@@ -81,19 +85,23 @@
                                             </button>
                                             <mat-error *ngIf="password?.hasError('required')">Không được bỏ trống
                                             </mat-error>
+                                          <mat-error *ngIf="password.hasError('maxlength')">Không quá 30 ký tự!</mat-error>
+                                          <mat-error *ngIf="password.hasError('minlength')">Không ít hơn 5 ký tự!</mat-error>
                                         </mat-form-field>
                                         <br>
                                         <mat-form-field style="width: 350px" appearance="outline">
                                             <mat-label>Nhập lại mật khẩu</mat-label>
                                             <input matInput placeholder="confirmpassword" name="confirmpassword"
                                                    [(ngModel)]="data.confirmpassword" #confirmpassword="ngModel"
-                                                   [type]="hide1 ? 'password' : 'text'">
+                                                   [type]="hide1 ? 'password' : 'text'" required>
                                             <button mat-icon-button matSuffix (click)="hide1 = !hide1"
                                                     [attr.aria-label]="'Hide password'"
                                                     [attr.aria-pressed]="hide1">
                                                 <mat-icon
                                                         color="black">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                                             </button>
+                                          <mat-error *ngIf="confirmpassword?.hasError('required')">Không được bỏ trống
+                                          </mat-error>
                                         </mat-form-field>
                                         <p>
                                             <span matBadge="" matBadgeSize="large" *ngIf="checkPassword()">Mật khẩu chính xác</span>

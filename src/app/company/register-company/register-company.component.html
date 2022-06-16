@@ -34,7 +34,7 @@
                                 <mat-card class="text-center">
                                     <form #form="ngForm"
                                           (ngSubmit)="form.form.valid && ngSubmit(form)" novalidate>
-                                        <!--                                        <mat-error class="alert alert-primary">{{status}}</mat-error>-->
+                                      <mat-error class="alert alert-primary">{{status}}</mat-error>
                                         <mat-form-field style="width: 350px" appearance="outline">
                                             <mat-label>Email đăng ký</mat-label>
                                             <input matInput placeholder="Nhập tài khoản" name="username"

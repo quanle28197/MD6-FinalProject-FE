@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {environment} from "../../../environments/environment";
-import {Observable} from "rxjs";
+import {environment} from '../../../environments/environment';
+import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {Company} from "../../model/company";
+import {Company} from '../../model/company';
 import {EditCompany} from '../../model/editCompany';
 
 @Injectable({
@@ -20,13 +20,11 @@ export class CompanyService {
   }
 
   editCompany(id: number, company: EditCompany) {
-    // const httpOptions = { headers: new HttpHeaders({ 'Content-Type':'application/json','Access-Control-Allow-Origins':'*'})};
-    // @ts-ignore
-    return this.http.put(`${this.apiServerUrl}/company/${id}`, company)
+    return this.http.put(`${this.apiServerUrl}/company/${id}`, company);
   }
 
   getAllCompany(): Observable<Company []> {
-    return this.http.get<Company []>(`${this.apiServerUrl}/company/list`)
+    return this.http.get<Company []>(`${this.apiServerUrl}/company/list`);
   }
   fidAllCompanyByStatus(status: number): Observable<Company []>{
     return this.http.get<Company []>(`${this.apiServerUrl}/company/findByStatus/${status}`);

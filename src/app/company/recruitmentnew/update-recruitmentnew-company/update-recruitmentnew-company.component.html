@@ -54,7 +54,7 @@
                                 <mat-form-field style="width: 100%" appearance="outline">
                                     <mat-label>Tiêu Đề:</mat-label>
                                     <input matInput placeholder="Tiêu đề ..." name="title"
-                                           [(ngModel)]="recruitmentNew.title">
+                                           [(ngModel)]="recruitmentNew.title" [ngModelOptions]="{standalone: true}">
                                     <mat-icon color="#051242" matSuffix>subtitles</mat-icon>
                                 </mat-form-field>
                             </div>
@@ -93,7 +93,8 @@
                             <!--hạn nộp hồ sơ-->
                             <mat-form-field appearance="outline">
                                 <mat-label>Hạn nộp hồ sơ</mat-label>
-                                <input matInput [matDatepicker]="picker" [(ngModel)]="recruitmentNew.expDate">
+                                <input matInput [matDatepicker]="picker" [(ngModel)]="recruitmentNew.expDate"
+                                       [ngModelOptions]="{standalone: true}">
                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
                             </mat-form-field>
@@ -102,7 +103,7 @@
                             <mat-form-field style="width: 100%" appearance="outline">
                                 <mat-label>Mô tả:</mat-label>
                                 <input matInput placeholder="Mô tả ..." name="title"
-                                       [(ngModel)]="recruitmentNew.description">
+                                       [(ngModel)]="recruitmentNew.description" [ngModelOptions]="{standalone: true}">
                                 <mat-icon color="#051242" matSuffix>subtitles</mat-icon>
                             </mat-form-field>
 
@@ -112,7 +113,7 @@
                                     <mat-label>Số Lượng Ứng Tuyển :</mat-label>
                                     <input matInput placeholder="Số lượng ..." name="quantity"
                                            [(ngModel)]="recruitmentNew.quantity"
-                                           #quantity="ngModel" required>
+                                           #quantity="ngModel" required [ngModelOptions]="{standalone: true}">
                                     <mat-icon color="#051242" matSuffix>person_add_alt</mat-icon>
                                     <mat-error *ngIf="quantity.hasError('required')">Bắt buộc phải nhập số lượng người
                                         ứng tuyển
@@ -126,7 +127,12 @@
                                     <mat-label>Mức Lương:</mat-label>
                                     <input matInput placeholder="Mức Lương..." name="description"
                                            [(ngModel)]="recruitmentNew.salary"
-                                           #salary="ngModel" required>
+                                           #salary="ngModel" required [ngModelOptions]="{standalone: true}"
+                                           mvndrMatCurrencyFormat
+                                           [allowNegative]="false"
+                                           [currencyCode]="'VND'"
+                                           [value]="usAmount"
+                                           (blur)="updateUSAmount($event)">
                                     <mat-icon color="#051242" matSuffix>local_atm</mat-icon>
                                     <mat-error *ngIf="salary.hasError('required')">Viết mức lương
                                     </mat-error>

@@ -32,7 +32,7 @@ export class RecruitmentNewService {
   }
 
   getAllRecruitmentByField(searchJob: SearchJob): Observable<RecruitmentNew[]> {
-    return this.http.post<RecruitmentNew[]>(this.apiServerUrl + '/recruitment/list', searchJob);
+    return this.http.get<RecruitmentNew[]>(this.apiServerUrl + '/recruitment/list');
   }
 
   deleteRecruitmentNewById(id: number): Observable<any> {
