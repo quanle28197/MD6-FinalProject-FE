@@ -80,7 +80,7 @@
                         <!-- Name Column -->
                         <ng-container matColumnDef="expDate">
                             <th mat-header-cell *matHeaderCellDef>Ngày hết hạn</th>
-                            <td mat-cell *matCellDef="let element"> {{element.expDate}} </td>
+                            <td mat-cell *matCellDef="let element"> {{element.expDate|date}} </td>
                         </ng-container>
 
                         <!-- Name Column -->

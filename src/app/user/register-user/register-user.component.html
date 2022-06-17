@@ -37,7 +37,7 @@
                                       <mat-error class="alert alert-primary">{{status}}</mat-error>
                                         <mat-form-field style="width: 350px" appearance="outline">
                                             <mat-label>Email đăng nhập</mat-label>
-                                            <input matInput placeholder="username" name="username"
+                                            <input matInput placeholder="Email" name="username"
                                                    [(ngModel)]="data.username" #username="ngModel" required email>
                                             <mat-icon color="black" matSuffix>account_circle</mat-icon>
                                             <mat-error *ngIf="username?.hasError('required')">Không được bỏ trống

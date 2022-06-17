@@ -32,7 +32,7 @@ export class ChangePasswordComponent implements OnInit {
       console.log(this.changePassword);
       this.authService.changePassword(this.changePassword).subscribe(data => {
         if (JSON.stringify(data) == JSON.stringify(this.success)) {
-          Report.success('Success', 'Bạn đã đổi mật khẩu thành công', 'Close');
+          Report.success('Thành công', 'Bạn đã đổi mật khẩu thành công', 'Đóng');
         }
       });
     }
@@ -40,9 +40,9 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   checkPassword() {
-    if (this.data.newPassword == this.data.confirmPassword && this.data.newPassword != '') {
+    if (this.data.newPassword == this.data.confirmPassword && this.data.newPassword !== '') {
       return true;
-    } else if (this.data.newPassword != this.data.confirmPassword && this.data.newPassword != '' && this.data.confirmPassword != '') {
+    } else if (this.data.newPassword != this.data.confirmPassword && this.data.newPassword !== '' && this.data.confirmPassword !== '') {
       return false;
     }
   }

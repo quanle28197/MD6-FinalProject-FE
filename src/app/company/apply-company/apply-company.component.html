@@ -72,13 +72,6 @@
                         </tbody>
                     </table>
                     <div class="text-center mt-3 mt-sm-3">
-
-<!--                            <mat-paginator [length]="totalElements"-->
-<!--                                           [pageSize]="3"-->
-<!--                                           [pageSizeOptions]="[3, 6, 9, 12]"-->
-<!--                                           (page)="nextPage($event)"-->
-<!--                                           aria-label="Select page">-->
-<!--                            </mat-paginator>-->
                         <mat-paginator [pageSizeOptions]="[3,6,9,12,15]"
                                        [length]="totalElements"
                                        (page)="nextPage($event)">

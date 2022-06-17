@@ -54,7 +54,7 @@ export class RegisterCompanyComponent implements OnInit {
       this.idAccount = data1.id;
       this.create();
       form.reset();
-    }, error => alert(error));
+    }, error => Report.warning('Failed', 'Lập tài khoản công ty không thành công', 'Close'));
   }
 
   create() {
@@ -71,7 +71,7 @@ export class RegisterCompanyComponent implements OnInit {
     console.log(this.company);
     this.authService.registerCompany(this.company).subscribe(data2 => {
       console.log(data2);
-      if (JSON.stringify(data2) == JSON.stringify(this.success)) {
+      if (JSON.stringify(data2) === JSON.stringify(this.success)) {
         // @ts-ignore
         const dialogRef1 = this.dialog.open(DialogCreateCompanyComponent);
         dialogRef1.afterClosed().subscribe(result => {

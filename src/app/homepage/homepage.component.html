@@ -144,23 +144,23 @@
                             <div class="col-lg-3 col-md-3 col-5">
                                 <div class="testimonials-img">
                                     <img src="{{ctg.company.avatar}}" alt="testimonials"
-                                         style="width: 150px;height: 139px">
+                                         style="width: 150px;height: 150px">
                                 </div>
                             </div>
                             <div class="col-lg-9 col-md-9 col-7">
                                 <div class="content">
                                     <h2>{{ctg.title}}</h2>
-                                    <span *ngIf="checkLogin == true">Tiền lương: {{ctg.salary}}</span>
+                                    <span *ngIf="checkLogin == true">Tiền lương: {{ctg.salary | number}}</span>
                                     <span *ngIf="checkLogin == false">Tiền lương: Bạn cần đăng nhập để xem</span>
                                     <div>Địa điểm: {{ctg.company.address}}</div>
-                                    <p>Tuyển dụng đến: {{ctg.expDate}}</p>
+                                    <p>Tuyển dụng đến: {{ctg.expDate | date}}</p>
 
                                 </div>
                             </div>
                         </div>
                     </div>
                     <hr>
-                    <div style="display: flex">
+                    <div style="display: flex"  >
                         <div class="testimonials-foot" style="margin-right: 10px">
                             <button *ngIf="checkUser" class="text-center" mat-stroked-button color="primary"
                                     (click)="openDialogApply(ctg.id)">Xem chi tiêt

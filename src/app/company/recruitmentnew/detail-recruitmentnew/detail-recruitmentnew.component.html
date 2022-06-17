@@ -9,10 +9,10 @@
                 <p><b>Công ty đăng tuyển:</b> {{recruitmentNew.company.name}} </p>
                 <p><b>Mức độ nổi tiếng của công ty đăng tuyển</b>: {{recruitmentNew.company.statusCompany}} </p>
                 <p><b>Vị trí cần tuyển dụng:</b> {{recruitmentNew.vacancies.name}} </p>
-                <p><b>Ngày kết thúc:</b> {{recruitmentNew.expDate}} </p>
+                <p><b>Ngày kết thúc:</b> {{recruitmentNew.expDate | date}} </p>
                 <p><b>Mô tả công việc:</b> {{recruitmentNew.description}} </p>
                 <p><b>Số lượng cần tuyển:</b> {{recruitmentNew.quantity}} </p>
-                <p><b>Lương một tháng:</b> {{recruitmentNew.salary}} </p>
+                <p><b>Lương một tháng:</b> {{recruitmentNew.salary | number}} </p>
                 <p><b>Địa điểm làm việc:</b> {{recruitmentNew.city.name}} </p>
                 <p><b>Trạng thái tin tuyển dụng:</b> {{recruitmentNew.status}} </p>
             </div>

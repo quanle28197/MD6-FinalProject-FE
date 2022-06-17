@@ -189,7 +189,7 @@ export class HomepageComponent implements OnInit {
         } else {
           const apply: Apply = new Apply(id, this.tokenService.getIdGuest());
           this.applyService.createCV(apply).subscribe(data2 => {
-            if (data2.message == 'CREATE') {
+            if (data2.message === 'CREATE') {
               const dialogRef1 = this.dialog.open(DialogApplyComponent);
               dialogRef1.afterClosed().subscribe(result => {
                 this.recruitmentNewService.getRecruitmentNewById(id).subscribe(data3 => {
@@ -200,16 +200,15 @@ export class HomepageComponent implements OnInit {
                   });
                 });
                 console.log('ressult sau khi bam nut --> ', result);
-                if (result == false) {
+                if (result === false) {
 
                 }
               });
-            } else if (data2.message == 'CREATE_FAIL') {
+            } else if (data2.message === 'CREATE_FAIL') {
               const dialogRef1 = this.dialog.open(DialogApplyFailComponent);
               dialogRef1.afterClosed().subscribe(result => {
                 console.log('ressult sau khi bam nut --> ', result);
-                if (result == false) {
-
+                if (result === false) {
                 }
               });
             }
@@ -224,7 +223,7 @@ export class HomepageComponent implements OnInit {
   ngSubmit(f: any) {
     console.log(f.value);
     this.searchKey = f.value.searchKey;
-    if (this.searchKey == '') {
+    if (this.searchKey === '') {
       this.router.navigate([`list-recruitmentnew-user/xxx`]);
     } else {
       this.router.navigate([`list-recruitmentnew-user/${this.searchKey}`]);

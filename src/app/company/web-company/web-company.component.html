@@ -96,7 +96,7 @@
                                                 <h3>{{rcm.title}}</h3>
                                                 <p><b>Nơi làm việc:</b> {{rcm.city.name}}</p>
                                                 <p><b>Thời gian làm việc:</b> {{rcm.workingTime.name}}</p>
-                                                <p><b>Ngày ứng tuyển:</b> {{rcm.expDate}}</p>
+                                                <p><b>Ngày ứng tuyển:</b> {{rcm.expDate| date}}</p>
                                                 <button  (click)="openDialogApply(rcm.id)"
                                                   mat-raised-button color="primary">Ứng tuyển ngay
                                                 </button>
