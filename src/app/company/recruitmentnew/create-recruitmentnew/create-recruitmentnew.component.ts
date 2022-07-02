@@ -47,7 +47,7 @@ export class CreateRecruitmentnewComponent implements OnInit {
   success: any = {
     message: 'yes'
   };
-  private usAmount: any;
+   usAmount: any;
   constructor(private workingTimeService: WorkingTimeService,
               private fieldService: FieldService,
               private vacanciesService: VacanciesService,

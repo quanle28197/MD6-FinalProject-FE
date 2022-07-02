@@ -89,22 +89,22 @@ export class ApplyRecruitmentnewComponent implements OnInit {
                   console.log('sau khi bam nut--->', data4);
                 });
                 console.log('ressult sau khi bam nut --> ', result);
-                if (result == false) {
+                if (result === false) {
 
                 }
               });
             }
           );
-        } else if (data2.message == 'CREATE_FAIL') {
+        } else if (data2.message === 'CREATE_FAIL') {
           this.dialogRef.close();
           const dialogRef1 = this.dialog.open(DialogApplyFailComponent);
           dialogRef1.afterClosed().subscribe(result => {
             console.log('ressult sau khi bam nut --> ', result);
-            if (result == false) {
+            if (result === false) {
 
             }
           });
-        } else if (data2.message == 'MATCH') {
+        } else if (data2.message === 'MATCH') {
           const dialogRef2 = this.dialog.open(DialogMatchComponent);
           dialogRef2.afterClosed().subscribe(result => {
 

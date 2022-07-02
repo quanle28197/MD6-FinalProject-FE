@@ -31,7 +31,8 @@ export class DetailCompanyComponent implements OnInit {
 
   ngSubmit(form: any) {
     console.log(this.companyCurrent);
-    this.editCompany = new EditCompany(this.companyCurrent.name,
+    this.editCompany = new EditCompany(
+      this.companyCurrent.name,
       this.companyCurrent.avatar,
       this.companyCurrent.description,
       this.companyCurrent.address,

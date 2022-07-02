@@ -64,7 +64,7 @@
                             </td>
                             <td>
                                 <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                    <button *ngIf="checkAccept(apply.status)" (click)="apcept(apply.id)" mat-raised-button color="primary">Duyệt</button>
+                                    <button style="margin-right: 10px" *ngIf="checkAccept(apply.status)" (click)="apcept(apply.id)" mat-raised-button color="primary">Duyệt</button>
                                     <button *ngIf="checkAccept(apply.status)" (click)="reject(apply.id)"  mat-raised-button color="warn">Từ chối</button>
                                 </ul>
                             </td>

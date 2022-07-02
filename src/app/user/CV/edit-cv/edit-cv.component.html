@@ -87,11 +87,15 @@
                                             </mat-form-field>
                                             <h4>
                                                 <h6 style="margin-right: 10px">Ngày bắt đầu</h6>
-                                                <input type="date" formControlName="startDate">
+                                                <input matInput [matDatepicker]="picker" formControlName="startDate">
+                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker></mat-datepicker>
                                                 <br>
                                                 <br>
                                                 <h6 style="margin-right: 10px">Ngày kết thúc</h6>
-                                                <input type="date" formControlName="endDate">
+                                                <input matInput [matDatepicker]="picker" formControlName="endDate">
+                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker></mat-datepicker>
                                             </h4>
                                             <mat-form-field style="width: 100%" appearance="fill">
                                                 <mat-label>Nội dung</mat-label>

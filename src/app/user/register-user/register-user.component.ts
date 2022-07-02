@@ -60,7 +60,6 @@ export class RegisterUserComponent implements OnInit {
     console.log(this.user);
     this.authService.registerUser(this.user).subscribe(data2 => {
       if (JSON.stringify(data2) === JSON.stringify(this.success)) {
-        // @ts-ignore
         const dialogRef1 = this.dialog.open(DialogCreateCompanyComponent);
         dialogRef1.afterClosed().subscribe(result => {
           Report.success('Success', 'Lập tài khoản người dùng thành công', 'Close');

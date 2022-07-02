@@ -41,8 +41,8 @@ export class ApplyCompanyComponent implements OnInit {
   apcept(id) {
     // @ts-ignore
     const event: PageEvent = undefined;
-    const changeStatus: ChangeStatusApply = new ChangeStatusApply(id,1);
-    this.applyService.apply(changeStatus).subscribe(data =>{
+    const changeStatus: ChangeStatusApply = new ChangeStatusApply(id, 1);
+    this.applyService.apply(changeStatus).subscribe(data => {
       this.notify = data.message;
       this.pageCategory(event);
     });
@@ -50,7 +50,7 @@ export class ApplyCompanyComponent implements OnInit {
 
   reject(id) {
     const changeStatus: ChangeStatusApply = new ChangeStatusApply(id,0);
-    this.applyService.apply(changeStatus).subscribe(data =>{
+    this.applyService.apply(changeStatus).subscribe(data => {
       this.notify = data.message;
       this.pageCategory(event);
     });

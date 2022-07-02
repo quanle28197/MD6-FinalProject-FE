@@ -5,10 +5,10 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="banner-content">
-                            <h1>
+                            <h1 style="font-family: Verdana">
                                 Chào mừng bạn đã đến với Find Job
                             </h1>
-                            <p>
+                            <p style="font-family: Verdana">
                               Bí quyết của sự thành công là hàng ngày cố gắng hơn người khác một chút.
                             </p>
                             <div class="banner-btn">
@@ -16,7 +16,7 @@
                                     <div style="display: flex">
                                         <input style="width: 300px; margin-right: 10px" name="searchKey" ngModel class="form-control" placeholder="Nhập vào tên công việc, tên công ty..."
                                                required="" autocomplete="off">
-                                        <button class="box-btn"  routerLink="/list-recruitmentnew-user">
+                                        <button style="font-family: Verdana" class="box-btn"  routerLink="/list-recruitmentnew-user">
                                             Tìm kiếm việc làm
                                         </button>
                                     </div>
@@ -79,8 +79,8 @@
 <div class="info-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <h2>CÁC CÔNG TY ĐANG HOT</h2>
-            <p>Các công ty hiện tai đang được nhiều người đăng ký tuyển dụng</p>
+            <h2 style="font-family: Verdana">CÁC CÔNG TY ĐANG HOT</h2>
+            <p style="font-family: Verdana">Các công ty hiện tai đang được nhiều người đăng ký tuyển dụng</p>
         </div>
         <div class="row">
             <div class="col-lg-4 col-sm-6" *ngFor="let comhot of companyHot">
@@ -104,8 +104,8 @@
 <div class="info-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <h2>CÁC CÔNG TY CÓ NHU CẦU TUYỂN DỤNG CAO NHẤT</h2>
-            <p>Các công ty hiện tai đang cần tuyển dùng cao nhất</p>
+            <h2 style="font-family: Verdana">CÁC CÔNG TY CÓ NHU CẦU TUYỂN DỤNG CAO NHẤT</h2>
+            <p style="font-family: Verdana">Các công ty hiện tai đang cần tuyển dùng cao nhất</p>
         </div>
         <div class="row">
             <div class="col-lg-4 col-sm-6" *ngFor="let rnn of RecuitmentNewNeed">
@@ -148,7 +148,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-9 col-md-9 col-7">
-                                <div class="content">
+                                <div class="content" style="padding: 20px">
                                     <h2>{{ctg.title}}</h2>
                                     <span *ngIf="checkLogin == true">Tiền lương: {{ctg.salary | number}}</span>
                                     <span *ngIf="checkLogin == false">Tiền lương: Bạn cần đăng nhập để xem</span>
@@ -160,9 +160,9 @@
                         </div>
                     </div>
                     <hr>
-                    <div style="display: flex"  >
+                    <div  class="button-detail" >
                         <div class="testimonials-foot" style="margin-right: 10px">
-                            <button *ngIf="checkUser" class="text-center" mat-stroked-button color="primary"
+                            <button *ngIf="checkUser" class="text-center" mat-raised-button
                                     (click)="openDialogApply(ctg.id)">Xem chi tiêt
                             </button>
                         </div>

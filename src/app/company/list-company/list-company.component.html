@@ -1,8 +1,8 @@
 <!-- Start Page Title Area -->
-<div class="page-title-area" style="height: 439px">
+<div class="page-title-area" >
     <div class="container">
         <div class="page-title-content">
-            <h2>DANH SÁCH CÁC CÔNG TY</h2>
+            <h2 >DANH SÁCH CÁC CÔNG TY</h2>
             <ul>
                 <li>
                     <a href="index.html">
@@ -62,7 +62,7 @@
                             </li>
                         </ul>
 
-                        <a [routerLink]="['/web-company/', company.id]">
+                        <a class="link-edit" [routerLink]="['/web-company/', company.id]">
                             <h3>{{company.name}}</h3>
                         </a>
                         <p>{{company.description}}</p>
